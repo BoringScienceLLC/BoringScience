@@ -1,30 +1,48 @@
-# BORING SCIENCE
+# BORING SCIENCE — Building Outcomes through Research Innovation & Next-Gen Science
 
-**Building Outcomes through Research Innovation & Next-Gen Science**
+<p align="center">
+  <img src="https://github.com/BoringScienceLLC/BoringScience/blob/main/logo/logo-linkedin-300.png" alt="Boring Science Logo" width="200">
+  <br>
+  <b>Computational biology and software at the intersection of multiomics, drug discovery, and clinical innovation.</b>
+  <br>
+  <i>Science so reliable, it's boring.</i>
+</p>
 
-Website for BORING SCIENCE LLC — a computational biology and software company.
+---
 
-## Quick Start
+## 🔬 Our Philosophy
+At **BORING SCIENCE**, we believe breakthroughs shouldn't be "exciting"—they should be repeatable, validated, and predictable. We build the digital backbone for next-generation drug discovery, turning complex multiomics data into actionable clinical insights. 
 
-This site is built with [Jekyll](https://jekyllrb.com/) and hosted on [GitHub Pages](https://pages.github.com/).
+## 🏗️ Core Capabilities
+Our GitHub organization hosts the production-grade pipelines and open-source contributions supporting our four main pillars:
 
-Push to `main` and GitHub builds it automatically. No build step needed on your end.
+- **Spatial Multiomics:** Processing and architecture reconstruction for Visium HD, MERSCOPE, and Xenium.
+- **Drug Discovery (ML):** Fine-tuning Protein Language Models (ESM-3, ProtTrans) for binding affinity and antibody optimization.
+- **Pharmacovigilance Infrastructure:** Building the data standards for global safety operations and predictive toxicology.
+- **Clinical Digital Twins:** Patient-specific computational models simulating therapeutic response and disease progression.
 
-## How to Edit
+## 🛠️ Stack & Workflows
+We build "boring" (reliable) software using:
+- **Languages:** Python (Scanpy, PyMOL), R (Seurat), Nextflow, Snakemake.
+- **AI/ML:** PyTorch, HuggingFace (Protein LLMs), RFdiffusion.
+- **Infrastructure:** AWS, Docker, FastAPI, PostgreSQL.
 
-| Want to change...        | Edit this file                |
-|--------------------------|-------------------------------|
-| Company name, tagline    | `_config.yml`                 |
-| Services                 | `_data/services.yml`          |
-| Founder info             | `_data/founders.yml`          |
-| Stats/numbers            | `_data/stats.yml`             |
-| Scrolling ticker items   | `_data/marquee.yml`           |
-| B.O.R.I.N.G. backronym  | `_data/backronym.yml`         |
-| Colors, fonts, layout    | `assets/css/style.css`        |
-| HTML structure            | `_layouts/default.html`       |
+## 👥 The Team
+**BORING SCIENCE** is led by a multidisciplinary team bridging the gap between bench and bedside.
 
-See `EDITING_GUIDE.md` for detailed instructions.
+| **Suman Mishra, M.Sc.** | **Sasi Kumar Jagadeesan, PhD** |
+| :--- | :--- |
+| *Co-Founder · Operations* | *Co-Founder · Science* |
+| Data Scientist and Pharmacovigilance Coordinator building infrastructure for precision medicine. | Research scientist specializing in multiomics, molecular biology, and translational research. |
 
-## License
+## 🤝 Let's Make Your Science Boring
+We are currently accepting new projects and partnerships with biotech firms, academic institutions, and VCs.
 
-© 2026 BORING SCIENCE LLC
+- **Website:** [boringscience.bio](https://boringscience.bio)
+- **Inquiries:** [inquiries@boringscience.bio](mailto:inquiries@boringscience.bio)
+- **LinkedIn:** [Follow our updates](https://www.linkedin.com/company/boring-science/?viewAsMember=true)
+
+---
+<p align="center">
+  © 2026 BORING SCIENCE LLC · Building Outcomes through Research Innovation & Next-Gen Science
+</p>
