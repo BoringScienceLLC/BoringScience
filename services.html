@@ -1,0 +1,48 @@
+---
+layout: page
+permalink: /services/
+seo_title: "Services"
+description: "Computational biology services from Boring Science — multiomics pipeline development, structural biology, spatial transcriptomics, pharmacogenomics analysis, and regulatory-grade bioinformatics."
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">002 — Services</div>
+  <h1 class="page-title">Six capabilities.<br><em>Zero fluff.</em></h1>
+  <p class="page-subtitle">Real computational biology work — specific methods, reproducible outputs, and documentation that holds up under regulatory scrutiny.</p>
+</div>
+
+<section class="services" style="padding-top: 80px;">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What we build</div>
+      <h2 class="services-title">Precision tools for precision medicine</h2>
+    </div>
+    <div class="services-count">{{ site.data.services | size | prepend: "0" }} CAPABILITIES</div>
+  </div>
+
+  <div class="service-grid">
+    {% for service in site.data.services %}
+    <div class="service-card reveal">
+      <div class="service-index">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</div>
+      <span class="service-icon">{{ service.icon }}</span>
+      <div class="service-name">{{ service.name }}</div>
+      <div class="service-desc">{{ service.description }}</div>
+      <div class="service-tags">
+        {% for tag in service.tags %}
+        <span class="service-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" style="border-top: 1px solid var(--border);">
+  <div class="reveal">
+    <div class="section-label">Ready to start?</div>
+    <h2 class="cta-title">Let's make your<br>science <em>boring</em></h2>
+    <p class="cta-sub">Tell us what you're building. We'll tell you how to make it reproducible.</p>
+    <a href="mailto:{{ site.email }}" class="cta-button">{{ site.email }}</a>
+  </div>
+</section>

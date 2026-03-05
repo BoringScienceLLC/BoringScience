@@ -1,0 +1,43 @@
+# ============================================================
+# Boring Packages — Proprietary tools. Edit to update.
+# ============================================================
+
+- name: "bsomics"
+  version: "0.4.2"
+  status: "Proprietary"
+  description: "Unified single-cell and bulk multiomics QC, normalization, batch correction, and integration. Scanpy-compatible API with UMAP, PAGA trajectory, and differential expression modules built in."
+  tags:
+    - "Python"
+    - "Scanpy"
+    - "AnnData"
+    - "scRNA-seq"
+
+- name: "bsdock"
+  version: "0.2.1"
+  status: "Proprietary"
+  description: "Docking workflow automation — protein prep, grid generation, multi-pose docking, ADMET filtering, and pose clustering. CSV and SDF output ready for downstream scoring pipelines."
+  tags:
+    - "Python"
+    - "AutoDock/Vina"
+    - "RDKit"
+    - "ADMET"
+
+- name: "bsflow"
+  version: "1.1.0"
+  status: "Proprietary"
+  description: "Production-ready Nextflow DSL2 modules for WGS, RNA-seq, ChIP-seq, ATAC-seq, and scRNA-seq. GxP-validated, containerized with Docker and Singularity, and tested with nf-test for every commit."
+  tags:
+    - "Nextflow"
+    - "nf-core"
+    - "Docker"
+    - "GxP"
+
+- name: "bsreport"
+  version: "0.3.0"
+  status: "Proprietary"
+  description: "Clinical-grade HTML and PDF genomics report generator. ACMG/AMP variant classification, population frequency lookup via gnomAD, pharmacogenomics integration, and fully customizable report templates."
+  tags:
+    - "Python"
+    - "ACMG"
+    - "ClinVar"
+    - "PGx"

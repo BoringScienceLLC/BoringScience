@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for page in site.pages %}
+  {% unless page.url contains 'sitemap' or page.url contains 'feed' or page.url contains '404' %}
+  {% if page.url %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>{% if page.url == '/' %}1.0{% elsif page.url contains '/publications/' or page.url contains '/investors/' or page.url contains '/science/' %}0.9{% else %}0.8{% endif %}</priority>
+  </url>
+  {% endif %}
+  {% endunless %}
+  {% endfor %}
+</urlset>

@@ -1,0 +1,47 @@
+---
+layout: page
+permalink: /packages/
+seo_title: "Boring Packages"
+description: "Proprietary bioinformatics software from Boring Science — production-grade tools for multiomics, molecular docking, genomics workflows, and clinical genomics reporting. Built for real pipelines."
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">004 — Boring Packages</div>
+  <h1 class="page-title">Proprietary tools.<br><em>Production grade.</em></h1>
+  <p class="page-subtitle">The software stack powering our pipelines. Built for reliability, validated on real data, and designed to scale from research to the clinic.</p>
+</div>
+
+<section class="packages-grid">
+  {% for pkg in site.data.packages %}
+  <div class="package-card reveal">
+    <div class="package-name">{{ pkg.name }}</div>
+    <div class="package-version">v{{ pkg.version }} · {{ pkg.status }}</div>
+    <p class="package-desc">{{ pkg.description }}</p>
+    <div class="package-tags">
+      {% for tag in pkg.tags %}
+      <span class="package-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<!-- CTA -->
+<section class="approach reveal" style="border-top: 1px solid var(--border);">
+  <div class="approach-content">
+    <div class="section-label">Access & Partnerships</div>
+    <p class="approach-quote" style="font-size: clamp(20px, 2.5vw, 32px);">Interested in running our pipelines on your data? We partner with research groups, pharma, and diagnostics labs for pilot engagements.</p>
+    <div class="approach-byline" style="margin-top: 2rem;">
+      <a href="mailto:{{ site.email }}" class="cta-button">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="approach" style="border-top: 1px solid var(--border);">
+  <div class="approach-content reveal">
+    <div class="section-label">On reproducibility</div>
+    <p class="approach-quote" style="font-size: clamp(24px, 3vw, 40px);">"Every package ships with a test suite, a lockfile, and a container. If it works on our machine, it works on yours — and on the FDA's."</p>
+    <div class="approach-byline">— Boring Science Build Standard</div>
+  </div>
+</section>

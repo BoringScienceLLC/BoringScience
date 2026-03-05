@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta -->
+{% assign page_title = page.seo_title | default: page.title %}
+{% if page_title %}
+  {% assign full_title = page_title | append: " | " | append: site.title %}
+{% else %}
+  {% assign full_title = site.title | append: " — " | append: site.tagline %}
+{% endif %}
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
+<meta name="author" content="{{ site.title }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ full_title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}{{ site.og_image }}">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{ site.twitter_username }}">
+<meta name="twitter:title" content="{{ full_title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:image" content="{{ site.url }}{{ site.og_image }}">
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.url }}/logo/logo-linkedin-300.png",
+  "description": "{{ site.description }}",
+  "email": "{{ site.email }}",
+  "sameAs": [
+    "{{ site.social.linkedin }}",
+    "{{ site.social.twitter }}",
+    "{{ site.social.github }}"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="{{ '/' | relative_url }}" class="nav-logo">
+    <img src="{{ '/logo/logo-linkedin-300.png' | relative_url }}" alt="BORING SCIENCE" class="nav-logo-img">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} class="active"{% endif %}>About</a></li>
+    <li><a href="{{ '/services/' | relative_url }}"{% if page.url == '/services/' %} class="active"{% endif %}>Services</a></li>
+    <li><a href="{{ '/science/' | relative_url }}"{% if page.url == '/science/' %} class="active"{% endif %}>Science</a></li>
+    <li><a href="{{ '/packages/' | relative_url }}"{% if page.url == '/packages/' %} class="active"{% endif %}>Boring Packages</a></li>
+    <li><a href="{{ '/publications/' | relative_url }}"{% if page.url == '/publications/' %} class="active"{% endif %}>Evidence</a></li>
+    <li><a href="{{ '/investors/' | relative_url }}"{% if page.url == '/investors/' %} class="active"{% endif %}>The Pitch</a></li>
+    <li><a href="{{ '/team/' | relative_url }}"{% if page.url == '/team/' %} class="active"{% endif %}>Team</a></li>
+  </ul>
+  <a href="mailto:{{ site.email }}" class="nav-cta">Get in touch</a>
+</nav>
+
+{{ content }}
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">{{ site.copyright }}</div>
+  <ul class="footer-links">
+    {% if site.social.github != "" %}<li><a href="{{ site.social.github }}">GitHub</a></li>{% endif %}
+    {% if site.social.linkedin != "" %}<li><a href="{{ site.social.linkedin }}">LinkedIn</a></li>{% endif %}
+    {% if site.social.twitter != "" %}<li><a href="{{ site.social.twitter }}">Twitter/X</a></li>{% endif %}
+  </ul>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => { entry.target.classList.add('visible'); }, i * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    toggle.classList.toggle('open');
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+---
+layout: default
+description: "Boring Science closes the simulation-to-clinic gap — AI-driven multiomics, all-atom structural prediction, and patient-specific variant modeling. The reliable infrastructure precision medicine actually needs."
+---
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-tag">{{ site.tagline }}</div>
+  <h1 class="hero-title">{{ site.hero.title_line1 }}<br><em>{{ site.hero.title_line2 }}</em><span class="cursor"></span></h1>
+  <p class="hero-sub">{{ site.hero.subtitle }}</p>
+  <div class="hero-bottom">
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      scroll to explore
+    </div>
+    <div class="hero-status">
+      <div class="status-dot"></div>
+      {{ site.hero.status }}
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    {% for item in site.data.marquee %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+    {% for item in site.data.marquee %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- HOME FEATURES -->
+<section class="home-features">
+  <div class="home-feature reveal">
+    <div class="home-feature-label">001 — What we build</div>
+    <h2 class="home-feature-title">Not static docking.<br>Dynamic simulation.</h2>
+    <p class="home-feature-text">All-atom AI dynamics, AlphaFold3 structural prediction, patient-specific variant modeling, and GxP-validated pipelines — six capabilities built to close the simulation-to-clinic gap.</p>
+    <a href="{{ '/services/' | relative_url }}" class="home-feature-link">Explore capabilities →</a>
+  </div>
+  <div class="home-feature reveal">
+    <div class="home-feature-label">002 — Research</div>
+    <h2 class="home-feature-title">Active research.<br>Not slide decks.</h2>
+    <p class="home-feature-text">Spatial multiome architecture, protein language models for drug design, epigenomic reprogramming maps, and pan-cancer atlasing. We publish, we build, we share the tools.</p>
+    <a href="{{ '/science/' | relative_url }}" class="home-feature-link">See our science →</a>
+  </div>
+  <div class="home-feature reveal">
+    <div class="home-feature-label">003 — Open source</div>
+    <h2 class="home-feature-title">Tools built for<br>real pipelines.</h2>
+    <p class="home-feature-text">Containerized, version-locked, nf-test verified. Every package ships with a test suite, a lockfile, and a container — because reproducibility isn't optional when the FDA is reading your audit trail.</p>
+    <a href="{{ '/packages/' | relative_url }}" class="home-feature-link">Get the packages →</a>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="approach">
+  <div class="approach-content reveal">
+    <div class="section-label">The boring manifesto</div>
+    <p class="approach-quote">
+      "{{ site.philosophy.quote }}"
+    </p>
+    <div class="approach-byline">{{ site.philosophy.attribution }}</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="reveal">
+    <div class="section-label">Let's talk</div>
+    <h2 class="cta-title">{{ site.cta.heading_line1 }}<br>{{ site.cta.heading_line2 }} <em>{{ site.cta.heading_accent }}</em></h2>
+    <p class="cta-sub">{{ site.cta.subtitle }}</p>
+    <a href="mailto:{{ site.email }}" class="cta-button">{{ site.email }}</a>
+  </div>
+</section>

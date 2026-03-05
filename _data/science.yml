@@ -1,0 +1,84 @@
+# ============================================================
+# Science — Research areas. Edit to update.
+# ============================================================
+
+- area: "Spatial Genomics"
+  title: "Spatial Multiome Architecture"
+  description: "Mapping gene expression and chromatin accessibility in tissue space using Visium HD, MERSCOPE, and Xenium. We reconstruct tumor microenvironment architecture and cell-cell interaction networks at submicron resolution — going beyond counts to spatial context."
+  tags:
+    - "Visium HD"
+    - "MERSCOPE"
+    - "Xenium"
+    - "SpatialDE"
+
+- area: "Computational Drug Design"
+  title: "Protein Language Models for Drug Discovery"
+  description: "Fine-tuning ESM-3 and ProtTrans on target-specific datasets for zero-shot binding affinity prediction, peptide drug design, and antibody CDR loop optimization. Building task-specific protein LLMs that generalize across druggable target families."
+  tags:
+    - "ESM-3"
+    - "ProtTrans"
+    - "Antibody Design"
+    - "Peptide ML"
+
+- area: "Epigenomics"
+  title: "Epigenomic Reprogramming Maps"
+  description: "CUT&RUN, CUT&TAG, and scATAC profiling to map transcription factor binding dynamics, super-enhancer activation, and chromatin remodeling across oncogenic transformation and therapeutic response. Linking regulatory grammar to disease phenotype."
+  tags:
+    - "CUT&RUN"
+    - "scATAC-seq"
+    - "Super-Enhancers"
+    - "TF Motifs"
+
+- area: "Translational Oncology"
+  title: "Pan-Cancer Single-Cell Atlas"
+  description: "A continuously updated reference atlas integrating curated public and proprietary single-cell datasets across tumor types. Used for automated cell type annotation, rare cell population discovery, and survival-associated gene module identification."
+  tags:
+    - "Cell Atlas"
+    - "TCGA"
+    - "Survival Analysis"
+    - "scGPT"
+
+- area: "Generative Biologics"
+  title: "De Novo Protein & Antibody Synthesis"
+  description: "Leveraging diffusion models and RFdiffusion to design high-affinity binders from scratch. We integrate structural biology with generative AI to bypass traditional screening, accelerating the development of therapeutic proteins with programmable specificity."
+  tags:
+    - "RFdiffusion"
+    - "ProteinMPNN"
+    - "De Novo Design"
+    - "Structure-to-Function"
+
+- area: "Precision Pharmacogenomics"
+  title: "Predictive Safety & ADR Modeling"
+  description: "Integrating genomic variants with large-scale pharmacovigilance data to predict Adverse Drug Reactions (ADRs). We build deep learning architectures that map the intersection of genetic markers and chemical toxicity to enable truly personalized medicine."
+  tags:
+    - "ADR Prediction"
+    - "GWAS Integration"
+    - "Drug-Target Interaction"
+    - "Safety Intelligence"
+
+- area: "Biomolecular Structure"
+  title: "End-to-End Co-Complex Structure Prediction"
+  description: "Running Boltz-2 and AlphaFold3 pipelines for joint prediction of protein-ligand, protein-nucleic acid, and antibody-antigen co-complexes at scale. Confidence-calibrated structural ensembles feed directly into our docking and free-energy perturbation workflows."
+  tags:
+    - "Boltz-2"
+    - "AlphaFold3"
+    - "Co-Complex Prediction"
+    - "Free-Energy Perturbation"
+
+- area: "Multimodal Foundation Models"
+  title: "Cross-Modal Genomic Representation Learning"
+  description: "Pretraining and fine-tuning large biological foundation models — scFoundation, Geneformer, and in-house architectures — on paired transcriptomic, proteomic, and imaging datasets. Unified representations that generalize across cell types, tissues, and perturbation screens."
+  tags:
+    - "scFoundation"
+    - "Geneformer"
+    - "Perturbation Biology"
+    - "Multi-Modal Learning"
+
+- area: "Long-Read Genomics"
+  title: "Full-Length Variant & Isoform Resolution"
+  description: "PacBio Revio and Oxford Nanopore R10 workflows for phased structural variant calling, full-length transcript isoform quantification, and direct base modification detection. Closing the gaps left by short-read sequencing in complex genomic regions and repeat elements."
+  tags:
+    - "PacBio Revio"
+    - "ONT R10"
+    - "Structural Variants"
+    - "Direct RNA Sequencing"

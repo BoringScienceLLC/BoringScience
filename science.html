@@ -1,0 +1,50 @@
+---
+layout: page
+permalink: /science/
+seo_title: "Science"
+description: "Active research at Boring Science spanning spatial genomics, generative biologics, epigenomics, translational oncology, long-read genomics, and multimodal foundation models for drug discovery."
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">003 — Science</div>
+  <h1 class="page-title">Active research.<br><em>Not slide decks.</em></h1>
+  <p class="page-subtitle">Our research areas sit at the intersection of genomics, machine learning, and clinical translation. We publish, we build, and we share the tools.</p>
+</div>
+
+<section class="research-grid">
+  {% for item in site.data.science %}
+  <div class="research-card reveal">
+    <div class="research-index">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</div>
+    <div class="research-area">{{ item.area }}</div>
+    <h3 class="research-title">{{ item.title }}</h3>
+    <p class="research-desc">{{ item.description }}</p>
+    <div class="research-tags">
+      {% for tag in item.tags %}
+      <span class="research-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    {% for item in site.data.marquee %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+    {% for item in site.data.marquee %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta" style="border-top: 1px solid var(--border);">
+  <div class="reveal">
+    <div class="section-label">Collaborate</div>
+    <h2 class="cta-title">Doing interesting<br>work? Let's make it <em>boring.</em></h2>
+    <p class="cta-sub">We're always open to research collaborations, data partnerships, and advisory conversations.</p>
+    <a href="mailto:{{ site.email }}" class="cta-button">{{ site.email }}</a>
+  </div>
+</section>

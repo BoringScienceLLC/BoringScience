@@ -1,0 +1,22 @@
+# ============================================================
+# Advisors — Edit this file to update advisor information
+# Add photo path, or leave photo blank to show initials
+# ============================================================
+
+- name: "Dr. Pritam Kumar Panda"
+  title: "Research Scientist"
+  affiliation: "Stanford University"
+  expertise: "Bioinformatics, structural biology, drug discovery, NGS/Multi-omics, computational chemistry"
+  photo: "/assets/images/team/advisor-1.jpg"
+
+# - name: "Advisor Name"
+#   title: "Chief Scientific Officer"
+#   affiliation: "Biotech / Pharma Company"
+#   expertise: "Drug discovery, structural biology"
+#   photo: "/assets/images/team/advisor-2.jpg"
+
+# - name: "Advisor Name"
+#   title: "Managing Partner"
+#   affiliation: "Venture / Investment Firm"
+#   expertise: "Life sciences investment, precision medicine"
+#   photo: "/assets/images/team/advisor-3.jpg"

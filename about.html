@@ -1,0 +1,55 @@
+---
+layout: page
+permalink: /about/
+seo_title: "About"
+description: "Boring Science is a computational biology platform closing the simulation-to-clinic gap with AI-driven multiomics, all-atom structural prediction, and patient-specific variant modeling for precision medicine."
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">001 — About</div>
+  <h1 class="page-title">We close the<br><em>Integration Gap.</em></h1>
+  <p class="page-subtitle">{{ site.about.text }}</p>
+</div>
+
+<!-- ABOUT BODY -->
+<section class="about-full">
+  <div class="reveal">
+    <div class="section-label">Our philosophy</div>
+    <h2 class="about-title">The 90% failure rate is an engineering problem.</h2>
+    <p class="about-text">
+      {{ site.about.text2 }}
+      <br><br>
+      BORING SCIENCE was founded by researchers who saw the same failure repeat: brilliant targets, exciting early results, then collapse at the clinic. Not because the biology was wrong — because the computational infrastructure was. Static docking on single-omic data doesn't cross the lab-to-clinic gap. We built the platform that does.
+    </p>
+  </div>
+  <div class="about-stats reveal">
+    {% for stat in site.data.stats %}
+    <div class="stat">
+      <div class="stat-number">{{ stat.number }}</div>
+      <div class="stat-label">{{ stat.label }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- PHILOSOPHY QUOTE -->
+<section class="approach" style="border-top: 1px solid var(--border);">
+  <div class="approach-content reveal">
+    <div class="section-label">The boring manifesto</div>
+    <p class="approach-quote">"{{ site.philosophy.quote }}"</p>
+    <div class="approach-byline">{{ site.philosophy.attribution }}</div>
+  </div>
+</section>
+
+<!-- BACKRONYM -->
+<section class="backronym">
+  <div class="section-label" style="text-align:center; margin-bottom: 48px;">What B.O.R.I.N.G. stands for</div>
+  <div class="backronym-grid">
+    {% for item in site.data.backronym %}
+    <div class="letter-block">
+      <div class="letter-char">{{ item.letter }}</div>
+      <div class="letter-word">{{ item.word }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

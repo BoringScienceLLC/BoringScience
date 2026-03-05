@@ -1,0 +1,77 @@
+---
+layout: page
+permalink: /team/
+seo_title: "Team"
+description: "Meet the Boring Science team — founders with deep expertise in pharmacovigilance, multiomics, molecular biology, and translational research bridging computational discovery and the clinic."
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">005 — Team</div>
+  <h1 class="page-title">The boring<br><em>people.</em></h1>
+  <p class="page-subtitle">Scientists and engineers who believe that the most important work is the kind that doesn't need hype to stand up.</p>
+</div>
+
+<!-- FOUNDERS -->
+<section class="founders team-page">
+  <div class="team-section-header reveal">
+    <div class="section-label">Founders</div>
+  </div>
+  <div class="founders-grid">
+    {% for founder in site.data.founders %}
+    <div class="founder-card reveal">
+      <div class="founder-photo-wrap">
+        {% if founder.photo %}
+        <img src="{{ founder.photo | relative_url }}" alt="{{ founder.name }}" class="founder-photo-img">
+        {% else %}
+        <div class="founder-photo-placeholder">
+          <span>{{ founder.name | split: ' ' | first | slice: 0 }}{{ founder.name | split: ' ' | last | slice: 0 }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="founder-card-body">
+        <div class="founder-role">{{ founder.role }}</div>
+        <div class="founder-name">{{ founder.name }}</div>
+        <div class="founder-bio">{{ founder.bio }}</div>
+        <div class="founder-location">📍 {{ founder.location }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ADVISORS -->
+<section class="advisors-section">
+  <div class="advisors-header reveal">
+    <div class="section-label">Scientific &amp; Strategic Advisors</div>
+    <h2 class="services-title">The people who keep us honest</h2>
+  </div>
+  <div class="advisors-grid">
+    {% for advisor in site.data.advisors %}
+    <div class="advisor-card reveal">
+      <div class="advisor-photo-wrap">
+        {% if advisor.photo %}
+        <img src="{{ advisor.photo | relative_url }}" alt="{{ advisor.name }}" class="advisor-photo-img">
+        {% else %}
+        <div class="advisor-photo-placeholder">
+          <span>{{ advisor.name | split: ' ' | first | slice: 0 }}{{ advisor.name | split: ' ' | last | slice: 0 }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="advisor-name">{{ advisor.name }}</div>
+      <div class="advisor-title">{{ advisor.title }}</div>
+      <div class="advisor-affiliation">{{ advisor.affiliation }}</div>
+      <div class="advisor-expertise">{{ advisor.expertise }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" style="border-top: 1px solid var(--border);">
+  <div class="reveal">
+    <div class="section-label">Join us</div>
+    <h2 class="cta-title">Want to do<br>boring <em>science?</em></h2>
+    <p class="cta-sub">We're always interested in connecting with researchers, engineers, and scientists who care about reproducibility.</p>
+    <a href="mailto:{{ site.email }}" class="cta-button">{{ site.email }}</a>
+  </div>
+</section>

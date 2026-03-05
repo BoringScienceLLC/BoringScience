@@ -1,0 +1,15 @@
+# ============================================================
+# Founders — Edit this file to update founder information
+# ============================================================
+
+- role: "CEO & Co-Founder · Operations"
+  name: "Suman Mishra, M.Sc. "
+  bio: "Data Scientist and Certified Pharmacovigilance Quality Reviewer building the infrastructure for next-generation drug discovery and precision medicine."
+  location: "California, USA"
+  photo: "/assets/images/team/suman-mishra.jpg"
+
+- role: "CSO & Co-Founder · Science"
+  name: "Sasi Kumar Jagadeesan, PhD, M.Eng (Med), DABRM"
+  bio: "Research scientist with deep expertise in multiomics analysis, molecular biology, and translational research bridging bench and bedside."
+  location: "Ottawa, Ontario, Canada"
+  photo: "/assets/images/team/sasi-jagadeesan.jpg"

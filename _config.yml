@@ -1,0 +1,69 @@
+# ============================================================
+# BORING SCIENCE — Site Configuration
+# Edit this file to change site-wide settings
+# ============================================================
+
+# Site Info
+title: "BORING SCIENCE"
+tagline: "Building Outcomes through Research Innovation & Next-Gen Science"
+description: "Boring Science closes the simulation-to-clinic gap — all-atom AI dynamics, unified multiomics, and patient-specific variant modeling. The boring infrastructure precision medicine actually needs."
+email: "inquiries@boringscience.bio"
+url: "https://boringscience.bio"
+og_image: "/logo/logo-linkedin-300.png"
+twitter_username: "boringscience_"
+keywords: "computational biology, bioinformatics, multiomics, drug discovery, precision medicine, spatial transcriptomics, neural progenitors, spinal cord, AI drug discovery, pharmacogenomics"
+
+# Social Links (leave blank to hide)
+social:
+  github: "https://github.com/boringscience"
+  linkedin: "https://www.linkedin.com/company/boring-science/"
+  twitter: "https://x.com/boringscience_"
+
+# Hero Section
+hero:
+  title_line1: "BORING"
+  title_line2: "SCIENCE"
+  subtitle: "Because your data has had enough excitement already. We don't chase flashy, unproven AI hallucinations — we build clean data infrastructure, robust pipelines, and reproducible results that actually hold up in the clinic."
+  status: "ACCEPTING NEW PROJECTS"
+
+# Philosophy Quote
+philosophy:
+  quote: "In an industry full of 'exciting' failures, we provide the boring reliability that discovery demands."
+  attribution: "— The Boring Manifesto"
+
+# About Section
+about:
+  heading: "We close the Integration Gap."
+  text: >
+    BORING SCIENCE is a computational biology platform solving precision
+    medicine's hardest engineering problem — the gap between a computational
+    hit and a clinical lead. We combine AlphaFold3-level all-atom structural
+    prediction with Neural Network Potential-accelerated molecular dynamics,
+    giving you not a snapshot of binding, but the full dynamic picture of
+    how a drug actually performs.
+  text2: >
+    Our Unified Multiomics layer normalizes RNA, protein, and metabolite data
+    across batch effects — eliminating the noise that turns false positives
+    into wasted trials. Then we simulate drug performance against your
+    patient's specific mutations, not a generic wild-type. The result:
+    reproducible, regulatory-grade insights engineered to survive the clinic.
+
+# CTA Section
+cta:
+  heading_line1: "Ready to close the"
+  heading_line2: "simulation-to-clinic"
+  heading_accent: "gap?"
+  subtitle: "We work with pharma, biotech, and academic groups who are done with false positives. Tell us about your target."
+
+# Copyright
+copyright: "© 2026 BORING SCIENCE LLC · All rights reserved"
+
+# Jekyll Settings (don't change unless you know what you're doing)
+theme: null
+plugins: []
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - EDITING_GUIDE.md

@@ -1,0 +1,51 @@
+---
+layout: page
+permalink: /publications/
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">006 — Evidence</div>
+  <h1 class="page-title">Peer-reviewed work.<br><em>No noise.</em></h1>
+  <p class="page-subtitle">Research we've contributed to — published, submitted, and in preparation. Built on real data, rigorous methods, and open deposition.</p>
+</div>
+
+<section class="pub-list">
+  {% for pub in site.data.publications %}
+  <div class="pub-card reveal">
+    <div class="pub-meta">
+      <span class="pub-year">{{ pub.year }}</span>
+      <span class="pub-status {% if pub.status == 'Published' %}pub-status--published{% elsif pub.status == 'Preprint' %}pub-status--preprint{% else %}pub-status--review{% endif %}">{{ pub.status }}</span>
+      <span class="pub-area">{{ pub.area }}</span>
+    </div>
+    <h3 class="pub-title">{{ pub.title }}</h3>
+    <p class="pub-authors">{{ pub.authors }}</p>
+    {% if pub.journal != "" %}<p class="pub-journal"><em>{{ pub.journal }}</em></p>{% endif %}
+    <p class="pub-abstract">{{ pub.abstract }}</p>
+    <div class="pub-footer">
+      <div class="pub-tags">
+        {% for tag in pub.tags %}
+        <span class="pub-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <div class="pub-links">
+        {% if pub.data_accession != "" %}
+        <span class="pub-accession">{{ pub.data_accession }}</span>
+        {% endif %}
+        {% if pub.doi != "" %}
+        <a href="https://doi.org/{{ pub.doi }}" class="pub-doi-link" target="_blank" rel="noopener">DOI →</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<!-- CTA -->
+<section class="cta" style="border-top: 1px solid var(--border);">
+  <div class="reveal">
+    <div class="section-label">Collaborate</div>
+    <h2 class="cta-title">Doing interesting<br>work? Let's make it <em>boring.</em></h2>
+    <p class="cta-sub">We're open to research collaborations, co-authorship, and data partnerships.</p>
+    <a href="mailto:{{ site.email }}" class="cta-button">{{ site.email }}</a>
+  </div>
+</section>

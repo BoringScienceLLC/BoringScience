@@ -1,0 +1,57 @@
+# ============================================================
+# Services — Edit this file to change your services
+# ============================================================
+
+- icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" stroke-dasharray="3 3"/><circle cx="12" cy="12" r="10.5" stroke-dasharray="2 4"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg>'
+  name: "Single-Cell Multiome Atlasing"
+  description: "Cell-type resolved atlases from scRNA-seq + scATAC-seq joint profiling — trajectory inference, TF activity scoring via ChromVAR, receptor-ligand networks via CellChat, and foundation model annotation (scGPT). Raw FASTQ to publication-ready atlas."
+  tags:
+    - "scRNA-seq"
+    - "scATAC-seq"
+    - "CITE-seq"
+    - "scGPT"
+
+- icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v2.4a4 4 0 0 1-1.2 2.85L4.5 10.5a2 2 0 0 0 0 3l2.3 2.25A4 4 0 0 1 8 18.6V21"/><path d="M16 3v2.4a4 4 0 0 0 1.2 2.85l2.3 2.25a2 2 0 0 1 0 3l-2.3 2.25A4 4 0 0 0 16 18.6V21"/><circle cx="12" cy="12" r="1.5"/></svg>'
+  name: "Structure-Based Drug Design"
+  description: "AlphaFold3 target structure prediction, covalent and allosteric docking, MM-GBSA scoring, FEP+ binding affinity ranking, and PROTAC degrader design. We identify high-confidence leads before you spend a day at the bench."
+  tags:
+    - "AlphaFold3"
+    - "FEP+"
+    - "PROTAC"
+    - "Covalent Docking"
+
+- icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5.5 4 7.5L12 22l3-5.5c2-2 4-4.5 4-7.5a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2"/><path d="M8.5 9H5"/><path d="M19 9h-3.5"/><path d="M12 5.5V3"/></svg>'
+  name: "In Silico Clinical Trials"
+  description: "Virtual patient cohorts built from EHR and multiomics data. PBPK and QSP mechanistic models for dose prediction and safety profiling. IND-package-ready documentation for the FDA's Model-Informed Drug Development pathway."
+  tags:
+    - "PBPK"
+    - "QSP"
+    - "FDA MIDD"
+    - "Virtual Cohorts"
+
+- icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"/><path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/></svg>'
+  name: "Liquid Biopsy Intelligence"
+  description: "cfDNA and ctDNA SNV/indel calling, methylation-based tissue-of-origin deconvolution, tumor fraction estimation via ichorCNA, and minimal residual disease detection. Built for early-detection diagnostics and MRD monitoring at clinical scale."
+  tags:
+    - "cfDNA"
+    - "ctDNA"
+    - "MRD"
+    - "Methylation"
+
+- icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/><path d="M14 15h6"/></svg>'
+  name: "Boring Pipelines™"
+  description: "Containerized, version-locked, CI/CD-tested genomics workflows with full audit trails. Snakemake, Nextflow, and WDL — with FAIR data compliance, GxP validation documentation, and reproducibility guarantees that hold up under regulatory review."
+  tags:
+    - "Snakemake"
+    - "Nextflow"
+    - "Docker"
+    - "GxP"
+
+- icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M6 8h.01"/><path d="M10 8h8"/><path d="M6 12h.01"/><path d="M10 12h8"/></svg>'
+  name: "Clinical Data Platforms"
+  description: "HIPAA-compliant genomics portals, LIMS integrations, multi-site clinical trial APIs, and real-time biomarker dashboards. Built with FastAPI, PostgreSQL, and React — designed to scale from single-lab to multi-institution deployment."
+  tags:
+    - "HIPAA"
+    - "LIMS"
+    - "FastAPI"
+    - "React"
