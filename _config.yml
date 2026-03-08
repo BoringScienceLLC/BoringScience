@@ -6,12 +6,12 @@
 # Site Info
 title: "BORING SCIENCE"
 tagline: "Building Outcomes through Research Innovation & Next-Gen Science"
-description: "Boring Science closes the simulation-to-clinic gap — all-atom AI dynamics, unified multiomics, and patient-specific variant modeling. The boring infrastructure precision medicine actually needs."
+description: "Science is unpredictable. Your data shouldn't be. Boring Science builds the rigorous data infrastructure that turns data points into discovery — clean, structured, reproducible, and audit-ready."
 email: "inquiries@boringscience.bio"
 url: "https://boringscience.bio"
 og_image: "/logo/logo-linkedin-300.png"
 twitter_username: "boringscience_"
-keywords: "computational biology, bioinformatics, multiomics, drug discovery, precision medicine, spatial transcriptomics, neural progenitors, spinal cord, AI drug discovery, pharmacogenomics"
+keywords: "computational biology, bioinformatics, data infrastructure, reproducible pipelines, biological data, data integration, genomics, data science, research consulting, bioinformatics software"
 
 # Social Links (leave blank to hide)
 social:
@@ -23,37 +23,37 @@ social:
 hero:
   title_line1: "BORING"
   title_line2: "SCIENCE"
-  subtitle: "Because your data has had enough excitement already. We don't chase flashy, unproven AI hallucinations — we build clean data infrastructure, robust pipelines, and reproducible results that actually hold up in the clinic."
+  subtitle: "Most breakthroughs are lost in the noise of messy, unstructured data. We handle the unglamorous engineering of data integrity — so your science doesn't get buried in it."
   status: "ACCEPTING NEW PROJECTS"
 
 # Philosophy Quote
 philosophy:
-  quote: "In an industry full of 'exciting' failures, we provide the boring reliability that discovery demands."
+  quote: "Science is unpredictable. Your data shouldn't be."
   attribution: "— The Boring Manifesto"
 
 # About Section
 about:
-  heading: "We close the Integration Gap."
+  heading: "We make data boring."
   text: >
-    BORING SCIENCE is a computational biology platform solving precision
-    medicine's hardest engineering problem — the gap between a computational
-    hit and a clinical lead. We combine AlphaFold3-level all-atom structural
-    prediction with Neural Network Potential-accelerated molecular dynamics,
-    giving you not a snapshot of binding, but the full dynamic picture of
-    how a drug actually performs.
+    Most breakthroughs are lost in the noise of messy, unstructured data.
+    Boring Science builds the rigorous infrastructure that turns data points
+    into discovery. We handle the complex, unglamorous engineering of data
+    integrity — so your research can be extraordinary.
   text2: >
-    Our Unified Multiomics layer normalizes RNA, protein, and metabolite data
-    across batch effects — eliminating the noise that turns false positives
-    into wasted trials. Then we simulate drug performance against your
-    patient's specific mutations, not a generic wild-type. The result:
-    reproducible, regulatory-grade insights engineered to survive the clinic.
+    We work in two modes: Boring Projects, where we embed with your team to
+    tackle bespoke data challenges end to end, and Boring Packages, where we
+    ship general-purpose software tools built for reproducibility at any scale.
+    The output is always the same — data you can trust, results that hold.
 
 # CTA Section
 cta:
-  heading_line1: "Ready to close the"
-  heading_line2: "simulation-to-clinic"
-  heading_accent: "gap?"
-  subtitle: "We work with pharma, biotech, and academic groups who are done with false positives. Tell us about your target."
+  heading_line1: "Ready to find the signal"
+  heading_line2: "in the"
+  heading_accent: "unexplored?"
+  subtitle: "We provide the boringly reliable foundation your science deserves. Tell us your data problem — whatever the domain, whatever the scale, we make it boring."
+
+footer_tagline: "Stop fighting your data. Start doing your science."
+footer_sub: "Boring Science LLC builds the infrastructure that turns biological noise into structured insight."
 
 # Copyright
 copyright: "© 2026 BORING SCIENCE LLC · All rights reserved"

@@ -83,12 +83,49 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">{{ site.copyright }}</div>
-  <ul class="footer-links">
-    {% if site.social.github != "" %}<li><a href="{{ site.social.github }}">GitHub</a></li>{% endif %}
-    {% if site.social.linkedin != "" %}<li><a href="{{ site.social.linkedin }}">LinkedIn</a></li>{% endif %}
-    {% if site.social.twitter != "" %}<li><a href="{{ site.social.twitter }}">Twitter/X</a></li>{% endif %}
-  </ul>
+  <div class="footer-inner">
+    <div class="footer-left-col">
+      <div class="footer-tagline">{{ site.footer_tagline }}</div>
+      <div class="footer-sub">{{ site.footer_sub }}</div>
+      <div class="footer-copy">{{ site.copyright }}</div>
+      <ul class="footer-links">
+        {% if site.social.github != "" %}<li><a href="{{ site.social.github }}">GitHub</a></li>{% endif %}
+        {% if site.social.linkedin != "" %}<li><a href="{{ site.social.linkedin }}">LinkedIn</a></li>{% endif %}
+        {% if site.social.twitter != "" %}<li><a href="{{ site.social.twitter }}">Twitter/X</a></li>{% endif %}
+      </ul>
+    </div>
+    <div class="footer-nav-col">
+      <div class="footer-col-label">Navigate</div>
+      <ul class="footer-nav-links">
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/services/' | relative_url }}">Services</a></li>
+        <li><a href="{{ '/science/' | relative_url }}">Science</a></li>
+        <li><a href="{{ '/packages/' | relative_url }}">Boring Packages</a></li>
+        <li><a href="{{ '/publications/' | relative_url }}">Evidence</a></li>
+        <li><a href="{{ '/investors/' | relative_url }}">The Pitch</a></li>
+        <li><a href="{{ '/team/' | relative_url }}">Team</a></li>
+      </ul>
+    </div>
+    <div class="footer-offices-col">
+      <div class="footer-col-label">Locations</div>
+      <div class="footer-offices">
+        <div class="footer-office">
+          <div class="footer-office-dot footer-office-dot--hq"></div>
+          <div>
+            <div class="footer-office-city">Sunnyvale, California</div>
+            <div class="footer-office-label">Headquarters · USA</div>
+          </div>
+        </div>
+        <div class="footer-office">
+          <div class="footer-office-dot"></div>
+          <div>
+            <div class="footer-office-city">Ottawa, Ontario</div>
+            <div class="footer-office-label">Branch Office · Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>

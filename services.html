@@ -2,23 +2,25 @@
 layout: page
 permalink: /services/
 seo_title: "Services"
-description: "Computational biology services from Boring Science — multiomics pipeline development, structural biology, spatial transcriptomics, pharmacogenomics analysis, and regulatory-grade bioinformatics."
+description: "Boring Science operates in two modes — Boring Projects (bespoke data consulting) and Boring Packages (general-purpose bioinformatics software). Whatever your data, whatever your domain."
 ---
 
 <div class="page-hero reveal">
   <div class="section-label">002 — Services</div>
-  <h1 class="page-title">Six capabilities.<br><em>Zero fluff.</em></h1>
-  <p class="page-subtitle">Real computational biology work — specific methods, reproducible outputs, and documentation that holds up under regulatory scrutiny.</p>
+  <h1 class="page-title">Two divisions.<br><em>One obsession.</em></h1>
+  <p class="page-subtitle">Clean data, reproducible results, and answers that hold. We work in two modes — bespoke project consulting and general-purpose software — so we meet your data where it is.</p>
 </div>
 
+<!-- DIVISION 1: BORING PROJECTS -->
 <section class="services" style="padding-top: 80px;">
   <div class="services-header reveal">
     <div>
-      <div class="section-label">What we build</div>
-      <h2 class="services-title">Precision tools for precision medicine</h2>
+      <div class="section-label">Division 01 — Boring Projects</div>
+      <h2 class="services-title">Bespoke consulting.<br>Tailored to your problem.</h2>
     </div>
     <div class="services-count">{{ site.data.services | size | prepend: "0" }} CAPABILITIES</div>
   </div>
+  <p class="services-division-desc reveal">Every project is different. We embed with your team, understand your data, define the problem clearly, and deliver reproducible outputs from start to finish — whatever the domain, whatever the scale.</p>
 
   <div class="service-grid">
     {% for service in site.data.services %}
@@ -37,12 +39,24 @@ description: "Computational biology services from Boring Science — multiomics 
   </div>
 </section>
 
+<!-- DIVISION 2: BORING PACKAGES -->
+<section class="inv-section reveal" style="border-top: 1px solid var(--border);">
+  <div class="inv-section-inner">
+    <div class="section-label">Division 02 — Boring Packages</div>
+    <h2 class="inv-heading">General-purpose software.<br><em>Built to last.</em></h2>
+    <p class="inv-body">We also build and maintain proprietary bioinformatics software tools — not tailored to a single project, but engineered for reproducibility at any scale. Containerized, version-locked, and tested on real data. These are the tools we use internally, made available for partners and collaborators.</p>
+    <div style="margin-top: 2rem;">
+      <a href="{{ '/packages/' | relative_url }}" class="cta-button">Explore Boring Packages →</a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta" style="border-top: 1px solid var(--border);">
   <div class="reveal">
-    <div class="section-label">Ready to start?</div>
-    <h2 class="cta-title">Let's make your<br>science <em>boring</em></h2>
-    <p class="cta-sub">Tell us what you're building. We'll tell you how to make it reproducible.</p>
+    <div class="section-label">Start a Boring Project</div>
+    <h2 class="cta-title">Tell us your<br>data problem.</h2>
+    <p class="cta-sub">Whatever the domain, whatever the scale — we make it boring.</p>
     <a href="mailto:{{ site.email }}" class="cta-button">{{ site.email }}</a>
   </div>
 </section>
