@@ -40,6 +40,112 @@ permalink: /publications/
   {% endfor %}
 </section>
 
+<!-- INSTITUTIONS TICKER -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    {% for item in site.data.institutions %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+    {% for item in site.data.institutions %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+    {% for item in site.data.institutions %}
+    <span class="marquee-item"><span class="dot">●</span> {{ item }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- RESEARCH HIGHLIGHTS -->
+<section class="research-highlights">
+
+  <!-- Header -->
+  <div class="rh-header reveal">
+    <div>
+      <div class="section-label">Built with Boring Science</div>
+      <h2 class="rh-heading">These results were<br><em>produced by our platform.</em></h2>
+      <p class="rh-sub">Every finding below was generated using Boring Science infrastructure — reproducible pipelines, integrated multiomics analysis, and clean data from start to finish. This is what boring looks like when it works.</p>
+    </div>
+    <div class="rh-project-counter">
+      <div class="rh-counter-item">
+        <div class="rh-counter-number">3</div>
+        <div class="rh-counter-label">Completed</div>
+      </div>
+      <div class="rh-counter-item">
+        <div class="rh-counter-number">2</div>
+        <div class="rh-counter-label">Ongoing</div>
+      </div>
+      <div class="rh-counter-item">
+        <div class="rh-counter-number">4</div>
+        <div class="rh-counter-label">Partners</div>
+      </div>
+      <div class="rh-counter-item">
+        <div class="rh-counter-number">3</div>
+        <div class="rh-counter-label">Modalities</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case studies -->
+  <div class="rh-cases">
+
+    <!-- Case 1 -->
+    <div class="rh-case reveal">
+      <div class="rh-case-meta">
+        <span class="rh-status rh-status--complete">Completed</span>
+        <span class="rh-package-badge">Boring Multiomics Platform</span>
+      </div>
+      <div class="rh-case-body">
+        <div class="rh-case-text">
+          <div class="rh-case-index">01</div>
+          <div class="rh-case-area">snRNA-seq · Spatial Transcriptomics · Spinal Cord</div>
+          <h3 class="rh-case-title">Single-nucleus sequencing maps a non-proliferative progenitor state to astrocyte-rich regions of human spinal cord</h3>
+          <p class="rh-case-desc">Using snRNA-seq and spatial transcriptomics processed through our unified pipeline, we identified a distinct glial-enriched progenitor-like transcriptional program. UMAP clustering revealed progenitor-like cells (n=551, 0.0%) with significantly elevated astrocyte niche and ependymal scores. Spatial deconvolution confirmed localization of this program to astrocyte-rich tissue regions — linking molecular identity directly to spatial architecture.</p>
+          <div class="rh-case-tags">
+            <span class="pub-tag">snRNA-seq</span>
+            <span class="pub-tag">Spatial Transcriptomics</span>
+            <span class="pub-tag">UMAP</span>
+            <span class="pub-tag">NSPCs</span>
+            <span class="pub-tag">Under Review</span>
+          </div>
+        </div>
+        <div class="rh-case-image">
+          <img src="{{ '/assets/images/results/1.jpg' | relative_url }}" alt="Boring Unified Multiomics Platform — 36-donor cohort: fold expansion, inter-donor PCA, pathway module scores, functional program comparison" loading="lazy">
+          <div class="rh-image-caption">36-donor cohort summary: fold expansion, inter-donor PCA by spinal cord region, Spearman correlation heatmap, pathway module scores (G2/M, S phase, Notch, glycolysis), and ex vivo vs in situ functional program comparison</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="rh-case reveal">
+      <div class="rh-case-meta">
+        <span class="rh-status rh-status--complete">Completed</span>
+        <span class="rh-package-badge">Cross-Modal Spatial · snRNA-seq · Bulk RNA-seq Platform</span>
+      </div>
+      <div class="rh-case-body rh-case-body--flip">
+        <div class="rh-case-image">
+          <img src="{{ '/assets/images/results/2.jpg' | relative_url }}" alt="Cross-modal platform output: snRNA-seq UMAP with progenitor/Notch scores, violin plots by cell state, cross-species bulk RNA-seq PCA, pathway module comparison, spatial Visium score distributions, DEG volcano, cross-model heatmap" loading="lazy">
+          <div class="rh-image-caption">snRNA-seq UMAP with progenitor-like/Notch/quiescence scores and violin plots; cross-species bulk RNA-seq PCA and pathway module comparison (human, pig, rat); spatial Visium score distributions, DEG volcano, and cross-model heatmap — all processed through a single integrated platform</div>
+        </div>
+        <div class="rh-case-text">
+          <div class="rh-case-index">02</div>
+          <div class="rh-case-area">snRNA-seq · Spatial Transcriptomics · Bulk RNA-seq · Cross-Species · Cross-Modal</div>
+          <h3 class="rh-case-title">A unified cross-modal platform integrates snRNA-seq, spatial transcriptomics, and bulk RNA-seq to resolve cell state, tissue architecture, and cross-species identity in a single workflow</h3>
+          <p class="rh-case-desc">Our platform ran snRNA-seq, Visium spatial transcriptomics, and bulk RNA-seq data through a single reproducible workflow — enabling direct comparison across modalities without batch artefacts or manual harmonization. snRNA-seq UMAP resolved distinct progenitor-like, Notch/quiescent, and cell-cycle cell states; spatial scoring mapped these programs onto tissue architecture at spot resolution. Simultaneously, bulk RNA-seq processed across human, pig, and rat identified PC1 (78.6%) separating human from rodent, with pathway scoring confirming a high-quiescence, low-proliferation human phenotype. One platform. Three modalities. One coherent answer.</p>
+          <div class="rh-case-tags">
+            <span class="pub-tag">snRNA-seq</span>
+            <span class="pub-tag">Spatial Transcriptomics</span>
+            <span class="pub-tag">Bulk RNA-seq</span>
+            <span class="pub-tag">Cross-Species</span>
+            <span class="pub-tag">Cross-Modal</span>
+            <span class="pub-tag">Published · Under Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta" style="border-top: 1px solid var(--border);">
   <div class="reveal">
