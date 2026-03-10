@@ -67,7 +67,7 @@ permalink: /publications/
     </div>
     <div class="rh-project-counter">
       <div class="rh-counter-item">
-        <div class="rh-counter-number">3</div>
+        <div class="rh-counter-number">4</div>
         <div class="rh-counter-label">Completed</div>
       </div>
       <div class="rh-counter-item">
@@ -79,8 +79,8 @@ permalink: /publications/
         <div class="rh-counter-label">Partners</div>
       </div>
       <div class="rh-counter-item">
-        <div class="rh-counter-number">3</div>
-        <div class="rh-counter-label">Modalities</div>
+        <div class="rh-counter-number">14</div>
+        <div class="rh-counter-label">BS Packages</div>
       </div>
     </div>
   </div>
@@ -139,6 +139,63 @@ permalink: /publications/
             <span class="pub-tag">Cross-Modal</span>
             <span class="pub-tag">Published · Under Review</span>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 — bsdock -->
+    <div class="rh-case reveal">
+      <div class="rh-case-meta">
+        <span class="rh-status rh-status--complete">Completed</span>
+        <span class="rh-package-badge">bsdock · SE(3)-Equivariant GNN Scoring</span>
+      </div>
+      <div class="rh-case-body rh-case-body--flip">
+        <div class="rh-case-image">
+          <img src="{{ '/assets/images/results/bsdock_pdbbind.png' | relative_url }}" alt="bsdock PDBbind benchmark — SE(3)-GNN predicted vs experimental pKd, Pearson R = 0.88 across 5,316 protein-ligand complexes" loading="lazy">
+          <div class="rh-image-caption">PDBbind v2020 correlation: bsdock SE(3)-GNN predicted vs experimental pKd across 5,316 complexes (R = 0.88, RMSE = 0.93 pK units). Near-linear correlation across the full affinity range (pKd 2–12) with minimal systematic bias.</div>
+        </div>
+        <div class="rh-case-text">
+          <div class="rh-case-index">03</div>
+          <div class="rh-case-area">Molecular Docking · SE(3)-Equivariant GNN · Drug Discovery</div>
+          <h3 class="rh-case-title">SE(3)-equivariant graph neural network scoring outperforms all classical docking methods — R = 0.88 on PDBbind, R = 0.82 on ULVSH, AUC-ROC = 0.94</h3>
+          <p class="rh-case-desc">bsdock encodes protein-ligand complexes as heterogeneous graphs with physically grounded rotational and translational invariance — a constraint that standard empirical scoring functions ignore entirely. Trained on 5,316 PDBbind complexes and 942 ULVSH compounds, the SE(3)-GNN achieves 5.5× higher affinity correlation than the best classical baseline (VM2). AutoDock Vina, Gnina, MM-GBSA, and MMPBSA all cluster near zero correlation on the ULVSH benchmark. The hybrid workflow — traditional pose generation followed by GNN rescoring — completes a full docking run in under one minute. Generalisation to a novel GABA receptor series (R = 0.68) without target-specific training confirms the model learns transferable binding physics, not dataset-specific patterns.</p>
+          <div class="rh-case-tags">
+            <span class="pub-tag">SE(3)-GNN</span>
+            <span class="pub-tag">Molecular Docking</span>
+            <span class="pub-tag">PDBbind</span>
+            <span class="pub-tag">Binding Affinity</span>
+            <span class="pub-tag">Preprint</span>
+            <span class="pub-tag">bsdock</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 4 — bsvision -->
+    <div class="rh-case reveal">
+      <div class="rh-case-meta">
+        <span class="rh-status rh-status--complete">Completed</span>
+        <span class="rh-package-badge">bsvision · Physics-Constrained Medical Video Diffusion</span>
+      </div>
+      <div class="rh-case-body">
+        <div class="rh-case-text">
+          <div class="rh-case-index">04</div>
+          <div class="rh-case-area">Computer Vision · Video Diffusion · Cardiac Imaging · Physics-Constrained AI</div>
+          <h3 class="rh-case-title">Physics-constrained video diffusion achieves SSIM = 0.87 — a 6.2× improvement over baseline — with 12.8% downstream gain in ejection fraction prediction</h3>
+          <p class="rh-case-desc">Standard video diffusion models optimize perceptual quality without enforcing the physics of biological motion — producing videos that look plausible but violate cardiac biomechanics. bsvision addresses this with a pixel-space 3D UNet conditioned on cardiac cycle embeddings (sin/cos phase encoding), where cross-frame attention at all encoder/decoder levels allows every frame to attend directly to all 16 frames in the sequence. Five ablation iterations isolated the dominant contributors: cross-frame attention adds +0.32 SSIM, SSIM loss weight tuning adds another +0.32, while physics-based loss terms (temporal smoothness, flow consistency, jerk penalty) contribute +0.04 SSIM as regularization. The final model achieves SSIM = 0.87 between consecutive frames — 6.2× over V1 baseline (0.14). Augmenting downstream models with 10k synthetic samples from bsvision yields a 12.8% improvement in ejection fraction prediction accuracy, validating the clinical utility of the synthetic data.</p>
+          <div class="rh-case-tags">
+            <span class="pub-tag">Video Diffusion</span>
+            <span class="pub-tag">Computer Vision</span>
+            <span class="pub-tag">Cross-Frame Attention</span>
+            <span class="pub-tag">Echocardiography</span>
+            <span class="pub-tag">SSIM = 0.87</span>
+            <span class="pub-tag">Preprint</span>
+            <span class="pub-tag">bsvision</span>
+          </div>
+        </div>
+        <div class="rh-case-image">
+          <img src="{{ '/assets/images/results/bsvision.png' | relative_url }}" alt="bsvision — physics-constrained video diffusion architecture, temporal SSIM ablation V1-V5, cross-frame attention mechanism" loading="lazy">
+          <div class="rh-image-caption">bsvision architecture (3D UNet with cross-frame attention + cardiac cycle conditioning) and temporal SSIM ablation across five model iterations: V1 baseline 0.14 → V5 final 0.87, a 6.2× improvement. Cross-frame attention contributes the single largest gain (+0.32 SSIM).</div>
         </div>
       </div>
     </div>

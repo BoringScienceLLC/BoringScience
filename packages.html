@@ -2,25 +2,48 @@
 layout: page
 permalink: /packages/
 seo_title: "Boring Packages"
-description: "Proprietary bioinformatics software from Boring Science — production-grade tools for multiomics, molecular docking, genomics workflows, and clinical genomics reporting. Built for real pipelines."
+description: "Proprietary bioinformatics software from Boring Science — 14 packages spanning multiomics, molecular docking, FEP simulation, enhanced sampling, medical AI, pharmacovigilance, and clinical reporting. Production-grade tools built on validated research."
 ---
 
 <div class="page-hero reveal">
   <div class="section-label">004 — Boring Packages</div>
-  <h1 class="page-title">Proprietary tools.<br><em>Production grade.</em></h1>
-  <p class="page-subtitle">The software stack powering our pipelines. Built for reliability, validated on real data, and designed to scale from research to the clinic.</p>
+  <h1 class="page-title">Proprietary tools.<br><em>Built on real research.</em></h1>
+  <p class="page-subtitle">14 proprietary tools spanning multiomics, molecular docking, FEP simulation, enhanced sampling, AI agents, pharmacovigilance, and clinical reporting. Every package emerged from active research — validated on real data, published or in submission, containerized and version-locked.</p>
 </div>
 
-<section class="packages-grid">
+<!-- PACKAGE SHOWCASE -->
+<section class="pkg-showcase">
   {% for pkg in site.data.packages %}
-  <div class="package-card reveal">
-    <div class="package-name">{{ pkg.name }}</div>
-    <div class="package-version">v{{ pkg.version }} · {{ pkg.status }}</div>
-    <p class="package-desc">{{ pkg.description }}</p>
-    <div class="package-tags">
-      {% for tag in pkg.tags %}
-      <span class="package-tag">{{ tag }}</span>
-      {% endfor %}
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</div>
+      <div class="pkg-block-area">{{ pkg.area }}</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">{{ pkg.name }}</span>
+        <span class="package-version">v{{ pkg.version }} · {{ pkg.status }}</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">{{ pkg.headline }}</h2>
+      <p class="pkg-block-desc">{{ pkg.description }}</p>
+      <div class="pkg-block-stats">
+        {% for stat in pkg.stats %}
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">{{ stat.value }}</div>
+          <div class="pkg-stat-label">{{ stat.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          {% for tag in pkg.tags %}
+          <span class="package-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% if pkg.github != "" %}
+        <a href="{{ pkg.github }}" class="pkg-link" target="_blank" rel="noopener">GitHub →</a>
+        {% endif %}
+      </div>
     </div>
   </div>
   {% endfor %}
@@ -37,7 +60,7 @@ description: "Proprietary bioinformatics software from Boring Science — produc
   </div>
 </section>
 
-<!-- NOTE -->
+<!-- BUILD STANDARD -->
 <section class="approach" style="border-top: 1px solid var(--border);">
   <div class="approach-content reveal">
     <div class="section-label">On reproducibility</div>

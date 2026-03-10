@@ -8,7 +8,7 @@
 
 
 <title>Boring Packages | BORING SCIENCE</title>
-<meta name="description" content="Proprietary bioinformatics software from Boring Science — production-grade tools for multiomics, molecular docking, genomics workflows, and clinical genomics reporting. Built for real pipelines.">
+<meta name="description" content="Proprietary bioinformatics software from Boring Science — 14 packages spanning multiomics, molecular docking, FEP simulation, enhanced sampling, medical AI, pharmacovigilance, and clinical reporting. Production-grade tools built on validated research.">
 <meta name="keywords" content="computational biology, bioinformatics, data infrastructure, reproducible pipelines, biological data, data integration, genomics, data science, research consulting, bioinformatics software">
 <meta name="author" content="BORING SCIENCE">
 <link rel="canonical" href="http://localhost:4000/packages/">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BORING SCIENCE">
 <meta property="og:title" content="Boring Packages | BORING SCIENCE">
-<meta property="og:description" content="Proprietary bioinformatics software from Boring Science — production-grade tools for multiomics, molecular docking, genomics workflows, and clinical genomics reporting. Built for real pipelines.">
+<meta property="og:description" content="Proprietary bioinformatics software from Boring Science — 14 packages spanning multiomics, molecular docking, FEP simulation, enhanced sampling, medical AI, pharmacovigilance, and clinical reporting. Production-grade tools built on validated research.">
 <meta property="og:url" content="http://localhost:4000/packages/">
 <meta property="og:image" content="http://localhost:4000/logo/logo-linkedin-300.png">
 <meta property="og:image:width" content="300">
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@boringscience_">
 <meta name="twitter:title" content="Boring Packages | BORING SCIENCE">
-<meta name="twitter:description" content="Proprietary bioinformatics software from Boring Science — production-grade tools for multiomics, molecular docking, genomics workflows, and clinical genomics reporting. Built for real pipelines.">
+<meta name="twitter:description" content="Proprietary bioinformatics software from Boring Science — 14 packages spanning multiomics, molecular docking, FEP simulation, enhanced sampling, medical AI, pharmacovigilance, and clinical reporting. Production-grade tools built on validated research.">
 <meta name="twitter:image" content="http://localhost:4000/logo/logo-linkedin-300.png">
 
 <!-- JSON-LD: Organization -->
@@ -78,77 +78,790 @@
 <main class="page-main">
   <div class="page-hero reveal">
   <div class="section-label">004 — Boring Packages</div>
-  <h1 class="page-title">Proprietary tools.<br><em>Production grade.</em></h1>
-  <p class="page-subtitle">The software stack powering our pipelines. Built for reliability, validated on real data, and designed to scale from research to the clinic.</p>
+  <h1 class="page-title">Proprietary tools.<br><em>Built on real research.</em></h1>
+  <p class="page-subtitle">14 proprietary tools spanning multiomics, molecular docking, FEP simulation, enhanced sampling, AI agents, pharmacovigilance, and clinical reporting. Every package emerged from active research — validated on real data, published or in submission, containerized and version-locked.</p>
 </div>
 
-<section class="packages-grid">
+<!-- PACKAGE SHOWCASE -->
+<section class="pkg-showcase">
   
-  <div class="package-card reveal">
-    <div class="package-name">bsomics</div>
-    <div class="package-version">v0.4.2 · Proprietary</div>
-    <p class="package-desc">Unified single-cell and bulk multiomics QC, normalization, batch correction, and integration. Scanpy-compatible API with UMAP, PAGA trajectory, and differential expression modules built in.</p>
-    <div class="package-tags">
-      
-      <span class="package-tag">Python</span>
-      
-      <span class="package-tag">Scanpy</span>
-      
-      <span class="package-tag">AnnData</span>
-      
-      <span class="package-tag">scRNA-seq</span>
-      
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">01</div>
+      <div class="pkg-block-area">Unified Multiomics Platform</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsomics</span>
+        <span class="package-version">v0.4.2 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">One pipeline. snRNA-seq, bulk RNA-seq, and spatial transcriptomics — fully integrated.</h2>
+      <p class="pkg-block-desc">bsomics is Boring Science's unified cross-modal analysis platform. It processes single-nucleus RNA-seq, bulk RNA-seq, and Visium spatial transcriptomics through a single reproducible workflow — eliminating batch artefacts and manual harmonization between modalities. Built-in modules cover QC, normalization, batch correction, UMAP clustering, cell state annotation, inter-donor variability quantification, pathway module scoring, and spatial deconvolution. Designed for cohorts of any size, from pilot studies to large multi-site datasets.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">3</div>
+          <div class="pkg-stat-label">Modalities integrated</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">36</div>
+          <div class="pkg-stat-label">Max donors profiled</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Spot-level</div>
+          <div class="pkg-stat-label">Spatial resolution</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">Cross-modal coherence</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">snRNA-seq</span>
+          
+          <span class="package-tag">Bulk RNA-seq</span>
+          
+          <span class="package-tag">Spatial Transcriptomics</span>
+          
+          <span class="package-tag">Scanpy / AnnData</span>
+          
+          <span class="package-tag">Cross-Modal</span>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
   
-  <div class="package-card reveal">
-    <div class="package-name">bsdock</div>
-    <div class="package-version">v0.2.1 · Proprietary</div>
-    <p class="package-desc">Docking workflow automation — protein prep, grid generation, multi-pose docking, ADMET filtering, and pose clustering. CSV and SDF output ready for downstream scoring pipelines.</p>
-    <div class="package-tags">
-      
-      <span class="package-tag">Python</span>
-      
-      <span class="package-tag">AutoDock/Vina</span>
-      
-      <span class="package-tag">RDKit</span>
-      
-      <span class="package-tag">ADMET</span>
-      
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">02</div>
+      <div class="pkg-block-area">Molecular Docking & GNN Scoring</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsdock</span>
+        <span class="package-version">v1.0.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">SE(3)-equivariant GNN scoring that outperforms classical docking by 5.5× on binding affinity correlation.</h2>
+      <p class="pkg-block-desc">bsdock is Boring Science's computational docking platform, featuring a proprietary SE(3)-equivariant Graph Neural Network scoring function. Protein-ligand complexes are encoded as heterogeneous graphs — separate node types for protein and ligand atoms — with the SE(3)-equivariant architecture guaranteeing predictions are invariant to rotations and translations, a physically grounded constraint that standard empirical scoring functions ignore. bsdock ships a hybrid workflow combining traditional pose generation with GNN rescoring, plus specialist modules for flexible receptor docking, metal coordination, and tethered docking. Compatible with poses from any upstream docking engine.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">0.88</div>
+          <div class="pkg-stat-label">PDBbind Pearson R</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">0.82</div>
+          <div class="pkg-stat-label">Held-out test R</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">0.94</div>
+          <div class="pkg-stat-label">Activity AUC-ROC</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">5.5×</div>
+          <div class="pkg-stat-label">vs. best classical scorer</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">PyTorch Geometric</span>
+          
+          <span class="package-tag">SE(3)-Equivariant GNN</span>
+          
+          <span class="package-tag">RDKit</span>
+          
+          <span class="package-tag">Molecular Docking</span>
+          
+          <span class="package-tag">Drug Discovery</span>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
   
-  <div class="package-card reveal">
-    <div class="package-name">bsflow</div>
-    <div class="package-version">v1.1.0 · Proprietary</div>
-    <p class="package-desc">Production-ready Nextflow DSL2 modules for WGS, RNA-seq, ChIP-seq, ATAC-seq, and scRNA-seq. GxP-validated, containerized with Docker and Singularity, and tested with nf-test for every commit.</p>
-    <div class="package-tags">
-      
-      <span class="package-tag">Nextflow</span>
-      
-      <span class="package-tag">nf-core</span>
-      
-      <span class="package-tag">Docker</span>
-      
-      <span class="package-tag">GxP</span>
-      
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">03</div>
+      <div class="pkg-block-area">Physics-Constrained Medical Video Generation</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsvision</span>
+        <span class="package-version">v0.5.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Temporally coherent synthetic medical video — 0.87 SSIM and 12.8% improvement in downstream clinical prediction.</h2>
+      <p class="pkg-block-desc">bsvision is Boring Science's medical computer vision package for physics-constrained synthetic video generation. Built on a pixel-space 3D UNet with cross-frame attention at all encoder/decoder levels, it conditions generation on physiological cycle embeddings to enforce temporally consistent cardiac dynamics. Unlike standard video diffusion models that optimize for perceptual quality alone, bsvision enforces physics-based constraints — temporal smoothness, flow consistency, volume conservation, and jerk penalty — producing synthetic videos suitable for clinical AI training data augmentation, simulation, and counterfactual analysis. Validated on echocardiography with a 6.2× improvement in temporal consistency over baseline and a 12.8% gain in downstream ejection fraction prediction accuracy.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">0.87</div>
+          <div class="pkg-stat-label">Temporal SSIM</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">6.2×</div>
+          <div class="pkg-stat-label">Baseline improvement</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">+12.8%</div>
+          <div class="pkg-stat-label">EF prediction gain</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">~17.6M</div>
+          <div class="pkg-stat-label">Model parameters</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">PyTorch</span>
+          
+          <span class="package-tag">Video Diffusion</span>
+          
+          <span class="package-tag">Computer Vision</span>
+          
+          <span class="package-tag">Physics-Constrained</span>
+          
+          <span class="package-tag">Medical Imaging</span>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
   
-  <div class="package-card reveal">
-    <div class="package-name">bsreport</div>
-    <div class="package-version">v0.3.0 · Proprietary</div>
-    <p class="package-desc">Clinical-grade HTML and PDF genomics report generator. ACMG/AMP variant classification, population frequency lookup via gnomAD, pharmacogenomics integration, and fully customizable report templates.</p>
-    <div class="package-tags">
-      
-      <span class="package-tag">Python</span>
-      
-      <span class="package-tag">ACMG</span>
-      
-      <span class="package-tag">ClinVar</span>
-      
-      <span class="package-tag">PGx</span>
-      
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">04</div>
+      <div class="pkg-block-area">Reproducible Genomics Pipelines</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsflow</span>
+        <span class="package-version">v1.1.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">GxP-validated Nextflow DSL2 modules — from raw reads to publication-ready output.</h2>
+      <p class="pkg-block-desc">bsflow is Boring Science's pipeline infrastructure layer — a library of production-ready Nextflow DSL2 modules for WGS, RNA-seq, ChIP-seq, ATAC-seq, CUT&RUN, and scRNA-seq. Every module ships containerized (Docker and Singularity), with a version-locked dependency manifest and an nf-test suite executed on every commit. The same bsflow pipeline run returns byte-identical output regardless of compute environment — HPC, cloud, or local. Designed from the ground up for reproducibility from research to regulatory submission.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">6+</div>
+          <div class="pkg-stat-label">Pipeline types</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">100%</div>
+          <div class="pkg-stat-label">Reproducibility</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Docker + Singularity</div>
+          <div class="pkg-stat-label">Container support</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">nf-test</div>
+          <div class="pkg-stat-label">Test framework</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Nextflow DSL2</span>
+          
+          <span class="package-tag">nf-core compatible</span>
+          
+          <span class="package-tag">Docker</span>
+          
+          <span class="package-tag">Singularity</span>
+          
+          <span class="package-tag">GxP</span>
+          
+          <span class="package-tag">CI/CD</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">05</div>
+      <div class="pkg-block-area">Clinical Genomics Reporting</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsreport</span>
+        <span class="package-version">v0.3.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">ACMG-grade variant classification to clinical-ready PDF — in a single command.</h2>
+      <p class="pkg-block-desc">bsreport is Boring Science's clinical genomics report generator. It reads VCF input and produces structured HTML and PDF reports with ACMG/AMP variant classification, gnomAD v4 population frequency lookup, ClinVar annotation, and pharmacogenomics (PGx) diplotype calling. Report templates are fully configurable — from internal research summaries to patient-facing clinical documents. Built for diagnostic labs, biobanks, and clinical genomics teams operating under CLIA/CAP frameworks, where report consistency and audit traceability are non-negotiable.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">ACMG/AMP</div>
+          <div class="pkg-stat-label">Variant classification</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">HTML + PDF</div>
+          <div class="pkg-stat-label">Output formats</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">PGx diplotypes</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">v4</div>
+          <div class="pkg-stat-label">gnomAD version</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">ACMG/AMP</span>
+          
+          <span class="package-tag">ClinVar</span>
+          
+          <span class="package-tag">gnomAD v4</span>
+          
+          <span class="package-tag">Pharmacogenomics</span>
+          
+          <span class="package-tag">CLIA/CAP</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">06</div>
+      <div class="pkg-block-area">3D Molecular Visualization</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsview</span>
+        <span class="package-version">v1.0.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Web-based 3D molecular visualization with interaction detection, pocket analysis, and 2D interaction maps.</h2>
+      <p class="pkg-block-desc">bsview is Boring Science's browser-native molecular visualization platform. It renders protein structures and protein-ligand complexes from PDB input across multiple modes — sticks, spheres, and molecular surfaces — with real-time interaction detection covering hydrogen bonds, hydrophobic contacts, π-stacking, and clash detection. Built-in binding pocket analysis and 2D ligand-protein interaction maps make it a complete structural analysis environment. No installation required — runs entirely in-browser via WebGL, deployable as a standalone app or embedded in any data platform.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">3</div>
+          <div class="pkg-stat-label">Rendering modes</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">5+</div>
+          <div class="pkg-stat-label">Interaction types detected</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Browser / Embed</div>
+          <div class="pkg-stat-label">Deployment</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">PDB / mmCIF</div>
+          <div class="pkg-stat-label">Input format</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">React</span>
+          
+          <span class="package-tag">Three.js / WebGL</span>
+          
+          <span class="package-tag">Molecular Visualization</span>
+          
+          <span class="package-tag">Protein-Ligand</span>
+          
+          <span class="package-tag">Browser-native</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">07</div>
+      <div class="pkg-block-area">AI-Powered Bioinformatics Agent</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsagent</span>
+        <span class="package-version">v0.2.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Conversational AI agent for automated drug discovery and NGS analysis — 17 built-in bioinformatics tools.</h2>
+      <p class="pkg-block-desc">bsagent is Boring Science's autonomous bioinformatics AI agent. Powered by a Claude-based ReAct architecture, it executes multi-step drug discovery and next-generation sequencing analysis workflows through a natural language interface. It ships with 17 integrated bioinformatics tools — covering virtual screening, differential expression, variant calling, pathway analysis, and 3D molecule visualization — accessible via CLI, REST API, or web interface. Jobs run asynchronously and are audit-logged, making bsagent suitable for both exploratory analysis and production pipeline orchestration.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">17</div>
+          <div class="pkg-stat-label">Built-in tools</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">CLI · API · Web</div>
+          <div class="pkg-stat-label">Interfaces</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Claude</div>
+          <div class="pkg-stat-label">LLM backbone</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">Async execution</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">FastAPI</span>
+          
+          <span class="package-tag">Claude API</span>
+          
+          <span class="package-tag">ReAct Agent</span>
+          
+          <span class="package-tag">Drug Discovery</span>
+          
+          <span class="package-tag">NGS</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">08</div>
+      <div class="pkg-block-area">Molecular Dynamics Analysis</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsmd</span>
+        <span class="package-version">v0.3.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">End-to-end MD trajectory analysis — RMSD, RMSF, hydrogen bonding, clustering, and publication-quality output.</h2>
+      <p class="pkg-block-desc">bsmd is Boring Science's molecular dynamics analysis suite. It processes trajectory output from GROMACS, AMBER, NAMD, and OpenMM and produces a structured, reproducible analysis report covering RMSD/RMSF, radius of gyration, secondary structure evolution, hydrogen bond occupancy, hydrophobic contact persistence, binding pocket stability, and conformational clustering. Every analysis run is containerized and version-locked — making MD post-processing as reproducible as the simulation itself.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">4</div>
+          <div class="pkg-stat-label">MD engines supported</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">10+</div>
+          <div class="pkg-stat-label">Analysis modules</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">CSV · PDF · HTML</div>
+          <div class="pkg-stat-label">Output formats</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">Reproducible</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">MDAnalysis</span>
+          
+          <span class="package-tag">GROMACS / AMBER</span>
+          
+          <span class="package-tag">Trajectory Analysis</span>
+          
+          <span class="package-tag">Clustering</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">09</div>
+      <div class="pkg-block-area">Pharmacovigilance & Drug Safety Intelligence</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bspv</span>
+        <span class="package-version">v0.4.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Automated pharmacovigilance signal detection — FAERS integration, disproportionality analysis, and regulatory-grade reporting.</h2>
+      <p class="pkg-block-desc">bspv is Boring Science's pharmacovigilance intelligence platform. It ingests FDA Adverse Event Reporting System (FAERS) data, structured safety databases, and literature-derived signals to run automated disproportionality analyses (PRR, ROR, BCPNN). Integrated with genomic variant data, bspv links ADR signals to patient-specific pharmacogenomic backgrounds — enabling mechanistic safety hypotheses before compounds enter clinical trials. Outputs are formatted to ICH E2B standards for regulatory submission.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">3 (PRR · ROR · BCPNN)</div>
+          <div class="pkg-stat-label">Signal detection methods</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">FAERS integration</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">PGx linkage</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">ICH E2B</div>
+          <div class="pkg-stat-label">Output standard</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">FAERS</span>
+          
+          <span class="package-tag">Disproportionality Analysis</span>
+          
+          <span class="package-tag">Pharmacovigilance</span>
+          
+          <span class="package-tag">Drug Safety</span>
+          
+          <span class="package-tag">ICH E2B</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">10</div>
+      <div class="pkg-block-area">R-Group Design & Medicinal Chemistry</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsrgroup</span>
+        <span class="package-version">v0.2.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Enumerate, score, and rank R-group substitutions for lead optimization — scaffold-in, ranked library out.</h2>
+      <p class="pkg-block-desc">bsrgroup is Boring Science's R-group designer for structure-activity relationship exploration. It takes a scaffold SMILES and a set of R-group attachment points, enumerates substitution libraries, and scores each candidate against predicted ADMET properties, synthetic accessibility, and docking affinity via bsdock integration. The output is a ranked compound library with per-property scores and a 2D SAR heatmap — ready for experimental prioritization or downstream virtual screening.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Automated</div>
+          <div class="pkg-stat-label">Enumeration</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">bsdock integration</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">ADMET scoring</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">2D heatmap</div>
+          <div class="pkg-stat-label">SAR visualization</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">RDKit</span>
+          
+          <span class="package-tag">SMILES</span>
+          
+          <span class="package-tag">Medicinal Chemistry</span>
+          
+          <span class="package-tag">Lead Optimization</span>
+          
+          <span class="package-tag">SAR</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">11</div>
+      <div class="pkg-block-area">Chemical Property Analysis</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bschem</span>
+        <span class="package-version">v0.3.0 · Proprietary</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Batch chemical property calculation — Lipinski, TPSA, logP, toxicity flags, and structural alerts at scale.</h2>
+      <p class="pkg-block-desc">bschem is Boring Science's chemical analyzer — a batch processing engine for computing physicochemical and ADMET properties across compound libraries of any size. It calculates Lipinski Ro5, Veber, and REOS filters alongside TPSA, logP, logD, pKa, aqueous solubility, metabolic stability predictions, and structural alert flags including PAINS and reactive groups. Designed for hit-to-lead triage and compound library health assessment, with CSV, SDF, and interactive HTML output.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">20+</div>
+          <div class="pkg-stat-label">Properties calculated</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Ro5 · Veber · REOS</div>
+          <div class="pkg-stat-label">Filter sets</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">PAINS alerts</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">CSV · SDF · HTML</div>
+          <div class="pkg-stat-label">Output</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">RDKit</span>
+          
+          <span class="package-tag">ADMET</span>
+          
+          <span class="package-tag">PAINS Filters</span>
+          
+          <span class="package-tag">Physicochemical</span>
+          
+          <span class="package-tag">Library Analysis</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">12</div>
+      <div class="pkg-block-area">Free Energy Perturbation Simulation</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsfep</span>
+        <span class="package-version">v0.1.0 · Beta</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Alchemical FEP and thermodynamic integration for rigorous binding free energy prediction at lead optimization scale.</h2>
+      <p class="pkg-block-desc">bsfep is Boring Science's free energy perturbation platform. It automates relative binding free energy (RBFE) and absolute binding free energy (ABFE) calculations using alchemical perturbation theory, with support for GROMACS and OpenMM backends. The workflow handles lambda window setup, Bennett Acceptance Ratio (BAR) and MBAR analysis, cycle closure correction, and uncertainty quantification. Designed for lead series where rank-ordering by docking score is insufficient — bsfep delivers thermodynamically rigorous ΔΔG predictions targeting sub-kcal/mol accuracy on benchmarked systems.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">RBFE + ABFE</div>
+          <div class="pkg-stat-label">FEP type</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">BAR · MBAR</div>
+          <div class="pkg-stat-label">Free energy estimators</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">GROMACS · OpenMM</div>
+          <div class="pkg-stat-label">MD backends</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value"><1 kcal/mol</div>
+          <div class="pkg-stat-label">Target accuracy</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">Alchemical FEP</span>
+          
+          <span class="package-tag">GROMACS</span>
+          
+          <span class="package-tag">OpenMM</span>
+          
+          <span class="package-tag">MBAR / BAR</span>
+          
+          <span class="package-tag">Lead Optimization</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">13</div>
+      <div class="pkg-block-area">Constant-pH Molecular Dynamics</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsphmd</span>
+        <span class="package-version">v0.1.0 · Beta</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">pH-aware MD with continuous protonation state sampling — resolve pH-dependent binding and active site dynamics.</h2>
+      <p class="pkg-block-desc">bsphmd is Boring Science's constant-pH molecular dynamics package. It enables explicit protonation state sampling during simulation using continuous constant-pH MD (CpHMD), capturing pH-dependent conformational dynamics that fixed-protonation simulations miss entirely. Titratable residues — His, Asp, Glu, Cys, Lys — are sampled at physiological or user-specified pH, with free energy profiles reporting per-residue pKa shifts in the binding context. Critical for targets with ionizable active sites, allosteric pH sensors, or compounds with titratable functional groups.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">CpHMD</div>
+          <div class="pkg-stat-label">Method</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">His · Asp · Glu · Cys · Lys</div>
+          <div class="pkg-stat-label">Titratable residues</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">pKa output</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">Configurable</div>
+          <div class="pkg-stat-label">pH range</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">Constant-pH MD</span>
+          
+          <span class="package-tag">AMBER</span>
+          
+          <span class="package-tag">Protonation States</span>
+          
+          <span class="package-tag">pKa Prediction</span>
+          
+          <span class="package-tag">pH-Dependent Binding</span>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="pkg-block reveal">
+    <div class="pkg-block-meta">
+      <div class="pkg-block-index">14</div>
+      <div class="pkg-block-area">REMD & Enhanced Sampling</div>
+      <div class="pkg-block-badges">
+        <span class="pkg-name-badge">bsremd</span>
+        <span class="package-version">v0.1.0 · Beta</span>
+      </div>
+    </div>
+    <div class="pkg-block-body">
+      <h2 class="pkg-block-headline">Replica Exchange MD and simulated annealing for conformational space exploration — escape local minima systematically.</h2>
+      <p class="pkg-block-desc">bsremd is Boring Science's enhanced sampling simulation package. It orchestrates Replica Exchange Molecular Dynamics (T-REMD) across temperature ladders and Hamiltonian REMD (H-REMD) across alchemical states, enabling efficient conformational space exploration for flexible proteins, intrinsically disordered regions, and peptides. Built-in simulated annealing protocols accelerate structure optimization and docking pose refinement. Automated exchange acceptance monitoring, replica overlap diagnostics, and Weighted Histogram Analysis (WHAM) for free energy surface reconstruction are included. Compatible with GROMACS, AMBER, and NAMD.</p>
+      <div class="pkg-block-stats">
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">T-REMD · H-REMD · SA</div>
+          <div class="pkg-stat-label">Sampling methods</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">WHAM</div>
+          <div class="pkg-stat-label">Free energy analysis</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">GROMACS · AMBER · NAMD</div>
+          <div class="pkg-stat-label">MD backends</div>
+        </div>
+        
+        <div class="pkg-stat">
+          <div class="pkg-stat-value">✓</div>
+          <div class="pkg-stat-label">Exchange diagnostics</div>
+        </div>
+        
+      </div>
+      <div class="pkg-block-footer">
+        <div class="package-tags">
+          
+          <span class="package-tag">Python</span>
+          
+          <span class="package-tag">REMD</span>
+          
+          <span class="package-tag">Simulated Annealing</span>
+          
+          <span class="package-tag">Enhanced Sampling</span>
+          
+          <span class="package-tag">GROMACS / AMBER</span>
+          
+          <span class="package-tag">WHAM</span>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
   
@@ -165,7 +878,7 @@
   </div>
 </section>
 
-<!-- NOTE -->
+<!-- BUILD STANDARD -->
 <section class="approach" style="border-top: 1px solid var(--border);">
   <div class="approach-content reveal">
     <div class="section-label">On reproducibility</div>
