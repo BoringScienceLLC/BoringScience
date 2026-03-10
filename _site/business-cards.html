@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Boring Science — Business Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+/* ── Reset ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0a0a0a;
+  --text:   #e8e8e8;
+  --dim:    #888;
+  --muted:  #444;
+  --accent: #c8ff00;
+  --border: #1e1e1e;
+  --mono:   'JetBrains Mono', monospace;
+  --sans:   'DM Sans', sans-serif;
+  --serif:  'Instrument Serif', serif;
+
+  /* Standard business card: 88.9mm × 50.8mm */
+  --card-w: 88.9mm;
+  --card-h: 50.8mm;
+}
+
+body {
+  background: #1a1a1a;
+  font-family: var(--sans);
+  padding: 20mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12mm;
+}
+
+h1 {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4mm;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6mm;
+}
+
+.card-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: #444;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-left: 1mm;
+}
+
+/* ── Card wrapper ───────────────────────────── */
+.card-pair {
+  display: flex;
+  gap: 6mm;
+  align-items: flex-start;
+}
+
+/* ── Card base ──────────────────────────────── */
+.card {
+  width:  var(--card-w);
+  height: var(--card-h);
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  border: 0.3mm solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ── FRONT ──────────────────────────────────── */
+.card--front {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5mm 6mm 5mm 6mm;
+}
+
+/* Subtle grid overlay */
+.card--front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,255,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,0,0.03) 1px, transparent 1px);
+  background-size: 8mm 8mm;
+  pointer-events: none;
+}
+
+/* Accent bar top */
+.card--front::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 0.5mm;
+  background: var(--accent);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+  position: relative;
+  z-index: 1;
+}
+
+.card-logo-mark {
+  width: 6mm;
+  height: 6mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card-logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-brand {
+  font-family: var(--mono);
+  font-size: 6.5px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.card-middle {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2mm 0;
+}
+
+.card-name {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 1.5mm;
+}
+
+.card-credentials {
+  font-family: var(--mono);
+  font-size: 6px;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.8mm;
+}
+
+.card-title {
+  font-family: var(--mono);
+  font-size: 6.5px;
+  font-weight: 400;
+  color: var(--dim);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.card-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 0.3mm solid var(--border);
+  padding-top: 2.5mm;
+}
+
+.card-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8mm;
+}
+
+.card-contact span {
+  font-family: var(--mono);
+  font-size: 5.5px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.card-contact span.highlight {
+  color: #666;
+}
+
+.card-web {
+  font-family: var(--mono);
+  font-size: 6px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+/* ── BACK ───────────────────────────────────── */
+.card--back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  position: relative;
+}
+
+.card--back::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,255,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,0,0.025) 1px, transparent 1px);
+  background-size: 8mm 8mm;
+}
+
+.back-logo-mark {
+  width: 16mm;
+  height: 16mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.back-logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.back-brand {
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.back-tagline {
+  font-family: var(--sans);
+  font-size: 5.5px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dim);
+  letter-spacing: 0.03em;
+  text-align: center;
+  max-width: 60mm;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.back-tagline .tagline-bold {
+  font-weight: 600;
+  color: var(--text);
+  font-style: italic;
+}
+
+.back-url {
+  font-family: var(--mono);
+  font-size: 6px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── PRINT ──────────────────────────────────── */
+@media print {
+  body {
+    background: white;
+    padding: 5mm;
+  }
+  h1, .card-label { display: none; }
+  .card {
+    border: 0.3mm solid #ccc;
+    /* Force dark colors to print — requires "Background graphics" enabled in browser */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .card-pair { break-inside: avoid; }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Boring Science LLC — Business Cards · Print at 100% scale · Enable "Background graphics"</h1>
+
+<!-- ═══════════════════════════════════════════
+     SUMAN MISHRA
+════════════════════════════════════════════ -->
+<div class="card-group">
+  <div class="card-label">01 — Suman Mishra, MSc. · CEO & Co-Founder</div>
+  <div class="card-pair">
+
+    <!-- FRONT -->
+    <div class="card card--front">
+      <div class="card-top">
+        <div class="card-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
+        <div class="card-brand">Boring Science</div>
+      </div>
+      <div class="card-middle">
+        <div class="card-credentials">MSc. · PGD (Pharmacovigilance)</div>
+        <div class="card-name">Suman Mishra</div>
+        <div class="card-title">CEO &amp; Co-Founder</div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-contact">
+          <span class="highlight">inquiries@boringscience.bio</span>
+          <span>Sunnyvale, California · USA</span>
+        </div>
+        <div class="card-web">boringscience.bio</div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="card card--back">
+      <div class="back-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
+      <div class="back-brand">Boring Science</div>
+      <div class="back-tagline">Science is unpredictable.<br><span class="tagline-bold">Your data shouldn't be.</span></div>
+      <div class="back-url">boringscience.bio</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PRITAM KUMAR PANDA
+════════════════════════════════════════════ -->
+<div class="card-group">
+  <div class="card-label">02 — Pritam Kumar Panda, PhD. · Scientific Consultant & Advisor</div>
+  <div class="card-pair">
+
+    <!-- FRONT -->
+    <div class="card card--front">
+      <div class="card-top">
+        <div class="card-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
+        <div class="card-brand">Boring Science</div>
+      </div>
+      <div class="card-middle">
+        <div class="card-credentials">PhD.</div>
+        <div class="card-name">Pritam Kumar Panda</div>
+        <div class="card-title">Scientific Consultant &amp; Advisor</div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-contact">
+          <span class="highlight">inquiries@boringscience.bio</span>
+          <span>Sunnyvale, California · USA</span>
+        </div>
+        <div class="card-web">boringscience.bio</div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="card card--back">
+      <div class="back-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
+      <div class="back-brand">Boring Science</div>
+      <div class="back-tagline">Science is unpredictable.<br><span class="tagline-bold">Your data shouldn't be.</span></div>
+      <div class="back-url">boringscience.bio</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SASI KUMAR JAGADEESAN
+════════════════════════════════════════════ -->
+<div class="card-group">
+  <div class="card-label">03 — Sasi Kumar Jagadeesan, PhD. · CSO & Co-Founder</div>
+  <div class="card-pair">
+
+    <!-- FRONT -->
+    <div class="card card--front">
+      <div class="card-top">
+        <div class="card-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
+        <div class="card-brand">Boring Science</div>
+      </div>
+      <div class="card-middle">
+        <div class="card-credentials">PhD. · M.Eng (Med) · DABRM</div>
+        <div class="card-name">Sasi Kumar Jagadeesan</div>
+        <div class="card-title">CSO &amp; Co-Founder</div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-contact">
+          <span class="highlight">inquiries@boringscience.bio</span>
+          <span>Ottawa, Ontario · Canada</span>
+        </div>
+        <div class="card-web">boringscience.bio</div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="card card--back">
+      <div class="back-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
+      <div class="back-brand">Boring Science</div>
+      <div class="back-tagline">Science is unpredictable.<br><span class="tagline-bold">Your data shouldn't be.</span></div>
+      <div class="back-url">boringscience.bio</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
