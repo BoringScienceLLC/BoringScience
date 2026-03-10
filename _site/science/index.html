@@ -8,7 +8,7 @@
 
 
 <title>Science | BORING SCIENCE</title>
-<meta name="description" content="Active research at Boring Science spanning spatial genomics, generative biologics, epigenomics, translational oncology, long-read genomics, and multimodal foundation models for drug discovery.">
+<meta name="description" content="Active research at Boring Science spanning spatial genomics, single-cell multiomics, protein structure prediction, SE(3)-equivariant GNN scoring, generative protein design, and end-to-end computational drug discovery.">
 <meta name="keywords" content="computational biology, bioinformatics, data infrastructure, reproducible pipelines, biological data, data integration, genomics, data science, research consulting, bioinformatics software">
 <meta name="author" content="BORING SCIENCE">
 <link rel="canonical" href="http://localhost:4000/science/">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BORING SCIENCE">
 <meta property="og:title" content="Science | BORING SCIENCE">
-<meta property="og:description" content="Active research at Boring Science spanning spatial genomics, generative biologics, epigenomics, translational oncology, long-read genomics, and multimodal foundation models for drug discovery.">
+<meta property="og:description" content="Active research at Boring Science spanning spatial genomics, single-cell multiomics, protein structure prediction, SE(3)-equivariant GNN scoring, generative protein design, and end-to-end computational drug discovery.">
 <meta property="og:url" content="http://localhost:4000/science/">
 <meta property="og:image" content="http://localhost:4000/logo/logo-linkedin-300.png">
 <meta property="og:image:width" content="300">
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@boringscience_">
 <meta name="twitter:title" content="Science | BORING SCIENCE">
-<meta name="twitter:description" content="Active research at Boring Science spanning spatial genomics, generative biologics, epigenomics, translational oncology, long-read genomics, and multimodal foundation models for drug discovery.">
+<meta name="twitter:description" content="Active research at Boring Science spanning spatial genomics, single-cell multiomics, protein structure prediction, SE(3)-equivariant GNN scoring, generative protein design, and end-to-end computational drug discovery.">
 <meta name="twitter:image" content="http://localhost:4000/logo/logo-linkedin-300.png">
 
 <!-- JSON-LD: Organization -->
@@ -79,9 +79,10 @@
   <div class="page-hero reveal">
   <div class="section-label">003 — Science</div>
   <h1 class="page-title">Active research.<br><em>Not slide decks.</em></h1>
-  <p class="page-subtitle">Our research areas sit at the intersection of genomics, machine learning, and clinical translation. We publish, we build, and we share the tools.</p>
+  <p class="page-subtitle">Our work spans spatial genomics, single-cell multiomics, protein structure prediction, generative design, and SE(3)-equivariant scoring — all wired into reproducible, containerized pipelines.</p>
 </div>
 
+<!-- RESEARCH AREAS -->
 <section class="research-grid">
   
   <div class="research-card reveal">
@@ -104,81 +105,109 @@
   
   <div class="research-card reveal">
     <div class="research-index">02</div>
-    <div class="research-area">Computational Drug Design</div>
-    <h3 class="research-title">Protein Language Models for Drug Discovery</h3>
-    <p class="research-desc">Fine-tuning ESM-3 and ProtTrans on target-specific datasets for zero-shot binding affinity prediction, peptide drug design, and antibody CDR loop optimization. Building task-specific protein LLMs that generalize across druggable target families.</p>
+    <div class="research-area">Single-Cell & snRNA-seq</div>
+    <h3 class="research-title">Cross-Modal Single-Cell Resolution</h3>
+    <p class="research-desc">Integrated single-nucleus and single-cell RNA-seq analysis across tissue types — from UMAP clustering and cell state annotation to cross-species comparison and inter-donor variability quantification. We run snRNA-seq, bulk RNA-seq, and Visium spatial data through a single unified pipeline, delivering coherent cross-modal answers without batch artefacts.</p>
     <div class="research-tags">
       
-      <span class="research-tag">ESM-3</span>
+      <span class="research-tag">snRNA-seq</span>
       
-      <span class="research-tag">ProtTrans</span>
+      <span class="research-tag">scRNA-seq</span>
       
-      <span class="research-tag">Antibody Design</span>
+      <span class="research-tag">Cell State Annotation</span>
       
-      <span class="research-tag">Peptide ML</span>
+      <span class="research-tag">Cross-Modal Integration</span>
+      
+      <span class="research-tag">Inter-donor Variability</span>
       
     </div>
   </div>
   
   <div class="research-card reveal">
     <div class="research-index">03</div>
-    <div class="research-area">Epigenomics</div>
-    <h3 class="research-title">Epigenomic Reprogramming Maps</h3>
-    <p class="research-desc">CUT&RUN, CUT&TAG, and scATAC profiling to map transcription factor binding dynamics, super-enhancer activation, and chromatin remodeling across oncogenic transformation and therapeutic response. Linking regulatory grammar to disease phenotype.</p>
+    <div class="research-area">Biomolecular Structure</div>
+    <h3 class="research-title">End-to-End Co-Complex Structure Prediction</h3>
+    <p class="research-desc">Running AlphaFold3, Chai-1, and Boltz-2 pipelines for joint prediction of protein-ligand, protein-nucleic acid, and antibody-antigen co-complexes at scale. Confidence-calibrated structural ensembles feed directly into our docking and free-energy perturbation workflows — from sequence to binding-ready pose in a single reproducible run.</p>
     <div class="research-tags">
       
-      <span class="research-tag">CUT&RUN</span>
+      <span class="research-tag">AlphaFold3</span>
       
-      <span class="research-tag">scATAC-seq</span>
+      <span class="research-tag">Chai-1</span>
       
-      <span class="research-tag">Super-Enhancers</span>
+      <span class="research-tag">Boltz-2</span>
       
-      <span class="research-tag">TF Motifs</span>
+      <span class="research-tag">Co-Complex Prediction</span>
+      
+      <span class="research-tag">Free-Energy Perturbation</span>
       
     </div>
   </div>
   
   <div class="research-card reveal">
     <div class="research-index">04</div>
-    <div class="research-area">Translational Oncology</div>
-    <h3 class="research-title">Pan-Cancer Single-Cell Atlas</h3>
-    <p class="research-desc">A continuously updated reference atlas integrating curated public and proprietary single-cell datasets across tumor types. Used for automated cell type annotation, rare cell population discovery, and survival-associated gene module identification.</p>
-    <div class="research-tags">
-      
-      <span class="research-tag">Cell Atlas</span>
-      
-      <span class="research-tag">TCGA</span>
-      
-      <span class="research-tag">Survival Analysis</span>
-      
-      <span class="research-tag">scGPT</span>
-      
-    </div>
-  </div>
-  
-  <div class="research-card reveal">
-    <div class="research-index">05</div>
-    <div class="research-area">Generative Biologics</div>
-    <h3 class="research-title">De Novo Protein & Antibody Synthesis</h3>
-    <p class="research-desc">Leveraging diffusion models and RFdiffusion to design high-affinity binders from scratch. We integrate structural biology with generative AI to bypass traditional screening, accelerating the development of therapeutic proteins with programmable specificity.</p>
+    <div class="research-area">Generative Protein Design</div>
+    <h3 class="research-title">De Novo Protein & Antibody Design</h3>
+    <p class="research-desc">Leveraging RFdiffusion, ProteinMPNN, and Chai-1 to design high-affinity binders from scratch. We integrate structural biology with generative AI to bypass traditional screening — designing therapeutic proteins, antibody CDR loops, and peptide drugs with programmable specificity and in-silico-validated binding geometry.</p>
     <div class="research-tags">
       
       <span class="research-tag">RFdiffusion</span>
       
       <span class="research-tag">ProteinMPNN</span>
       
+      <span class="research-tag">Chai-1</span>
+      
       <span class="research-tag">De Novo Design</span>
       
-      <span class="research-tag">Structure-to-Function</span>
+      <span class="research-tag">Antibody Engineering</span>
+      
+    </div>
+  </div>
+  
+  <div class="research-card reveal">
+    <div class="research-index">05</div>
+    <div class="research-area">Molecular Scoring & Geometry</div>
+    <h3 class="research-title">SE(3)-Equivariant GNN Scoring Functions</h3>
+    <p class="research-desc">Building and fine-tuning SE(3)-equivariant Graph Neural Networks for structure-aware molecular scoring — docking pose ranking, binding affinity prediction, and protein-ligand interaction geometry. Integrated with computer vision models for 3D pocket feature extraction and ensemble scoring across conformational states.</p>
+    <div class="research-tags">
+      
+      <span class="research-tag">SE(3)-GNN</span>
+      
+      <span class="research-tag">Equivariant Networks</span>
+      
+      <span class="research-tag">Computer Vision</span>
+      
+      <span class="research-tag">Molecular Docking</span>
+      
+      <span class="research-tag">Binding Affinity</span>
       
     </div>
   </div>
   
   <div class="research-card reveal">
     <div class="research-index">06</div>
+    <div class="research-area">Drug Discovery AI</div>
+    <h3 class="research-title">End-to-End Drug Discovery Pipeline</h3>
+    <p class="research-desc">A full computational drug discovery stack — from target identification and hit discovery through lead optimization and ADMET prediction. Foundation models (ESM-3, ProtTrans, in-house architectures) combined with GNN scoring, generative design, and pharmacovigilance-linked safety profiling, all wrapped in reproducible, containerized pipelines.</p>
+    <div class="research-tags">
+      
+      <span class="research-tag">ESM-3</span>
+      
+      <span class="research-tag">Hit Discovery</span>
+      
+      <span class="research-tag">Lead Optimization</span>
+      
+      <span class="research-tag">ADMET</span>
+      
+      <span class="research-tag">Safety Profiling</span>
+      
+    </div>
+  </div>
+  
+  <div class="research-card reveal">
+    <div class="research-index">07</div>
     <div class="research-area">Precision Pharmacogenomics</div>
     <h3 class="research-title">Predictive Safety & ADR Modeling</h3>
-    <p class="research-desc">Integrating genomic variants with large-scale pharmacovigilance data to predict Adverse Drug Reactions (ADRs). We build deep learning architectures that map the intersection of genetic markers and chemical toxicity to enable truly personalized medicine.</p>
+    <p class="research-desc">Integrating genomic variants with large-scale pharmacovigilance data to predict Adverse Drug Reactions before compounds enter trials. We build deep learning architectures that map the intersection of genetic markers and chemical toxicity — surface ADR signals from GWAS-linked data before Phase I.</p>
     <div class="research-tags">
       
       <span class="research-tag">ADR Prediction</span>
@@ -188,24 +217,6 @@
       <span class="research-tag">Drug-Target Interaction</span>
       
       <span class="research-tag">Safety Intelligence</span>
-      
-    </div>
-  </div>
-  
-  <div class="research-card reveal">
-    <div class="research-index">07</div>
-    <div class="research-area">Biomolecular Structure</div>
-    <h3 class="research-title">End-to-End Co-Complex Structure Prediction</h3>
-    <p class="research-desc">Running Boltz-2 and AlphaFold3 pipelines for joint prediction of protein-ligand, protein-nucleic acid, and antibody-antigen co-complexes at scale. Confidence-calibrated structural ensembles feed directly into our docking and free-energy perturbation workflows.</p>
-    <div class="research-tags">
-      
-      <span class="research-tag">Boltz-2</span>
-      
-      <span class="research-tag">AlphaFold3</span>
-      
-      <span class="research-tag">Co-Complex Prediction</span>
-      
-      <span class="research-tag">Free-Energy Perturbation</span>
       
     </div>
   </div>
@@ -230,6 +241,24 @@
   
   <div class="research-card reveal">
     <div class="research-index">09</div>
+    <div class="research-area">Epigenomics</div>
+    <h3 class="research-title">Epigenomic Reprogramming Maps</h3>
+    <p class="research-desc">CUT&RUN, CUT&TAG, and scATAC profiling to map transcription factor binding dynamics, super-enhancer activation, and chromatin remodeling across oncogenic transformation and therapeutic response. Linking regulatory grammar to disease phenotype.</p>
+    <div class="research-tags">
+      
+      <span class="research-tag">CUT&RUN</span>
+      
+      <span class="research-tag">scATAC-seq</span>
+      
+      <span class="research-tag">Super-Enhancers</span>
+      
+      <span class="research-tag">TF Motifs</span>
+      
+    </div>
+  </div>
+  
+  <div class="research-card reveal">
+    <div class="research-index">10</div>
     <div class="research-area">Long-Read Genomics</div>
     <h3 class="research-title">Full-Length Variant & Isoform Resolution</h3>
     <p class="research-desc">PacBio Revio and Oxford Nanopore R10 workflows for phased structural variant calling, full-length transcript isoform quantification, and direct base modification detection. Closing the gaps left by short-read sequencing in complex genomic regions and repeat elements.</p>
@@ -246,6 +275,101 @@
     </div>
   </div>
   
+</section>
+
+<!-- THE PROBLEM WE'RE SOLVING -->
+<section class="sci-problem">
+  <div class="sci-problem-inner reveal">
+    <div>
+      <div class="section-label">The Problem</div>
+      <h2 class="sci-heading">$2.6 billion per approved drug.<br><em>Most of it lost after Phase I.</em></h2>
+      <p class="sci-body">The simulation-to-clinic gap costs the industry north of a trillion dollars annually in failed trials, ADR-related withdrawals, and regulatory delays. The tooling hasn't caught up. Legacy platforms were built for a world without spatial transcriptomics, protein diffusion models, or patient-level variant resolution. We were built for this world.</p>
+    </div>
+  </div>
+  <div class="sci-stats reveal">
+    <div class="sci-stat">
+      <div class="sci-stat-number">90%</div>
+      <div class="sci-stat-label">of drug candidates fail in clinical trials</div>
+    </div>
+    <div class="sci-stat">
+      <div class="sci-stat-number">~$2.6B</div>
+      <div class="sci-stat-label">average cost to bring one drug to market</div>
+    </div>
+    <div class="sci-stat">
+      <div class="sci-stat-number">1 in 3</div>
+      <div class="sci-stat-label">failures linked to safety signals missed preclinically</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="sci-whynow">
+  <div class="sci-whynow-inner reveal">
+    <div class="section-label">Why Now</div>
+    <h2 class="sci-heading">Three forces converged.<br><em>We integrated all three.</em></h2>
+    <div class="sci-convergence">
+      <div class="sci-convergence-item">
+        <div class="sci-conv-index">01</div>
+        <h3 class="sci-conv-title">Generative protein models crossed the utility threshold</h3>
+        <p class="sci-conv-desc">AlphaFold3, Chai-1, Boltz-2, and RFdiffusion have moved from benchmarks to production. We run these in validated, reproducible pipelines — not demos.</p>
+      </div>
+      <div class="sci-convergence-item">
+        <div class="sci-conv-index">02</div>
+        <h3 class="sci-conv-title">Spatial transcriptomics reached single-cell resolution</h3>
+        <p class="sci-conv-desc">Visium HD, Xenium, and MERSCOPE now resolve tissue architecture at submicron scale. Integrated with snRNA-seq, they answer questions that bulk sequencing never could.</p>
+      </div>
+      <div class="sci-convergence-item">
+        <div class="sci-conv-index">03</div>
+        <h3 class="sci-conv-title">Pharmacovigilance data became structurally accessible</h3>
+        <p class="sci-conv-desc">Large-scale real-world safety data, linked to genomic variant databases, now enables ADR prediction before a compound enters a trial. We built the architecture to use it.</p>
+      </div>
+    </div>
+    <p class="sci-conv-close">The companies that integrate spatial multiomics, generative structure prediction, and pharmacovigilance intelligence into a single reproducible platform in the next 24 months will define the next era of precision medicine. That integration is exactly what we are building.</p>
+  </div>
+</section>
+
+<!-- DEVELOPMENT TRACKS -->
+<section class="sci-pipeline">
+  <div class="section-label">Development Tracks</div>
+  <h2 class="sci-heading" style="margin-bottom: 56px;">Active builds.</h2>
+  <div class="sci-pipeline-grid">
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Multiomics Platform</div>
+      <div class="sci-pipeline-name">Unified QC, normalization & integration across snRNA-seq, bulk RNA-seq, and spatial modalities</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 80%"></div></div>
+      <div class="sci-pipeline-pct">80%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">SE(3)-GNN Scoring Engine</div>
+      <div class="sci-pipeline-name">Equivariant graph neural network for docking pose ranking and binding affinity prediction</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 55%"></div></div>
+      <div class="sci-pipeline-pct">55%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Generative Biologics Pipeline</div>
+      <div class="sci-pipeline-name">De novo protein & antibody design using RFdiffusion, ProteinMPNN, and Chai-1 in a single workflow</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 45%"></div></div>
+      <div class="sci-pipeline-pct">45%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">ADR Prediction Engine</div>
+      <div class="sci-pipeline-name">Deep learning architecture for variant-to-adverse-event mapping from GWAS-linked pharmacovigilance data</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 60%"></div></div>
+      <div class="sci-pipeline-pct">60%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Foundation Model Pretraining</div>
+      <div class="sci-pipeline-name">Cross-modal genomic representation learning on paired transcriptomic, proteomic, and imaging datasets</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 35%"></div></div>
+      <div class="sci-pipeline-pct">35%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Clinical Reporting Stack</div>
+      <div class="sci-pipeline-name">ACMG-grade variant classification and PGx report generation — from VCF to clinical-grade summary</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 65%"></div></div>
+      <div class="sci-pipeline-pct">65%</div>
+    </div>
+  </div>
 </section>
 
 <!-- MARQUEE -->

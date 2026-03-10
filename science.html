@@ -2,15 +2,16 @@
 layout: page
 permalink: /science/
 seo_title: "Science"
-description: "Active research at Boring Science spanning spatial genomics, generative biologics, epigenomics, translational oncology, long-read genomics, and multimodal foundation models for drug discovery."
+description: "Active research at Boring Science spanning spatial genomics, single-cell multiomics, protein structure prediction, SE(3)-equivariant GNN scoring, generative protein design, and end-to-end computational drug discovery."
 ---
 
 <div class="page-hero reveal">
   <div class="section-label">003 — Science</div>
   <h1 class="page-title">Active research.<br><em>Not slide decks.</em></h1>
-  <p class="page-subtitle">Our research areas sit at the intersection of genomics, machine learning, and clinical translation. We publish, we build, and we share the tools.</p>
+  <p class="page-subtitle">Our work spans spatial genomics, single-cell multiomics, protein structure prediction, generative design, and SE(3)-equivariant scoring — all wired into reproducible, containerized pipelines.</p>
 </div>
 
+<!-- RESEARCH AREAS -->
 <section class="research-grid">
   {% for item in site.data.science %}
   <div class="research-card reveal">
@@ -25,6 +26,101 @@ description: "Active research at Boring Science spanning spatial genomics, gener
     </div>
   </div>
   {% endfor %}
+</section>
+
+<!-- THE PROBLEM WE'RE SOLVING -->
+<section class="sci-problem">
+  <div class="sci-problem-inner reveal">
+    <div>
+      <div class="section-label">The Problem</div>
+      <h2 class="sci-heading">$2.6 billion per approved drug.<br><em>Most of it lost after Phase I.</em></h2>
+      <p class="sci-body">The simulation-to-clinic gap costs the industry north of a trillion dollars annually in failed trials, ADR-related withdrawals, and regulatory delays. The tooling hasn't caught up. Legacy platforms were built for a world without spatial transcriptomics, protein diffusion models, or patient-level variant resolution. We were built for this world.</p>
+    </div>
+  </div>
+  <div class="sci-stats reveal">
+    <div class="sci-stat">
+      <div class="sci-stat-number">90%</div>
+      <div class="sci-stat-label">of drug candidates fail in clinical trials</div>
+    </div>
+    <div class="sci-stat">
+      <div class="sci-stat-number">~$2.6B</div>
+      <div class="sci-stat-label">average cost to bring one drug to market</div>
+    </div>
+    <div class="sci-stat">
+      <div class="sci-stat-number">1 in 3</div>
+      <div class="sci-stat-label">failures linked to safety signals missed preclinically</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="sci-whynow">
+  <div class="sci-whynow-inner reveal">
+    <div class="section-label">Why Now</div>
+    <h2 class="sci-heading">Three forces converged.<br><em>We integrated all three.</em></h2>
+    <div class="sci-convergence">
+      <div class="sci-convergence-item">
+        <div class="sci-conv-index">01</div>
+        <h3 class="sci-conv-title">Generative protein models crossed the utility threshold</h3>
+        <p class="sci-conv-desc">AlphaFold3, Chai-1, Boltz-2, and RFdiffusion have moved from benchmarks to production. We run these in validated, reproducible pipelines — not demos.</p>
+      </div>
+      <div class="sci-convergence-item">
+        <div class="sci-conv-index">02</div>
+        <h3 class="sci-conv-title">Spatial transcriptomics reached single-cell resolution</h3>
+        <p class="sci-conv-desc">Visium HD, Xenium, and MERSCOPE now resolve tissue architecture at submicron scale. Integrated with snRNA-seq, they answer questions that bulk sequencing never could.</p>
+      </div>
+      <div class="sci-convergence-item">
+        <div class="sci-conv-index">03</div>
+        <h3 class="sci-conv-title">Pharmacovigilance data became structurally accessible</h3>
+        <p class="sci-conv-desc">Large-scale real-world safety data, linked to genomic variant databases, now enables ADR prediction before a compound enters a trial. We built the architecture to use it.</p>
+      </div>
+    </div>
+    <p class="sci-conv-close">The companies that integrate spatial multiomics, generative structure prediction, and pharmacovigilance intelligence into a single reproducible platform in the next 24 months will define the next era of precision medicine. That integration is exactly what we are building.</p>
+  </div>
+</section>
+
+<!-- DEVELOPMENT TRACKS -->
+<section class="sci-pipeline">
+  <div class="section-label">Development Tracks</div>
+  <h2 class="sci-heading" style="margin-bottom: 56px;">Active builds.</h2>
+  <div class="sci-pipeline-grid">
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Multiomics Platform</div>
+      <div class="sci-pipeline-name">Unified QC, normalization & integration across snRNA-seq, bulk RNA-seq, and spatial modalities</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 80%"></div></div>
+      <div class="sci-pipeline-pct">80%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">SE(3)-GNN Scoring Engine</div>
+      <div class="sci-pipeline-name">Equivariant graph neural network for docking pose ranking and binding affinity prediction</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 55%"></div></div>
+      <div class="sci-pipeline-pct">55%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Generative Biologics Pipeline</div>
+      <div class="sci-pipeline-name">De novo protein & antibody design using RFdiffusion, ProteinMPNN, and Chai-1 in a single workflow</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 45%"></div></div>
+      <div class="sci-pipeline-pct">45%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">ADR Prediction Engine</div>
+      <div class="sci-pipeline-name">Deep learning architecture for variant-to-adverse-event mapping from GWAS-linked pharmacovigilance data</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 60%"></div></div>
+      <div class="sci-pipeline-pct">60%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Foundation Model Pretraining</div>
+      <div class="sci-pipeline-name">Cross-modal genomic representation learning on paired transcriptomic, proteomic, and imaging datasets</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 35%"></div></div>
+      <div class="sci-pipeline-pct">35%</div>
+    </div>
+    <div class="sci-pipeline-item reveal">
+      <div class="sci-pipeline-stage">Clinical Reporting Stack</div>
+      <div class="sci-pipeline-name">ACMG-grade variant classification and PGx report generation — from VCF to clinical-grade summary</div>
+      <div class="sci-pipeline-bar"><div class="sci-pipeline-fill" style="width: 65%"></div></div>
+      <div class="sci-pipeline-pct">65%</div>
+    </div>
+  </div>
 </section>
 
 <!-- MARQUEE -->

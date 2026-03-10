@@ -1037,6 +1037,139 @@ footer {
   align-items: start;
 }
 
+/* ABOUT — ORIGIN */
+.about-origin {
+  padding: 100px 48px;
+  border-bottom: 1px solid var(--border);
+}
+.about-origin-inner {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-origin-label { padding-top: 6px; }
+
+/* ABOUT — HOW WE WORK */
+.about-howwework {
+  padding: 100px 48px;
+  border-bottom: 1px solid var(--border);
+}
+.about-howwework .about-title { margin-bottom: 64px; }
+.about-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+}
+.about-mode {
+  padding: 56px 48px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.about-mode:last-child { border-right: none; }
+.about-mode-index {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+.about-mode-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.about-mode-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+/* ABOUT — WHAT WE ARE NOT */
+.about-notweare {
+  padding: 100px 48px;
+  border-bottom: 1px solid var(--border);
+}
+.about-notweare .about-title { margin-bottom: 64px; }
+.about-not-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 80px;
+}
+.about-not-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.about-not-cross {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.about-not-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.about-not-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+/* ABOUT — PRINCIPLES */
+.about-principles {
+  padding: 100px 48px;
+  border-bottom: 1px solid var(--border);
+}
+.about-principles .about-title { margin-bottom: 64px; }
+.about-principles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+}
+.about-principle {
+  padding: 56px 48px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.about-principle:nth-child(2n) { border-right: none; }
+.about-principle:nth-child(3),
+.about-principle:nth-child(4) { border-bottom: none; }
+.about-principle-number {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+.about-principle-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.about-principle-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
 /* RESEARCH / SCIENCE PAGE */
 .research-grid {
   padding: 80px 48px 160px;
@@ -1121,6 +1254,154 @@ footer {
 .research-card:hover .research-tag {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* SCIENCE PAGE — PROBLEM + WHY NOW + PIPELINE */
+.sci-heading {
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+.sci-heading em { font-style: italic; color: var(--text-dim); }
+.sci-body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+  max-width: 680px;
+}
+
+/* Problem section */
+.sci-problem {
+  border-top: 1px solid var(--border);
+  padding: 100px 48px 0;
+}
+.sci-problem-inner {
+  max-width: 780px;
+  margin-bottom: 80px;
+}
+.sci-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.sci-stat {
+  padding: 64px 48px;
+  border-right: 1px solid var(--border);
+}
+.sci-stat:last-child { border-right: none; }
+.sci-stat-number {
+  font-family: var(--mono);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+.sci-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* Why Now */
+.sci-whynow {
+  border-top: 1px solid var(--border);
+  padding: 100px 48px;
+}
+.sci-whynow-inner { max-width: 1100px; }
+.sci-convergence {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin: 64px 0;
+  border: 1px solid var(--border);
+}
+.sci-convergence-item {
+  padding: 48px 40px;
+  border-right: 1px solid var(--border);
+}
+.sci-convergence-item:last-child { border-right: none; }
+.sci-conv-index {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.sci-conv-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.sci-conv-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+.sci-conv-close {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+  max-width: 780px;
+  border-left: 2px solid var(--accent);
+  padding-left: 24px;
+}
+
+/* Development Pipeline */
+.sci-pipeline {
+  border-top: 1px solid var(--border);
+  padding: 100px 48px 120px;
+}
+.sci-pipeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 80px;
+}
+.sci-pipeline-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sci-pipeline-stage {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.sci-pipeline-name {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.sci-pipeline-bar {
+  height: 2px;
+  background: var(--border);
+  width: 100%;
+  margin-top: 4px;
+}
+.sci-pipeline-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 1s ease;
+}
+.sci-pipeline-pct {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
 }
 
 /* PACKAGES PAGE */
@@ -1284,8 +1565,32 @@ footer {
   .home-features { grid-template-columns: 1fr; }
   .home-feature { padding: 48px 24px; }
   .about-full { grid-template-columns: 1fr; gap: 60px; padding: 60px 24px; }
+  .about-origin { padding: 60px 24px; }
+  .about-origin-inner { grid-template-columns: 1fr; gap: 24px; }
+  .about-howwework { padding: 60px 24px; }
+  .about-modes { grid-template-columns: 1fr; }
+  .about-mode { border-right: none; border-bottom: 1px solid var(--border); padding: 40px 24px; }
+  .about-mode:last-child { border-bottom: none; }
+  .about-notweare { padding: 60px 24px; }
+  .about-not-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-principles { padding: 60px 24px; }
+  .about-principles-grid { grid-template-columns: 1fr; }
+  .about-principle { border-right: none; padding: 40px 24px; }
+  .about-principle:nth-child(3),
+  .about-principle:nth-child(4) { border-bottom: 1px solid var(--border); }
+  .about-principle:last-child { border-bottom: none; }
   .research-grid { grid-template-columns: 1fr; padding: 60px 24px 80px; }
   .research-card { padding: 48px 24px; }
+  .sci-problem { padding: 60px 24px 0; }
+  .sci-stats { grid-template-columns: 1fr; }
+  .sci-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 40px 24px; }
+  .sci-stat:last-child { border-bottom: none; }
+  .sci-whynow { padding: 60px 24px; }
+  .sci-convergence { grid-template-columns: 1fr; }
+  .sci-convergence-item { border-right: none; border-bottom: 1px solid var(--border); padding: 40px 24px; }
+  .sci-convergence-item:last-child { border-bottom: none; }
+  .sci-pipeline { padding: 60px 24px 80px; }
+  .sci-pipeline-grid { grid-template-columns: 1fr; gap: 40px; }
   .packages-grid { grid-template-columns: 1fr; padding: 60px 24px 80px; }
   .package-card { padding: 48px 24px; }
   .team-page { padding: 60px 24px 0; }
