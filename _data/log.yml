@@ -1,0 +1,24 @@
+# ============================================================
+# The Log — Company updates, most recent first.
+# Types: Company · Publication · Platform · Data · Milestone
+# ============================================================
+
+- date: "2026-03-10"
+  type: "Milestone"
+  headline: "Pre-seed round open"
+  body: "Boring Science is actively engaging with investors and strategic partners. Deck available on request."
+
+- date: "2026-03-04"
+  type: "Company"
+  headline: "Boring Science LLC incorporated"
+  body: "Boring Science LLC formally incorporated on March 4, 2026. Founded by Pritam Kumar Panda and Sasi Jagadeesan to build reproducible, rigorously validated computational biology infrastructure."
+
+- date: "2026-02-01"
+  type: "Platform"
+  headline: "boringscience.bio v1.0 launched"
+  body: "Full platform website live — packages showcase, evidence registry, science page, and investor relations."
+
+- date: "2025-12-10"
+  type: "Publication"
+  headline: "bsdock &amp; bsvision preprints submitted"
+  body: "Two platform-grounded manuscripts submitted: bsdock (SE(3)-equivariant GNN docking, Pearson R = 0.88 on PDBbind) and bsvision (physics-constrained medical video diffusion, SSIM = 0.87). Both authored by Panda PK, Jagadeesan SK, Mishra S."

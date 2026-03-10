@@ -1,0 +1,39 @@
+---
+layout: page
+permalink: /log/
+seo_title: "The Log"
+description: "The Boring Science company log — a factual, timestamped record of research milestones, publications, platform launches, and company updates."
+---
+
+<div class="page-hero reveal">
+  <div class="section-label">008 — The Log</div>
+  <h1 class="page-title">The boring<br><em>record.</em></h1>
+  <p class="page-subtitle">A timestamped record of what we have shipped, published, and built. No press releases. No hype cycles. Just the log.</p>
+</div>
+
+<section class="log-section">
+  {% for entry in site.data.log %}
+  <div class="log-entry reveal">
+    <div class="log-entry-meta">
+      <div class="log-date">{{ entry.date | date: "%b %Y" }}</div>
+      <div class="log-type log-type--{{ entry.type | downcase }}">{{ entry.type }}</div>
+    </div>
+    <div class="log-entry-body">
+      <div class="log-headline">{{ entry.headline }}</div>
+      <div class="log-body">{{ entry.body }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="cta" style="border-top: 1px solid var(--border);">
+  <div class="reveal">
+    <div class="section-label">Stay in the loop</div>
+    <h2 class="cta-title">Want updates<br>without the <em>noise?</em></h2>
+    <p class="cta-sub">Follow us on LinkedIn for research updates, or reach out directly.</p>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 32px;">
+      <a href="{{ site.social.linkedin }}" class="cta-button" target="_blank" rel="noopener">LinkedIn →</a>
+      <a href="mailto:{{ site.email }}" class="cta-button" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">{{ site.email }}</a>
+    </div>
+  </div>
+</section>

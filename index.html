@@ -787,8 +787,11 @@ description: "Science is unpredictable. Your data shouldn't be. Boring Science b
   </div>
 
   <div class="cta-right reveal">
-    <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="3360abe1-c613-4af6-b528-2c376fd579bf">
+      <input type="hidden" name="subject" value="New inquiry — Boring Science">
+      <input type="hidden" name="redirect" value="https://boringscience.bio">
+      <input type="checkbox" name="botcheck" style="display:none">
       <div class="contact-form-row">
         <div class="contact-form-group">
           <label class="contact-label" for="cf-name">Name</label>
@@ -803,10 +806,10 @@ description: "Science is unpredictable. Your data shouldn't be. Boring Science b
         <label class="contact-label" for="cf-type">What are you looking for?</label>
         <select class="contact-input contact-select" id="cf-type" name="inquiry_type" required>
           <option value="" disabled selected>Select one</option>
-          <option value="consulting">I need a tailored solution for a specific project — Boring Projects (Consulting)</option>
-          <option value="packages">I want to use your reproducible software tools — Boring Packages (Product)</option>
-          <option value="both">Both — I'm not sure yet</option>
-          <option value="other">Something else</option>
+          <option value="Boring Projects (Consulting)">I need a tailored solution for a specific project — Boring Projects (Consulting)</option>
+          <option value="Boring Packages (Product)">I want to use your reproducible software tools — Boring Packages (Product)</option>
+          <option value="Both — not sure yet">Both — I'm not sure yet</option>
+          <option value="Other">Something else</option>
         </select>
       </div>
       <div class="contact-form-group">

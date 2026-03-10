@@ -34,6 +34,16 @@
   
   
   <url>
+    <loc>http://localhost:4000/log/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/packages/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
