@@ -107,6 +107,7 @@ h1 {
   background: var(--accent);
 }
 
+
 .card-top {
   display: flex;
   align-items: center;
@@ -178,6 +179,18 @@ h1 {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 1.4;
+  margin-bottom: 1.5mm;
+}
+
+/* Punchline on front */
+.card-acronym {
+  font-family: var(--mono);
+  font-size: 4.5px;
+  font-weight: 300;
+  color: #777;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  max-width: 56mm;
 }
 
 .card-bottom {
@@ -222,7 +235,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3mm;
+  gap: 2.5mm;
   position: relative;
 }
 
@@ -237,8 +250,8 @@ h1 {
 }
 
 .back-logo-mark {
-  width: 16mm;
-  height: 16mm;
+  width: 14mm;
+  height: 14mm;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,6 +273,46 @@ h1 {
   color: var(--text);
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* Acronym block on back */
+.back-acronym-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8mm;
+  position: relative;
+  z-index: 1;
+}
+
+.back-acronym-letters {
+  font-family: var(--mono);
+  font-size: 5.5px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.back-acronym-def {
+  font-family: var(--mono);
+  font-size: 4px;
+  font-weight: 400;
+  color: #888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 65mm;
+  line-height: 1.5;
+}
+
+.back-divider {
+  width: 20mm;
+  height: 0.2mm;
+  background: var(--border);
   position: relative;
   z-index: 1;
 }
@@ -314,7 +367,7 @@ h1 {
 </head>
 <body>
 
-<h1>Boring Science LLC — Business Cards · Print at 100% scale · Enable "Background graphics"</h1>
+<h1>Boring Science LLC — Business Cards · Revision 2 · Print at 100% scale · Enable "Background graphics"</h1>
 
 <!-- ═══════════════════════════════════════════
      SUMAN MISHRA
@@ -333,6 +386,7 @@ h1 {
         <div class="card-credentials">MSc. · PGD (Pharmacovigilance)</div>
         <div class="card-name">Suman Mishra</div>
         <div class="card-title">CEO &amp; Co-Founder</div>
+        <div class="card-acronym">Stop fighting your data. Start doing your science.</div>
       </div>
       <div class="card-bottom">
         <div class="card-contact">
@@ -347,6 +401,11 @@ h1 {
     <div class="card card--back">
       <div class="back-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
       <div class="back-brand">Boring Science</div>
+      <div class="back-acronym-block">
+        <div class="back-acronym-letters">B · O · R · I · N · G</div>
+        <div class="back-acronym-def">Building Outcomes through Research Innovation &amp; Next-Gen Science</div>
+      </div>
+      <div class="back-divider"></div>
       <div class="back-tagline">Science is unpredictable.<br><span class="tagline-bold">Your data shouldn't be.</span></div>
       <div class="back-url">boringscience.bio</div>
     </div>
@@ -371,11 +430,12 @@ h1 {
         <div class="card-credentials">PhD.</div>
         <div class="card-name">Pritam Kumar Panda</div>
         <div class="card-title">Scientific Consultant &amp; Advisor</div>
+        <div class="card-acronym">Stop fighting your data. Start doing your science.</div>
       </div>
       <div class="card-bottom">
         <div class="card-contact">
           <span class="highlight">inquiries@boringscience.bio</span>
-          <span>Sunnyvale, California · USA</span>
+          <span>Stanford University, Palo Alto, California · USA</span>
         </div>
         <div class="card-web">boringscience.bio</div>
       </div>
@@ -385,6 +445,11 @@ h1 {
     <div class="card card--back">
       <div class="back-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
       <div class="back-brand">Boring Science</div>
+      <div class="back-acronym-block">
+        <div class="back-acronym-letters">B · O · R · I · N · G</div>
+        <div class="back-acronym-def">Building Outcomes through Research Innovation &amp; Next-Gen Science</div>
+      </div>
+      <div class="back-divider"></div>
       <div class="back-tagline">Science is unpredictable.<br><span class="tagline-bold">Your data shouldn't be.</span></div>
       <div class="back-url">boringscience.bio</div>
     </div>
@@ -409,6 +474,7 @@ h1 {
         <div class="card-credentials">PhD. · M.Eng (Med) · DABRM</div>
         <div class="card-name">Sasi Kumar Jagadeesan</div>
         <div class="card-title">CSO &amp; Co-Founder</div>
+        <div class="card-acronym">Stop fighting your data. Start doing your science.</div>
       </div>
       <div class="card-bottom">
         <div class="card-contact">
@@ -423,6 +489,11 @@ h1 {
     <div class="card card--back">
       <div class="back-logo-mark"><img src="logo/logo-square-800.png" alt="Boring Science"></div>
       <div class="back-brand">Boring Science</div>
+      <div class="back-acronym-block">
+        <div class="back-acronym-letters">B · O · R · I · N · G</div>
+        <div class="back-acronym-def">Building Outcomes through Research Innovation &amp; Next-Gen Science</div>
+      </div>
+      <div class="back-divider"></div>
       <div class="back-tagline">Science is unpredictable.<br><span class="tagline-bold">Your data shouldn't be.</span></div>
       <div class="back-url">boringscience.bio</div>
     </div>
