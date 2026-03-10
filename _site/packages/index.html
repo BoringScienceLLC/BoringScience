@@ -31,21 +31,65 @@
 <meta name="twitter:description" content="Proprietary bioinformatics software from Boring Science — 14 packages spanning multiomics, molecular docking, FEP simulation, enhanced sampling, medical AI, pharmacovigilance, and clinical reporting. Production-grade tools built on validated research.">
 <meta name="twitter:image" content="http://localhost:4000/logo/logo-linkedin-300.png">
 
-<!-- JSON-LD: Organization -->
+<!-- JSON-LD: Organization + WebSite -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "BORING SCIENCE",
+  "name": "Boring Science",
+  "legalName": "Boring Science LLC",
+  "alternateName": "Boring Science LLC",
   "url": "http://localhost:4000",
-  "logo": "http://localhost:4000/logo/logo-linkedin-300.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "http://localhost:4000/logo/logo-linkedin-300.png",
+    "width": 300,
+    "height": 300
+  },
   "description": "Science is unpredictable. Your data shouldn't be. Boring Science builds the rigorous data infrastructure that turns data points into discovery — clean, structured, reproducible, and audit-ready.",
   "email": "inquiries@boringscience.bio",
+  "foundingDate": "2026",
+  "founders": [
+    { "@type": "Person", "name": "Pritam Kumar Panda" },
+    { "@type": "Person", "name": "Sasi Jagadeesan" }
+  ],
+  "knowsAbout": [
+    "Computational Biology",
+    "Multiomics",
+    "Molecular Docking",
+    "Pharmacovigilance",
+    "Bioinformatics",
+    "Drug Discovery",
+    "Machine Learning"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sunnyvale",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
   "sameAs": [
     "https://www.linkedin.com/company/boring-science/",
     "https://x.com/boringscience_",
     "https://github.com/boringscience"
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Boring Science",
+  "url": "http://localhost:4000",
+  "description": "Science is unpredictable. Your data shouldn't be. Boring Science builds the rigorous data infrastructure that turns data points into discovery — clean, structured, reproducible, and audit-ready.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "http://localhost:4000/publications/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 

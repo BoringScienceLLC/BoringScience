@@ -35,21 +35,65 @@
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
 <meta name="twitter:image" content="{{ site.url }}{{ site.og_image }}">
 
-<!-- JSON-LD: Organization -->
+<!-- JSON-LD: Organization + WebSite -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "{{ site.title }}",
+  "name": "Boring Science",
+  "legalName": "Boring Science LLC",
+  "alternateName": "Boring Science LLC",
   "url": "{{ site.url }}",
-  "logo": "{{ site.url }}/logo/logo-linkedin-300.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}/logo/logo-linkedin-300.png",
+    "width": 300,
+    "height": 300
+  },
   "description": "{{ site.description }}",
   "email": "{{ site.email }}",
+  "foundingDate": "2026",
+  "founders": [
+    { "@type": "Person", "name": "Pritam Kumar Panda" },
+    { "@type": "Person", "name": "Sasi Jagadeesan" }
+  ],
+  "knowsAbout": [
+    "Computational Biology",
+    "Multiomics",
+    "Molecular Docking",
+    "Pharmacovigilance",
+    "Bioinformatics",
+    "Drug Discovery",
+    "Machine Learning"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sunnyvale",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
   "sameAs": [
     "{{ site.social.linkedin }}",
     "{{ site.social.twitter }}",
     "{{ site.social.github }}"
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Boring Science",
+  "url": "{{ site.url }}",
+  "description": "{{ site.description }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ site.url }}/publications/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 
