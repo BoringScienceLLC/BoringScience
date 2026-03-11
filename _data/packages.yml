@@ -2,6 +2,31 @@
 # Boring Packages — Proprietary tools. Edit to update.
 # ============================================================
 
+- name: "bsinverse"
+  version: "0.1.0"
+  status: "Proprietary"
+  area: "Bayesian scRNA-seq Deconvolution"
+  headline: "Infer true pre-measurement biology from scRNA-seq — posterior distributions over cell states, not point estimates."
+  description: "bsinverse is Boring Science's Bayesian inverse problem framework for single-cell RNA-seq analysis. Rather than analyzing the observed distorted count matrix X directly, bsinverse formulates scRNA-seq as an inverse measurement problem: given X, infer the posterior p(Z|X) — the true biological expression state Z before capture loss, amplification bias, and sequencing dropout corrupted it. A variational inference model learns per-gene capture probabilities, interpretable transcriptional programs, and soft cell-state compositions, producing denoised posterior estimates with per-cell uncertainty quantification. Compatible with Scanpy and Seurat. Discovers finer-grained cell populations than standard pipelines by working with inferred true expression rather than heuristically normalized counts."
+  stats:
+    - label: "Clustering resolution"
+      value: "12 vs 8 (standard)"
+    - label: "Uncertainty output"
+      value: "Per-cell"
+    - label: "Zero handling"
+      value: "Physical model"
+    - label: "Scanpy / Seurat"
+      value: "✓"
+  tags:
+    - "Python"
+    - "Bayesian Inference"
+    - "scRNA-seq"
+    - "Variational Inference"
+    - "Scanpy / AnnData"
+    - "Dropout Correction"
+  github: ""
+  paper: ""
+
 - name: "bsomics"
   version: "0.4.2"
   status: "Proprietary"
