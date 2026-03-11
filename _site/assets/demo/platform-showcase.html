@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1440"/>
+<title>Boring Science Suite — Platform Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+<style>
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --bg:          #0a0a0a;
+  --surface:     #111111;
+  --surface2:    #161616;
+  --surface3:    #1c1c1c;
+  --border:      #222222;
+  --accent:      #c8ff00;
+  --accent-glow: rgba(200,255,0,.14);
+  --accent-sub:  rgba(200,255,0,.06);
+  --text:        #ffffff;
+  --text-dim:    #c8c8c8;
+  --text-muted:  #888888;
+  --text-faint:  #444444;
+  --live:        #c8ff00;
+  --premium:     #f59e0b;
+  --beta:        #60a5fa;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --sidebar: 220px;
+  --topbar: 52px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:740px;overflow:hidden;background:var(--bg)}
+body{font-family:var(--sans);color:var(--text);font-size:13px}
+
+/* ── Shell ──────────────────────────────────────────────────── */
+.shell{display:grid;grid-template-columns:var(--sidebar) 1fr;height:100vh;position:relative;overflow:hidden}
+.shell::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.022;pointer-events:none;z-index:100}
+
+/* ── Sidebar ────────────────────────────────────────────────── */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.sidebar-logo{display:flex;align-items:center;gap:10px;padding:16px 18px 14px;border-bottom:1px solid var(--border)}
+.sidebar-logo-mark{color:var(--accent);font-size:1.1rem;font-family:var(--mono)}
+.sidebar-logo-text{display:flex;flex-direction:column;gap:1px}
+.sidebar-logo-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--text);letter-spacing:.02em}
+.sidebar-logo-suite{font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+.sidebar-nav{flex:1;overflow:hidden;padding:8px 0}
+.nav-dash{display:flex;align-items:center;gap:8px;padding:7px 18px;font-family:var(--mono);font-size:11px;color:var(--text-muted);cursor:pointer}
+.nav-cat{padding:10px 18px 4px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:6px}
+.nav-cat span{color:var(--accent);font-size:10px}
+.nav-item{display:flex;align-items:center;gap:7px;padding:5px 18px 5px 22px;font-family:var(--mono);font-size:10.5px;color:var(--text-muted);cursor:pointer;border-left:2px solid transparent;transition:all .15s}
+.nav-item.active{color:var(--text);border-left-color:var(--accent);background:var(--accent-sub)}
+.nav-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.nav-dot.live{background:var(--live);box-shadow:0 0 4px var(--live)}
+.nav-dot.premium{background:var(--premium)}
+.nav-dot.beta{background:var(--beta)}
+.nav-badge-live{font-family:var(--mono);font-size:8px;font-weight:700;color:var(--live);background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:3px;padding:1px 4px;letter-spacing:.06em;margin-left:auto}
+.nav-badge-beta{font-family:var(--mono);font-size:8px;color:var(--beta);background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);border-radius:3px;padding:1px 4px;margin-left:auto}
+.sidebar-footer{border-top:1px solid var(--border);padding:12px 18px;flex-shrink:0}
+.sf-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sf-label{font-family:var(--mono);font-size:9px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.08em}
+.sf-badge{font-family:var(--mono);font-size:9px;color:var(--text-muted);background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:2px 6px}
+.sf-stats{display:flex;gap:10px}
+.sf-stat{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px;color:var(--text-faint)}
+.sf-dot{width:4px;height:4px;border-radius:50%}
+.sf-dot.live{background:var(--live)}
+.sf-dot.premium{background:var(--premium)}
+.sf-dot.beta{background:var(--beta)}
+
+/* ── Main ───────────────────────────────────────────────────── */
+.main{display:grid;grid-template-rows:var(--topbar) 1fr;overflow:hidden}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.crumb{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px}
+.crumb-curr{color:var(--text);font-weight:500}
+.crumb-prev{color:var(--text-muted)}
+.crumb-sep{color:var(--text-faint)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.tb-badge{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:5px}
+.tb-badge.live{color:var(--live);background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2)}
+.tb-badge.premium{color:var(--premium);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2)}
+.tb-badge.beta{color:var(--beta);background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2)}
+.tb-dot{width:5px;height:5px;border-radius:50%}
+.tb-badge.live .tb-dot{background:var(--live);box-shadow:0 0 5px var(--live)}
+.tb-badge.premium .tb-dot{background:var(--premium)}
+.tb-badge.beta .tb-dot{background:var(--beta)}
+.tb-license{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--text-muted);background:var(--surface2);border:1px solid var(--border);border-radius:5px;padding:5px 10px}
+.content{overflow:hidden;position:relative;background:var(--bg)}
+
+/* ── Scenes ─────────────────────────────────────────────────── */
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none}
+.scene.active{opacity:1;pointer-events:auto}
+
+/* ── SCENE 1: Dashboard ─────────────────────────────────────── */
+#s-dashboard{padding:28px 32px 0;overflow:hidden}
+.dash-hero{margin-bottom:20px}
+.dash-eyebrow{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.dash-pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.dash-title{font-family:var(--mono);font-size:26px;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.dash-title .acc{color:var(--accent)}
+.dash-sub{font-size:12px;color:var(--text-muted);max-width:480px;line-height:1.6;margin-bottom:18px}
+.dash-stats{display:flex;align-items:center;gap:16px}
+.ds{display:flex;flex-direction:column;gap:1px}
+.ds-val{font-family:var(--mono);font-size:20px;font-weight:700;line-height:1}
+.ds-val.acc{color:var(--accent)}
+.ds-val.pre{color:var(--premium)}
+.ds-val.bet{color:var(--beta)}
+.ds-label{font-family:var(--mono);font-size:9px;color:var(--text-faint);letter-spacing:.08em;text-transform:uppercase}
+.ds-sep{width:1px;height:24px;background:var(--border)}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:14px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.tool-card.highlight{border-color:rgba(200,255,0,.35);background:var(--accent-sub);box-shadow:0 0 18px var(--accent-glow)}
+.tool-card.dimmed{opacity:.55}
+.tc-name-row{display:flex;align-items:baseline;justify-content:space-between}
+.tc-name{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--text);letter-spacing:.02em}
+.tc-name.live-name{color:var(--accent)}
+.tc-ver{font-family:var(--mono);font-size:9px;color:var(--text-faint)}
+.tc-title{font-size:11px;font-weight:500;color:var(--text-dim);line-height:1.3}
+.tc-desc{font-size:10px;color:var(--text-muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tc-tags{display:flex;flex-wrap:wrap;gap:3px}
+.tc-tag{font-family:var(--mono);font-size:8px;color:var(--text-faint);background:var(--surface2);border:1px solid rgba(34,34,34,.8);border-radius:3px;padding:1px 5px;letter-spacing:.04em;text-transform:uppercase}
+.tc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:6px;border-top:1px solid rgba(34,34,34,.5)}
+.tc-badge{font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:2px 6px;display:flex;align-items:center;gap:4px}
+.tc-badge.live{color:var(--live);background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2)}
+.tc-badge.premium{color:var(--premium);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2)}
+.tc-badge.beta{color:var(--beta);background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2)}
+.tc-badge-dot{width:4px;height:4px;border-radius:50%}
+.tc-badge.live .tc-badge-dot{background:var(--live);box-shadow:0 0 3px var(--live)}
+.tc-badge.premium .tc-badge-dot{background:var(--premium)}
+.tc-badge.beta .tc-badge-dot{background:var(--beta)}
+.tc-cta{font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);background:none;border:none;cursor:pointer}
+.tc-cta.live-cta{color:var(--accent)}
+.tc-lock{position:absolute;top:12px;right:12px;font-size:10px;opacity:.3}
+.dash-filter-row{display:flex;gap:6px;margin-bottom:12px}
+.df{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--border);border-radius:5px;color:var(--text-muted);background:var(--surface);cursor:pointer}
+.df.active{color:var(--accent);border-color:rgba(200,255,0,.3);background:var(--accent-sub)}
+
+/* ── SCENE 2: bsview ────────────────────────────────────────── */
+#s-bsview{display:grid;grid-template-columns:1fr 340px;height:100%}
+.bsv-viewport{position:relative;background:linear-gradient(135deg,#0a0a0a 0%,#0f1a0a 100%);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.molecule-viz{position:absolute;inset:0;overflow:hidden}
+.bond{position:absolute;height:1px;background:rgba(136,136,136,.4);transform-origin:left center}
+.bond.lig{background:rgba(200,255,0,.35)}
+.bsv-hbond{position:absolute;height:1px;background:rgba(96,165,250,.4);transform-origin:left center;border-top:1px dashed rgba(96,165,250,.4)}
+/* Viewport overlay */
+.bsv-overlay{position:absolute;top:12px;left:12px;background:rgba(17,17,17,.85);border:1px solid var(--border);border-radius:6px;padding:10px 14px;backdrop-filter:blur(8px)}
+.bsv-ov-label{font-family:var(--mono);font-size:9px;color:var(--text-faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.bsv-ov-pdb{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent)}
+.bsv-ov-name{font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-top:2px}
+.bsv-overlay2{position:absolute;bottom:12px;left:12px;display:flex;gap:6px}
+.bsv-mode-btn{font-family:var(--mono);font-size:9px;padding:4px 8px;border-radius:4px;border:1px solid var(--border);color:var(--text-muted);background:rgba(17,17,17,.8)}
+.bsv-mode-btn.active{color:var(--accent);border-color:rgba(200,255,0,.35);background:rgba(200,255,0,.07)}
+/* Right panel */
+.bsv-panel{background:var(--surface);border-left:1px solid var(--border);overflow-y:auto;padding:16px}
+.bsv-section{margin-bottom:14px}
+.bsv-sec-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(34,34,34,.6)}
+.bsv-score-val{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--accent);line-height:1}
+.bsv-score-unit{font-family:var(--mono);font-size:10px;color:var(--text-muted);margin-top:2px}
+.bsv-props{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.bsv-prop{background:var(--surface2);border-radius:5px;padding:6px 8px;border:1px solid rgba(34,34,34,.6)}
+.bsv-prop-label{font-family:var(--mono);font-size:8px;color:var(--text-faint);letter-spacing:.06em;text-transform:uppercase}
+.bsv-prop-val{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--text-dim);margin-top:1px}
+.bsv-interaction{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:var(--surface2);border-radius:4px;margin-bottom:4px;border:1px solid rgba(34,34,34,.5)}
+.bsv-int-type{font-family:var(--mono);font-size:9px;color:var(--text-muted)}
+.bsv-int-count{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent)}
+.bsv-residue-list{display:flex;flex-wrap:wrap;gap:4px}
+.bsv-res{font-family:var(--mono);font-size:8px;color:var(--text-faint);background:var(--surface2);border-radius:3px;padding:2px 5px;border:1px solid rgba(34,34,34,.6)}
+.bsv-res.contact{color:var(--accent);border-color:rgba(200,255,0,.2)}
+
+/* ── SCENE 3: bsdock ─────────────────────────────────────────── */
+#s-bsdock{display:grid;grid-template-columns:280px 1fr;height:100%}
+.bsd-config{background:var(--surface);border-right:1px solid var(--border);overflow:hidden;padding-bottom:12px;display:flex;flex-direction:column}
+.bsd-section{border-bottom:1px solid rgba(34,34,34,.5)}
+.bsd-sec-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);padding:10px 16px 6px}
+.bsd-sec-body{padding:4px 16px 10px;display:flex;flex-direction:column;gap:8px}
+.mode-tabs{display:flex;flex-direction:column;gap:4px}
+.bsd-mode{display:flex;flex-direction:column;gap:2px;padding:8px 10px;border:1px solid var(--border);border-radius:5px;background:var(--surface2);cursor:pointer}
+.bsd-mode.active{border-color:rgba(200,255,0,.35);background:var(--accent-sub)}
+.bsd-mode-name{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-dim)}
+.bsd-mode.active .bsd-mode-name{color:var(--accent)}
+.bsd-mode-sub{font-size:9px;color:var(--text-faint)}
+.file-drop{border:1px dashed rgba(34,34,34,.8);border-radius:5px;padding:8px 10px;background:var(--surface2);display:flex;align-items:center;gap:8px}
+.file-drop.filled{border-color:rgba(200,255,0,.25);background:rgba(200,255,0,.04)}
+.fd-icon{font-size:12px;color:var(--text-faint)}
+.fd-info{display:flex;flex-direction:column;gap:1px}
+.fd-name{font-family:var(--mono);font-size:10px;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.fd-size{font-family:var(--mono);font-size:8px;color:var(--text-faint)}
+.fd-prompt{font-family:var(--mono);font-size:10px;color:var(--text-faint)}
+.xyz-row{display:grid;grid-template-columns:50px repeat(3,1fr);gap:4px;align-items:center}
+.xyz-label{font-family:var(--mono);font-size:9px;color:var(--text-muted)}
+.xyz-input{background:var(--surface2);border:1px solid var(--border);border-radius:4px;color:var(--text-dim);font-family:var(--mono);font-size:10px;padding:4px 6px;text-align:center}
+.bsd-run{margin:12px 16px 0;padding:10px;background:var(--accent);color:#000;border:none;border-radius:5px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.bsd-results{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.bsd-status{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:5px;font-family:var(--mono);font-size:11px;margin-bottom:2px}
+.bsd-status.complete{color:var(--live);background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.15)}
+.bsd-status-dot{width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 6px var(--live)}
+.bsd-status-id{margin-left:auto;font-size:9px;color:var(--text-faint)}
+.results-table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.results-table{width:100%;border-collapse:collapse;font-family:var(--mono)}
+.results-table th{font-size:9px;text-align:left;padding:6px 10px;color:var(--text-faint);border-bottom:1px solid var(--border);letter-spacing:.06em;text-transform:uppercase;background:var(--surface2)}
+.results-table td{font-size:10px;padding:6px 10px;color:var(--text-dim);border-bottom:1px solid rgba(34,34,34,.5)}
+.results-table tr:last-child td{border-bottom:none}
+.results-table tr.best td{color:var(--accent)}
+.files-grid{display:flex;flex-wrap:wrap;gap:6px}
+.file-chip{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:5px 10px;font-family:var(--mono);font-size:9px;color:var(--text-dim)}
+.fc-icon{color:var(--accent)}
+.bsd-bench{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:14px}
+.bench-title{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:10px}
+.bench-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.bm{background:var(--surface2);border-radius:5px;padding:8px;border:1px solid rgba(34,34,34,.6)}
+.bm-label{font-family:var(--mono);font-size:8px;color:var(--text-faint);letter-spacing:.06em;text-transform:uppercase}
+.bm-val{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--accent);line-height:1;margin-top:2px}
+.bm-sub{font-family:var(--mono);font-size:8px;color:var(--text-muted)}
+
+/* ── SCENE 4: Tool Grid ─────────────────────────────────────── */
+#s-tools{padding:22px 28px;overflow:hidden}
+.tools-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.tools-ht{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.tools-ht span{color:var(--accent)}
+.cat-filters{display:flex;gap:6px;flex-wrap:wrap}
+.cf{font-family:var(--mono);font-size:9px;padding:4px 9px;border-radius:4px;border:1px solid var(--border);color:var(--text-muted);background:var(--surface)}
+.cf.active{color:var(--accent);border-color:rgba(200,255,0,.3);background:var(--accent-sub)}
+.tools-grid-full{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.tgc{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px;cursor:pointer;transition:all .2s;position:relative}
+.tgc:hover,.tgc.hl{border-color:rgba(200,255,0,.3);background:var(--accent-sub)}
+.tgc.dim{opacity:.5}
+.tgc-name{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px}
+.tgc-name.live{color:var(--accent)}
+.tgc-title{font-size:10px;color:var(--text-muted);line-height:1.3;margin-bottom:6px}
+.tgc-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px}
+.tgc-tag{font-family:var(--mono);font-size:7.5px;color:var(--text-faint);background:var(--surface2);border:1px solid rgba(34,34,34,.7);border-radius:2px;padding:1px 4px;text-transform:uppercase;letter-spacing:.04em}
+.tgc-footer{display:flex;align-items:center;justify-content:space-between}
+.tgc-badge{font-family:var(--mono);font-size:7.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:2px 5px;display:flex;align-items:center;gap:3px}
+.tgc-badge.live{color:var(--live);background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2)}
+.tgc-badge.premium{color:var(--premium);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2)}
+.tgc-badge.beta{color:var(--beta);background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2)}
+.tgc-badge-dot{width:4px;height:4px;border-radius:50%}
+.tgc-badge.live .tgc-badge-dot{background:var(--live);box-shadow:0 0 3px var(--live)}
+.tgc-badge.premium .tgc-badge-dot{background:var(--premium)}
+.tgc-ver{font-family:var(--mono);font-size:8px;color:var(--text-faint);position:absolute;top:10px;right:10px}
+.tgc-lock{position:absolute;top:10px;right:26px;font-size:9px;opacity:.3}
+
+/* ── Progress dots ───────────────────────────────────────────── */
+.progress-dots{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:200}
+.pd{width:6px;height:6px;border-radius:50%;background:var(--text-faint);transition:all .3s}
+.pd.active{background:var(--accent);box-shadow:0 0 6px var(--accent);width:20px;border-radius:3px}
+
+/* ── Scan line ───────────────────────────────────────────────── */
+.scanline{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.07;animation:scan 3s linear infinite;pointer-events:none;z-index:99}
+@keyframes scan{0%{top:-2px}100%{top:100vh}}
+</style>
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<div class="shell">
+  <!-- ── Sidebar ─────────────────────────────────── -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">◈</div>
+      <div class="sidebar-logo-text">
+        <span class="sidebar-logo-name">boring science</span>
+        <span class="sidebar-logo-suite">suite</span>
+      </div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-dash" id="nav-dash">
+        <span style="color:var(--accent);font-size:.75rem">⬡</span>
+        <span>Dashboard</span>
+      </div>
+      <div class="nav-cat"><span>◈</span> Structure & Visualization</div>
+      <div class="nav-item" id="ni-bsview">
+        <div class="nav-dot live"></div>bsview
+        <span class="nav-badge-live">LIVE</span>
+      </div>
+      <div class="nav-item" id="ni-bsvision">
+        <div class="nav-dot premium"></div>bsvision
+      </div>
+      <div class="nav-cat"><span>◎</span> Drug Discovery</div>
+      <div class="nav-item" id="ni-bsdock">
+        <div class="nav-dot live"></div>bsdock
+        <span class="nav-badge-live">LIVE</span>
+      </div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bschem</div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bsrgroup</div>
+      <div class="nav-item"><div class="nav-dot beta"></div>bsfep
+        <span class="nav-badge-beta">β</span>
+      </div>
+      <div class="nav-cat"><span>⟳</span> Molecular Dynamics</div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bsmd</div>
+      <div class="nav-item"><div class="nav-dot beta"></div>bsphmd
+        <span class="nav-badge-beta">β</span>
+      </div>
+      <div class="nav-cat"><span>◉</span> Omics & Genomics</div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bsomics</div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bsflow</div>
+      <div class="nav-cat"><span>◆</span> Safety & Intelligence</div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bspv</div>
+      <div class="nav-item"><div class="nav-dot premium"></div>bsagent</div>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sf-row">
+        <span class="sf-label">License</span>
+        <span class="sf-badge">STARTER</span>
+      </div>
+      <div class="sf-stats">
+        <div class="sf-stat"><div class="sf-dot live"></div>2 live</div>
+        <div class="sf-stat"><div class="sf-dot premium"></div>9 premium</div>
+        <div class="sf-stat"><div class="sf-dot beta"></div>3 beta</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main ───────────────────────────────────── -->
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb" id="topbar-crumb">
+        <span class="crumb-curr">Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <div class="tb-badge live" id="topbar-badge" style="display:none">
+          <div class="tb-dot"></div>
+          <span id="topbar-badge-text">v1.0.0</span>
+        </div>
+        <div class="tb-license">🔒 Starter Plan</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Scene 1: Dashboard -->
+      <div class="scene active" id="s-dashboard">
+        <div class="dash-hero">
+          <div class="dash-eyebrow"><div class="dash-pulse"></div>Boring Science Suite</div>
+          <div class="dash-title">One Platform.<br><span class="acc">All Tools.</span></div>
+          <div class="dash-sub">Proprietary bioinformatics software for multiomics, drug discovery, molecular dynamics, and clinical intelligence.</div>
+          <div class="dash-stats">
+            <div class="ds"><span class="ds-val">14</span><span class="ds-label">Tools</span></div>
+            <div class="ds-sep"></div>
+            <div class="ds"><span class="ds-val acc">2</span><span class="ds-label">Live</span></div>
+            <div class="ds-sep"></div>
+            <div class="ds"><span class="ds-val pre">9</span><span class="ds-label">Premium</span></div>
+            <div class="ds-sep"></div>
+            <div class="ds"><span class="ds-val bet">3</span><span class="ds-label">Beta</span></div>
+            <div class="ds-sep"></div>
+            <div class="ds"><span class="ds-val">5</span><span class="ds-label">Categories</span></div>
+          </div>
+        </div>
+        <div class="dash-filter-row">
+          <div class="df active">All Tools <span style="opacity:.5;margin-left:4px">14</span></div>
+          <div class="df">Live <span style="opacity:.5;margin-left:4px">2</span></div>
+          <div class="df">Premium <span style="opacity:.5;margin-left:4px">9</span></div>
+          <div class="df">Beta <span style="opacity:.5;margin-left:4px">3</span></div>
+        </div>
+        <div class="dash-grid">
+          <!-- bsview -->
+          <div class="tool-card highlight" id="tc-bsview">
+            <div class="tc-name-row"><span class="tc-name live-name">bsview</span><span class="tc-ver">v1.0.0</span></div>
+            <div class="tc-title">3D Molecular Visualization</div>
+            <div class="tc-desc">Interactive 3D molecular visualization with Vina-like binding affinity scoring and pocket detection.</div>
+            <div class="tc-tags"><span class="tc-tag">PDB</span><span class="tc-tag">3D</span><span class="tc-tag">Binding</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge live"><div class="tc-badge-dot"></div>Live</div>
+              <span class="tc-cta live-cta">Launch →</span>
+            </div>
+          </div>
+          <!-- bsdock -->
+          <div class="tool-card" id="tc-bsdock">
+            <div class="tc-name-row"><span class="tc-name live-name">bsdock</span><span class="tc-ver">v1.0.0</span></div>
+            <div class="tc-title">Molecular Docking</div>
+            <div class="tc-desc">SE(3)-equivariant GNN scoring. Pearson R: 0.88 on PDBbind. Hybrid docking workflow.</div>
+            <div class="tc-tags"><span class="tc-tag">GNN</span><span class="tc-tag">SE(3)</span><span class="tc-tag">Docking</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge live"><div class="tc-badge-dot"></div>Live</div>
+              <span class="tc-cta live-cta">Launch →</span>
+            </div>
+          </div>
+          <!-- bsomics -->
+          <div class="tool-card dimmed">
+            <div class="tc-lock">🔒</div>
+            <div class="tc-name-row"><span class="tc-name">bsomics</span><span class="tc-ver">v0.4.2</span></div>
+            <div class="tc-title">Unified Multiomics</div>
+            <div class="tc-desc">snRNA-seq, bulk RNA-seq, ATAC-seq, and spatial transcriptomics in one platform.</div>
+            <div class="tc-tags"><span class="tc-tag">scRNA-seq</span><span class="tc-tag">Spatial</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge premium"><div class="tc-badge-dot"></div>Premium</div>
+              <span class="tc-cta">Upgrade</span>
+            </div>
+          </div>
+          <!-- bsflow -->
+          <div class="tool-card dimmed">
+            <div class="tc-lock">🔒</div>
+            <div class="tc-name-row"><span class="tc-name">bsflow</span><span class="tc-ver">v1.1.0</span></div>
+            <div class="tc-title">GxP Genomics Pipelines</div>
+            <div class="tc-desc">GxP-validated Nextflow DSL2 pipelines for WGS, WES, RNA-seq with audit trails.</div>
+            <div class="tc-tags"><span class="tc-tag">Nextflow</span><span class="tc-tag">GxP</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge premium"><div class="tc-badge-dot"></div>Premium</div>
+              <span class="tc-cta">Upgrade</span>
+            </div>
+          </div>
+          <!-- bsagent -->
+          <div class="tool-card dimmed">
+            <div class="tc-lock">🔒</div>
+            <div class="tc-name-row"><span class="tc-name">bsagent</span><span class="tc-ver">v0.2.0</span></div>
+            <div class="tc-title">AI Bioinformatics Agent</div>
+            <div class="tc-desc">Claude-powered AI agent with 17 built-in bioinformatics tools for automated analysis.</div>
+            <div class="tc-tags"><span class="tc-tag">AI</span><span class="tc-tag">Claude</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge premium"><div class="tc-badge-dot"></div>Premium</div>
+              <span class="tc-cta">Upgrade</span>
+            </div>
+          </div>
+          <!-- bsfep -->
+          <div class="tool-card dimmed">
+            <div class="tc-lock">🔒</div>
+            <div class="tc-name-row"><span class="tc-name">bsfep</span><span class="tc-ver">v0.1.0</span></div>
+            <div class="tc-title">Free Energy Perturbation</div>
+            <div class="tc-desc">FEP simulation with automated λ-scheduling and convergence monitoring.</div>
+            <div class="tc-tags"><span class="tc-tag">FEP</span><span class="tc-tag">RBFE</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge beta"><div class="tc-badge-dot"></div>Beta</div>
+              <span class="tc-cta">Request Access</span>
+            </div>
+          </div>
+          <!-- bsmd -->
+          <div class="tool-card dimmed">
+            <div class="tc-lock">🔒</div>
+            <div class="tc-name-row"><span class="tc-name">bsmd</span><span class="tc-ver">v0.3.0</span></div>
+            <div class="tc-title">Molecular Dynamics</div>
+            <div class="tc-desc">RMSD, RMSF, clustering, PCA and energy decomposition of MD trajectories.</div>
+            <div class="tc-tags"><span class="tc-tag">RMSD</span><span class="tc-tag">PCA</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge premium"><div class="tc-badge-dot"></div>Premium</div>
+              <span class="tc-cta">Upgrade</span>
+            </div>
+          </div>
+          <!-- bspv -->
+          <div class="tool-card dimmed">
+            <div class="tc-lock">🔒</div>
+            <div class="tc-name-row"><span class="tc-name">bspv</span><span class="tc-ver">v0.4.0</span></div>
+            <div class="tc-title">Pharmacovigilance</div>
+            <div class="tc-desc">Drug safety intelligence, FAERS mining, and disproportionality analysis.</div>
+            <div class="tc-tags"><span class="tc-tag">FAERS</span><span class="tc-tag">Safety</span></div>
+            <div class="tc-footer">
+              <div class="tc-badge premium"><div class="tc-badge-dot"></div>Premium</div>
+              <span class="tc-cta">Upgrade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scene 2: bsview -->
+      <div class="scene" id="s-bsview">
+        <div class="bsv-viewport">
+          <div class="molecule-viz" id="mol-viz"></div>
+          <div class="bsv-overlay">
+            <div class="bsv-ov-label">Loaded Structure</div>
+            <div class="bsv-ov-pdb">1HSG</div>
+            <div class="bsv-ov-name">HIV Protease + Indinavir</div>
+          </div>
+          <div class="bsv-overlay2">
+            <div class="bsv-mode-btn">Sticks</div>
+            <div class="bsv-mode-btn active">Spheres</div>
+            <div class="bsv-mode-btn">Surface</div>
+          </div>
+        </div>
+        <div class="bsv-panel">
+          <div class="bsv-section">
+            <div class="bsv-sec-label">Binding Score</div>
+            <div class="bsv-score-val">−8.74</div>
+            <div class="bsv-score-unit">kcal/mol (Vina-like)</div>
+            <div class="bsv-props">
+              <div class="bsv-prop"><div class="bsv-prop-label">MW</div><div class="bsv-prop-val">613.8</div></div>
+              <div class="bsv-prop"><div class="bsv-prop-label">HBA</div><div class="bsv-prop-val">7</div></div>
+              <div class="bsv-prop"><div class="bsv-prop-label">HBD</div><div class="bsv-prop-val">3</div></div>
+              <div class="bsv-prop"><div class="bsv-prop-label">LogP</div><div class="bsv-prop-val">2.34</div></div>
+            </div>
+          </div>
+          <div class="bsv-section">
+            <div class="bsv-sec-label">Interactions</div>
+            <div class="bsv-interaction"><span class="bsv-int-type">H-Bonds</span><span class="bsv-int-count">6</span></div>
+            <div class="bsv-interaction"><span class="bsv-int-type">Hydrophobic</span><span class="bsv-int-count">12</span></div>
+            <div class="bsv-interaction"><span class="bsv-int-type">π-Stacking</span><span class="bsv-int-count">2</span></div>
+            <div class="bsv-interaction"><span class="bsv-int-type">Clashes</span><span class="bsv-int-count" style="color:var(--text-muted)">0</span></div>
+          </div>
+          <div class="bsv-section">
+            <div class="bsv-sec-label">Binding Site Residues</div>
+            <div class="bsv-residue-list">
+              <span class="bsv-res contact">ASP25</span>
+              <span class="bsv-res contact">ILE50</span>
+              <span class="bsv-res contact">GLY27</span>
+              <span class="bsv-res">VAL32</span>
+              <span class="bsv-res contact">ASP29</span>
+              <span class="bsv-res">LEU23</span>
+              <span class="bsv-res">ALA28</span>
+              <span class="bsv-res contact">ILE84</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scene 3: bsdock -->
+      <div class="scene" id="s-bsdock">
+        <div class="bsd-config">
+          <div class="bsd-section">
+            <div class="bsd-sec-label">Docking Mode</div>
+            <div class="bsd-sec-body">
+              <div class="mode-tabs">
+                <div class="bsd-mode active">
+                  <div class="bsd-mode-name">Hybrid</div>
+                  <div class="bsd-mode-sub">Dock + GNN Rescore ★</div>
+                </div>
+                <div class="bsd-mode">
+                  <div class="bsd-mode-name">Traditional</div>
+                  <div class="bsd-mode-sub">Vina-style Scoring</div>
+                </div>
+                <div class="bsd-mode">
+                  <div class="bsd-mode-name">GNN Predict</div>
+                  <div class="bsd-mode-sub">Affinity from Complex</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bsd-section">
+            <div class="bsd-sec-label">Input Files</div>
+            <div class="bsd-sec-body">
+              <div style="font-family:var(--mono);font-size:8px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px">Receptor</div>
+              <div class="file-drop filled">
+                <span class="fd-icon" style="color:var(--accent)">⬡</span>
+                <div class="fd-info"><div class="fd-name">1HSG_receptor.pdb</div><div class="fd-size">287 KB</div></div>
+              </div>
+              <div style="font-family:var(--mono);font-size:8px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;margin-top:4px">Ligand</div>
+              <div class="file-drop filled">
+                <span class="fd-icon" style="color:var(--accent)">◎</span>
+                <div class="fd-info"><div class="fd-name">indinavir.sdf</div><div class="fd-size">8.2 KB</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="bsd-section">
+            <div class="bsd-sec-label">Binding Site</div>
+            <div class="bsd-sec-body">
+              <div class="xyz-row">
+                <span class="xyz-label">Center</span>
+                <div class="xyz-input">11.4</div>
+                <div class="xyz-input">0.9</div>
+                <div class="xyz-input">4.7</div>
+              </div>
+              <div class="xyz-row" style="margin-top:4px">
+                <span class="xyz-label">Box Å</span>
+                <div class="xyz-input">22</div>
+                <div class="xyz-input">22</div>
+                <div class="xyz-input">22</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:8px 16px;border-bottom:1px solid rgba(34,34,34,.5)">
+            <div class="bsd-sec-label">GNN Model</div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:6px 10px;font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:4px">pandadock_gnn_v4.pt ▼</div>
+          </div>
+          <button class="bsd-run">Run Docking →</button>
+        </div>
+        <div class="bsd-results">
+          <div class="bsd-status complete">
+            <div class="bsd-status-dot"></div>
+            Docking completed
+            <span class="bsd-status-id">job:a3f8c12b</span>
+          </div>
+          <div>
+            <div class="bsd-sec-label" style="margin-bottom:8px">
+              Top Poses
+              <span style="font-weight:400;font-size:8px;color:var(--text-faint);margin-left:8px">GNN rescored · sorted by pKd</span>
+            </div>
+            <div class="results-table-wrap">
+              <table class="results-table">
+                <thead>
+                  <tr><th>Rank</th><th>Pose</th><th>GNN pKd</th><th>Vina (kcal/mol)</th><th>Activity</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="best"><td>1</td><td>pose_1</td><td>8.74</td><td>−9.12</td><td>0.94</td></tr>
+                  <tr><td>2</td><td>pose_2</td><td>8.21</td><td>−8.87</td><td>0.91</td></tr>
+                  <tr><td>3</td><td>pose_3</td><td>7.98</td><td>−8.55</td><td>0.88</td></tr>
+                  <tr><td>4</td><td>pose_4</td><td>7.63</td><td>−8.21</td><td>0.84</td></tr>
+                  <tr><td>5</td><td>pose_5</td><td>7.41</td><td>−7.94</td><td>0.79</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="bsd-sec-label" style="margin-bottom:8px">Output Files</div>
+            <div class="files-grid">
+              <div class="file-chip"><span class="fc-icon">⬡</span>pose_1.pdb</div>
+              <div class="file-chip"><span class="fc-icon">▦</span>hybrid_results.csv</div>
+              <div class="file-chip"><span class="fc-icon">{ }</span>docking_results.json</div>
+              <div class="file-chip"><span class="fc-icon">▣</span>binding_affinities.png</div>
+            </div>
+          </div>
+          <div class="bsd-bench">
+            <div class="bench-title">PandaDock-GNN Benchmark</div>
+            <div class="bench-metrics">
+              <div class="bm"><div class="bm-label">PDBbind R</div><div class="bm-val">0.88</div><div class="bm-sub">5,316 complexes</div></div>
+              <div class="bm"><div class="bm-label">BindingDB R</div><div class="bm-val">0.81</div><div class="bm-sub">8,891 complexes</div></div>
+              <div class="bm"><div class="bm-label">AUC</div><div class="bm-val">0.94</div><div class="bm-sub">Activity classification</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scene 4: Full Tool Grid -->
+      <div class="scene" id="s-tools">
+        <div class="tools-header">
+          <div class="tools-ht">All Tools <span>·</span> <span style="font-size:14px">14</span></div>
+          <div class="cat-filters">
+            <div class="cf active">All</div>
+            <div class="cf">◈ Structure</div>
+            <div class="cf">◎ Discovery</div>
+            <div class="cf">⟳ Dynamics</div>
+            <div class="cf">◉ Omics</div>
+            <div class="cf">◆ Safety</div>
+          </div>
+        </div>
+        <div class="tools-grid-full">
+          <div class="tgc hl"><span class="tgc-ver">v1.0.0</span><div class="tgc-name live">bsview</div><div class="tgc-title">3D Molecular Viz</div><div class="tgc-tags"><span class="tgc-tag">PDB</span><span class="tgc-tag">3D</span></div><div class="tgc-footer"><div class="tgc-badge live"><div class="tgc-badge-dot"></div>Live</div></div></div>
+          <div class="tgc hl"><span class="tgc-ver">v1.0.0</span><div class="tgc-name live">bsdock</div><div class="tgc-title">Molecular Docking</div><div class="tgc-tags"><span class="tgc-tag">GNN</span><span class="tgc-tag">SE(3)</span></div><div class="tgc-footer"><div class="tgc-badge live"><div class="tgc-badge-dot"></div>Live</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.4.2</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsomics</div><div class="tgc-title">Unified Multiomics</div><div class="tgc-tags"><span class="tgc-tag">scRNA-seq</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.5.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsvision</div><div class="tgc-title">Medical Video Gen</div><div class="tgc-tags"><span class="tgc-tag">AI</span><span class="tgc-tag">GAN</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.3.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bschem</div><div class="tgc-title">Chemical Properties</div><div class="tgc-tags"><span class="tgc-tag">ADMET</span><span class="tgc-tag">QED</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.2.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsrgroup</div><div class="tgc-title">R-Group Design</div><div class="tgc-tags"><span class="tgc-tag">MedChem</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.3.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsmd</div><div class="tgc-title">MD Analysis</div><div class="tgc-tags"><span class="tgc-tag">RMSD</span><span class="tgc-tag">PCA</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.1.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsfep</div><div class="tgc-title">Free Energy Pert.</div><div class="tgc-tags"><span class="tgc-tag">FEP</span><span class="tgc-tag">RBFE</span></div><div class="tgc-footer"><div class="tgc-badge beta"><div class="tgc-badge-dot"></div>Beta</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.1.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsphmd</div><div class="tgc-title">Constant-pH MD</div><div class="tgc-tags"><span class="tgc-tag">pH</span><span class="tgc-tag">pKa</span></div><div class="tgc-footer"><div class="tgc-badge beta"><div class="tgc-badge-dot"></div>Beta</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v1.1.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsflow</div><div class="tgc-title">GxP Pipelines</div><div class="tgc-tags"><span class="tgc-tag">Nextflow</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.3.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsreport</div><div class="tgc-title">Clinical Genomics</div><div class="tgc-tags"><span class="tgc-tag">ACMG</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.1.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsinverse</div><div class="tgc-title">Bayesian Deconv.</div><div class="tgc-tags"><span class="tgc-tag">Bayesian</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.4.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bspv</div><div class="tgc-title">Pharmacovigilance</div><div class="tgc-tags"><span class="tgc-tag">FAERS</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+          <div class="tgc dim"><span class="tgc-ver">v0.2.0</span><span class="tgc-lock">🔒</span><div class="tgc-name">bsagent</div><div class="tgc-title">AI Agent</div><div class="tgc-tags"><span class="tgc-tag">Claude</span><span class="tgc-tag">AI</span></div><div class="tgc-footer"><div class="tgc-badge premium"><div class="tgc-badge-dot"></div>Premium</div></div></div>
+        </div>
+      </div>
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /shell -->
+
+<!-- Progress dots -->
+<div class="progress-dots">
+  <div class="pd active" id="pd0"></div>
+  <div class="pd" id="pd1"></div>
+  <div class="pd" id="pd2"></div>
+  <div class="pd" id="pd3"></div>
+</div>
+
+<script>
+// ── Scene config ─────────────────────────────────────────────
+const SCENES = [
+  {
+    id: 's-dashboard',
+    topbarCrumb: '<span class="crumb-curr">Dashboard</span>',
+    badge: null,
+    navActive: 'nav-dash',
+  },
+  {
+    id: 's-bsview',
+    topbarCrumb: '<span class="crumb-prev">Structure</span><span class="crumb-sep">/</span><span class="crumb-curr">bsview</span>',
+    badge: { cls: 'live', text: 'v1.0.0' },
+    navActive: 'ni-bsview',
+  },
+  {
+    id: 's-bsdock',
+    topbarCrumb: '<span class="crumb-prev">Drug Discovery</span><span class="crumb-sep">/</span><span class="crumb-curr">bsdock</span>',
+    badge: { cls: 'live', text: 'v1.0.0' },
+    navActive: 'ni-bsdock',
+  },
+  {
+    id: 's-tools',
+    topbarCrumb: '<span class="crumb-curr">Dashboard</span>',
+    badge: null,
+    navActive: 'nav-dash',
+  },
+];
+
+const DURATIONS = [4000, 5000, 5500, 4000]; // ms per scene
+let current = 0;
+let timer;
+
+function showScene(idx) {
+  const s = SCENES[idx];
+
+  // Update scenes
+  document.querySelectorAll('.scene').forEach(el => el.classList.remove('active'));
+  document.getElementById(s.id).classList.add('active');
+
+  // Topbar
+  document.getElementById('topbar-crumb').innerHTML = s.topbarCrumb;
+  const badge = document.getElementById('topbar-badge');
+  if (s.badge) {
+    badge.style.display = 'flex';
+    badge.className = `tb-badge ${s.badge.cls}`;
+    document.getElementById('topbar-badge-text').textContent = s.badge.text;
+  } else {
+    badge.style.display = 'none';
+  }
+
+  // Sidebar active
+  document.querySelectorAll('.nav-item, .nav-dash').forEach(el => el.classList.remove('active'));
+  if (s.navActive) {
+    const el = document.getElementById(s.navActive);
+    if (el) el.classList.add('active');
+  }
+
+  // Progress dots
+  document.querySelectorAll('.pd').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+}
+
+function nextScene() {
+  current = (current + 1) % SCENES.length;
+  showScene(current);
+  clearTimeout(timer);
+  timer = setTimeout(nextScene, DURATIONS[current]);
+}
+
+// Init
+showScene(0);
+timer = setTimeout(nextScene, DURATIONS[0]);
+
+// ── 3Dmol protein viewer (Scene 2 — bsview) ───────────────────
+let bsvViewer = null;
+let bsvReady  = false;
+
+const LIGAND_COLORS = { prop: 'element', map: { C: '#c8ff00', N: '#4488ff', O: '#ff4444', S: '#ffcc00' } };
+
+function initBsview() {
+  if (bsvViewer) return;
+  const el = document.getElementById('mol-viz');
+  bsvViewer = $3Dmol.createViewer(el, {
+    backgroundColor: '#0a0a0a',
+    antialias: true,
+  });
+
+  function onLoaded() {
+    bsvReady = true;
+    applyStyle('spheres');
+    bsvViewer.zoomTo({ resn: 'MK1' });
+    bsvViewer.zoom(0.8);
+    bsvViewer.spin('y', 0.5);
+    bsvViewer.render();
+  }
+
+  fetch('1HSG.pdb')
+    .then(function (r) { return r.text(); })
+    .then(function (data) {
+      bsvViewer.addModel(data, 'pdb');
+      onLoaded();
+    })
+    .catch(function () {
+      $3Dmol.download('pdb:1HSG', bsvViewer, {}, onLoaded);
+    });
+}
+
+function applyStyle(mode) {
+  if (!bsvViewer || !bsvReady) return;
+  bsvViewer.removeAllSurfaces();
+  // Clear all styles then re-apply
+  bsvViewer.setStyle({}, {});
+  if (mode === 'cartoon') {
+    // Protein chains as cartoon
+    bsvViewer.setStyle({ chain: ['A', 'B'] }, { cartoon: { colorscheme: 'ssJmol', opacity: 0.92 } });
+    // Ligand as accent-green sticks
+    bsvViewer.setStyle({ resn: 'MK1' }, { stick: { colorscheme: LIGAND_COLORS, radius: 0.22 } });
+    // Water hidden
+    bsvViewer.setStyle({ resn: 'HOH' }, {});
+  } else if (mode === 'spheres') {
+    bsvViewer.setStyle({ chain: ['A', 'B'] }, { cartoon: { colorscheme: 'ssJmol', opacity: 0.55 } });
+    bsvViewer.setStyle({ resn: 'MK1' }, { sphere: { colorscheme: LIGAND_COLORS, scale: 0.5 } });
+    bsvViewer.setStyle({ resn: 'HOH' }, {});
+  } else if (mode === 'surface') {
+    bsvViewer.setStyle({ chain: ['A', 'B'] }, { cartoon: { colorscheme: 'ssJmol', opacity: 0.28 } });
+    bsvViewer.addSurface($3Dmol.SurfaceType.MS, {
+      opacity: 0.52,
+      colorscheme: { prop: 'b', gradient: 'rwb' },
+    }, { chain: ['A', 'B'] });
+    bsvViewer.setStyle({ resn: 'MK1' }, { stick: { colorscheme: LIGAND_COLORS, radius: 0.28 } });
+    bsvViewer.setStyle({ resn: 'HOH' }, {});
+  }
+  bsvViewer.render();
+}
+
+// Wire up mode buttons
+const modeMap = { 'Sticks': 'cartoon', 'Spheres': 'spheres', 'Surface': 'surface' };
+document.querySelectorAll('.bsv-mode-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.bsv-mode-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    applyStyle(modeMap[this.textContent.trim()]);
+  });
+});
+
+// Init viewer when bsview scene becomes visible
+const origShowScene = showScene;
+// Patch: init 3Dmol the first time scene 1 (bsview) is shown
+const bsvObserver = new MutationObserver(function () {
+  const s = document.getElementById('s-bsview');
+  if (s && s.classList.contains('active')) initBsview();
+});
+bsvObserver.observe(document.getElementById('s-bsview'), { attributes: true, attributeFilter: ['class'] });
+// Also init immediately if it's the current scene
+if (document.getElementById('s-bsview').classList.contains('active')) initBsview();
+</script>
+</body>
+</html>

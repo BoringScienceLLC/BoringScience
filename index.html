@@ -1023,6 +1023,23 @@ description: "Science is unpredictable. Your data shouldn't be. Boring Science b
   </div>
 </section>
 
+<!-- PLATFORM DEMO -->
+<section class="platform-demo-section reveal">
+  <div class="platform-demo-header">
+    <div class="section-label">005 — Platform</div>
+    <h2 class="platform-demo-title">See it in action.</h2>
+    <p class="platform-demo-subtitle">A live preview of the Boring Science suite — one interface, all your pipelines.</p>
+  </div>
+  <div class="platform-demo-frame-wrap">
+    <iframe
+      src="{{ '/assets/demo/platform-showcase.html' | relative_url }}"
+      class="platform-demo-frame"
+      scrolling="no"
+      title="Boring Science Platform Showcase"
+    ></iframe>
+  </div>
+</section>
+
 <script>
 (function () {
   const cards = document.querySelectorAll('.stack-card');
@@ -1042,6 +1059,20 @@ description: "Science is unpredictable. Your data shouldn't be. Boring Science b
       setTimeout(function () { self.style.animationPlayState = 'running'; }, 500);
     });
   });
+})();
+</script>
+
+<script>
+(function () {
+  var frame = document.querySelector('.platform-demo-frame');
+  var wrap  = document.querySelector('.platform-demo-frame-wrap');
+  if (!frame || !wrap) return;
+  function scaleFrame() {
+    var scale = wrap.offsetWidth / 1280;
+    frame.style.transform = 'scale(' + scale + ')';
+  }
+  scaleFrame();
+  window.addEventListener('resize', scaleFrame);
 })();
 </script>
 
