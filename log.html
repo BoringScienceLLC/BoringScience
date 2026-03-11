@@ -13,7 +13,7 @@ description: "The Boring Science company log — a factual, timestamped record o
 
 <section class="log-section">
   {% for entry in site.data.log %}
-  <div class="log-entry reveal">
+  <div class="log-entry log-entry--{{ entry.type | downcase }} reveal">
     <div class="log-entry-meta">
       <div class="log-date">{{ entry.date | date: "%b %Y" }}</div>
       <div class="log-type log-type--{{ entry.type | downcase }}">{{ entry.type }}</div>

@@ -3,6 +3,11 @@
 # Types: Company · Publication · Platform · Data · Milestone
 # ============================================================
 
+- date: "2026-03-11"
+  type: "Platform"
+  headline: "Boring Science website is launched and open to public"
+  body: "Boring Science is now live and open to the public. Explore our platform, check out our preprints, and reach out if you're interested in collaborating or investing."
+
 - date: "2026-03-10"
   type: "Milestone"
   headline: "Pre-seed round open"
