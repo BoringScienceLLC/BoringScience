@@ -3255,6 +3255,23 @@ footer {
   pointer-events: auto;
 }
 
+.platform-demo-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.platform-demo-link {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.platform-demo-link:hover { opacity: 1; }
+
 @media (max-width: 768px) {
   .platform-demo-section { padding: 80px 24px; }
 }
