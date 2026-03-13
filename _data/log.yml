@@ -2,6 +2,10 @@
 # The Log — Company updates, most recent first.
 # Types: Company · Publication · Platform · Data · Milestone
 # ============================================================
+- date: "2026-03-11"
+  type: "Milestone"
+  headline: "Boring Science Canada Inc."
+  body: "Boring Science is now registered in Canada operating now in USA & Canada."
 
 - date: "2026-03-11"
   type: "Platform"
