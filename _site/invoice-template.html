@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice — Boring Science LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elevated: #111111;
+    --bg-card: #161616;
+    --text: #ffffff;
+    --text-dim: #c8c8c8;
+    --text-muted: #888888;
+    --accent: #c8ff00;
+    --accent-dim: #a3cc00;
+    --border: #222222;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --serif: 'Instrument Serif', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .invoice-wrap {
+    max-width: 860px;
+    margin: 60px auto;
+    padding: 0 24px 100px;
+  }
+
+  /* ── EDITABLE FIELDS ── */
+  [contenteditable] {
+    outline: none;
+    border-radius: 2px;
+    transition: background 0.15s;
+    cursor: text;
+  }
+  [contenteditable]:hover {
+    background: rgba(200, 255, 0, 0.05);
+  }
+  [contenteditable]:focus {
+    background: rgba(200, 255, 0, 0.08);
+    box-shadow: 0 0 0 1px rgba(200,255,0,0.25);
+  }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 100;
+  }
+
+  .toolbar-hint {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    flex: 1;
+  }
+
+  .toolbar-hint span {
+    color: var(--accent);
+  }
+
+  .toolbar-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .btn-add-row {
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .btn-add-row:hover { color: var(--text); border-color: var(--text-muted); }
+
+  .btn-pdf {
+    background: var(--accent);
+    color: #000;
+  }
+  .btn-pdf:hover { background: var(--accent-dim); }
+
+  /* ── HEADER ── */
+  .inv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .inv-brand { display: flex; flex-direction: column; gap: 6px; }
+
+  .inv-brand-name {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .inv-brand-name span { color: var(--accent); }
+
+  .inv-brand-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .inv-meta { text-align: right; }
+
+  .inv-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .inv-number {
+    font-family: var(--mono);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── PARTIES ── */
+  .inv-parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .inv-party-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .inv-party-name {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .inv-party-detail {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── DATES ── */
+  .inv-dates {
+    display: flex;
+    gap: 48px;
+    padding: 24px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+
+  .inv-date-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .inv-date-value {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .inv-date-value.due { color: var(--accent); }
+
+  /* ── LINE ITEMS ── */
+  .inv-table-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  table.inv-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .inv-table thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 0 12px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .inv-table thead th:nth-child(2),
+  .inv-table thead th:nth-child(3),
+  .inv-table thead th:nth-child(4) { text-align: right; }
+
+  .inv-table tbody td {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+  .inv-table tbody tr:last-child td { border-bottom: none; }
+
+  .item-desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .item-sub {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .item-qty, .item-rate, .item-amount {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .item-amount { color: var(--text); font-weight: 500; }
+
+  .row-delete {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    margin-left: 4px;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+  }
+  tr:hover .row-delete { opacity: 1; }
+  .row-delete:hover { color: #ff5555; }
+
+  /* ── TOTALS ── */
+  .inv-totals {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+    margin-bottom: 48px;
+  }
+
+  .inv-totals-inner { width: 320px; }
+
+  .inv-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .inv-total-row:last-child { border-bottom: none; padding-top: 16px; }
+
+  .inv-total-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .inv-total-value {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .inv-total-row.grand .inv-total-label { font-size: 12px; color: var(--accent); }
+  .inv-total-row.grand .inv-total-value { font-size: 22px; font-weight: 700; color: var(--text); }
+
+  /* tax row editable */
+  .tax-pct {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    display: inline-block;
+    min-width: 30px;
+  }
+
+  /* ── PAYMENT ── */
+  .inv-payment {
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+  .inv-payment-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .inv-payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 40px;
+  }
+  .inv-payment-item-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .inv-payment-item-value {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* ── NOTES ── */
+  .inv-notes { margin-bottom: 48px; }
+  .inv-notes-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .inv-notes-body {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .inv-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .inv-footer-left {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .inv-footer-right {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* ── PRINT ── */
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  @media print {
+    html, body {
+      background: var(--bg) !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .toolbar { display: none !important; }
+    .row-delete { display: none !important; }
+    [contenteditable] { background: none !important; box-shadow: none !important; }
+
+    .invoice-wrap { margin: 0; padding: 0; }
+
+    .inv-header { padding-bottom: 16px; margin-bottom: 20px; }
+    .inv-brand-name { font-size: 17px; }
+    .inv-number { font-size: 20px; }
+
+    .inv-parties { margin-bottom: 20px; gap: 24px; }
+    .inv-party-name { font-size: 13px; }
+    .inv-party-detail { font-size: 11px; }
+
+    .inv-dates { padding: 10px 16px; margin-bottom: 20px; gap: 28px; }
+    .inv-date-value { font-size: 12px; }
+
+    .inv-table tbody td { padding: 10px 0; }
+    .item-desc { font-size: 12px; }
+    .item-sub { font-size: 10px; }
+    .item-qty, .item-rate, .item-amount { font-size: 11px; }
+
+    .inv-totals { margin-top: 14px; margin-bottom: 20px; }
+    .inv-total-row { padding: 6px 0; }
+    .inv-total-row.grand .inv-total-value { font-size: 17px; }
+
+    .inv-payment { padding: 14px 16px; margin-bottom: 20px; }
+    .inv-payment-grid { gap: 8px 24px; }
+    .inv-payment-item-value { font-size: 11px; }
+
+    .inv-notes { margin-bottom: 20px; }
+    .inv-notes-body { font-size: 11px; }
+
+    .inv-footer { padding-top: 14px; }
+    .inv-footer-left { font-size: 10px; }
+    .inv-footer-right { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="invoice-wrap">
+
+  <!-- HEADER -->
+  <div class="inv-header">
+    <div class="inv-brand">
+      <div class="inv-brand-name">Boring<span>&nbsp;Science</span></div>
+      <div class="inv-brand-sub">boringscience.bio &nbsp;·&nbsp; Sunnyvale, CA</div>
+    </div>
+    <div class="inv-meta">
+      <div class="inv-label">Invoice</div>
+      <div class="inv-number" contenteditable="true">#INV-2026-001</div>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="inv-parties">
+    <div class="inv-from">
+      <div class="inv-party-label">From</div>
+      <div class="inv-party-name">Boring Science LLC</div>
+      <div class="inv-party-detail" contenteditable="true">1234 Innovation Drive, Suite 100<br>Sunnyvale, CA 94086<br>United States<br>inquiries@boringscience.bio<br>408.368.9547</div>
+    </div>
+    <div class="inv-to">
+      <div class="inv-party-label">Bill To</div>
+      <div class="inv-party-name" contenteditable="true">Client Name / Organization</div>
+      <div class="inv-party-detail" contenteditable="true">Street Address<br>City, State ZIP<br>Country<br>client@example.com</div>
+    </div>
+  </div>
+
+  <!-- DATES -->
+  <div class="inv-dates">
+    <div class="inv-date-item">
+      <div class="inv-date-label">Issue Date</div>
+      <div class="inv-date-value" contenteditable="true">2026-03-12</div>
+    </div>
+    <div class="inv-date-item">
+      <div class="inv-date-label">Due Date</div>
+      <div class="inv-date-value due" contenteditable="true">2026-04-11</div>
+    </div>
+    <div class="inv-date-item">
+      <div class="inv-date-label">Project / PO Ref</div>
+      <div class="inv-date-value" contenteditable="true">BS-PROJECT-001</div>
+    </div>
+    <div class="inv-date-item">
+      <div class="inv-date-label">Terms</div>
+      <div class="inv-date-value" contenteditable="true">Net 30</div>
+    </div>
+  </div>
+
+  <!-- LINE ITEMS -->
+  <div class="inv-table-wrap">
+    <div class="inv-table-label">Services Rendered</div>
+    <table class="inv-table" id="inv-table">
+      <thead>
+        <tr>
+          <th style="width:48%">Description</th>
+          <th style="width:14%;text-align:right">Qty / Hrs</th>
+          <th style="width:16%;text-align:right">Rate (USD)</th>
+          <th style="width:16%;text-align:right">Amount (USD)</th>
+          <th style="width:6%"></th>
+        </tr>
+      </thead>
+      <tbody id="line-items">
+        <tr>
+          <td>
+            <div class="item-desc" contenteditable="true">Computational Biology Consulting</div>
+            <div class="item-sub" contenteditable="true">SE(3)-GNN docking pipeline setup and validation</div>
+          </td>
+          <td class="item-qty" contenteditable="true" data-qty="16">16</td>
+          <td class="item-rate" contenteditable="true" data-rate="250">$250.00</td>
+          <td class="item-amount">$4,000.00</td>
+          <td><button class="row-delete" onclick="deleteRow(this)" title="Remove row">✕</button></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-desc" contenteditable="true">NGS Pipeline Engineering</div>
+            <div class="item-sub" contenteditable="true">Nextflow DSL2 WGS pipeline — containerization &amp; CI integration</div>
+          </td>
+          <td class="item-qty" contenteditable="true" data-qty="24">24</td>
+          <td class="item-rate" contenteditable="true" data-rate="250">$250.00</td>
+          <td class="item-amount">$6,000.00</td>
+          <td><button class="row-delete" onclick="deleteRow(this)" title="Remove row">✕</button></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-desc" contenteditable="true">bsdock License — Annual</div>
+            <div class="item-sub" contenteditable="true">Single-site, unlimited users. Includes support &amp; updates.</div>
+          </td>
+          <td class="item-qty" contenteditable="true" data-qty="1">1</td>
+          <td class="item-rate" contenteditable="true" data-rate="3500">$3,500.00</td>
+          <td class="item-amount">$3,500.00</td>
+          <td><button class="row-delete" onclick="deleteRow(this)" title="Remove row">✕</button></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item-desc" contenteditable="true">Data Report &amp; Documentation</div>
+            <div class="item-sub" contenteditable="true">Technical report, methodology writeup, reproducibility package</div>
+          </td>
+          <td class="item-qty" contenteditable="true" data-qty="8">8</td>
+          <td class="item-rate" contenteditable="true" data-rate="200">$200.00</td>
+          <td class="item-amount">$1,600.00</td>
+          <td><button class="row-delete" onclick="deleteRow(this)" title="Remove row">✕</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOTALS -->
+  <div class="inv-totals">
+    <div class="inv-totals-inner">
+      <div class="inv-total-row">
+        <span class="inv-total-label">Subtotal</span>
+        <span class="inv-total-value" id="subtotal">$15,100.00</span>
+      </div>
+      <div class="inv-total-row">
+        <span class="inv-total-label">Tax (<span class="tax-pct" contenteditable="true" id="tax-pct">0</span>%)</span>
+        <span class="inv-total-value" id="tax-amount">$0.00</span>
+      </div>
+      <div class="inv-total-row">
+        <span class="inv-total-label">Discount</span>
+        <span class="inv-total-value" contenteditable="true">—</span>
+      </div>
+      <div class="inv-total-row grand">
+        <span class="inv-total-label">Total Due</span>
+        <span class="inv-total-value" id="grand-total">$15,100.00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENT DETAILS -->
+  <div class="inv-payment">
+    <div class="inv-payment-label">Payment Instructions</div>
+    <div class="inv-payment-grid">
+      <div class="inv-payment-item">
+        <div class="inv-payment-item-label">Bank</div>
+        <div class="inv-payment-item-value" contenteditable="true">Bank Name</div>
+      </div>
+      <div class="inv-payment-item">
+        <div class="inv-payment-item-label">Account Name</div>
+        <div class="inv-payment-item-value" contenteditable="true">Boring Science LLC</div>
+      </div>
+      <div class="inv-payment-item">
+        <div class="inv-payment-item-label">Account Number</div>
+        <div class="inv-payment-item-value" contenteditable="true">XXXX-XXXX-XXXX</div>
+      </div>
+      <div class="inv-payment-item">
+        <div class="inv-payment-item-label">Routing / SWIFT</div>
+        <div class="inv-payment-item-value" contenteditable="true">XXXXXXXXX</div>
+      </div>
+      <div class="inv-payment-item">
+        <div class="inv-payment-item-label">Wire Reference</div>
+        <div class="inv-payment-item-value" contenteditable="true" id="pay-ref">#INV-2026-001</div>
+      </div>
+      <div class="inv-payment-item">
+        <div class="inv-payment-item-label">Also Accepts</div>
+        <div class="inv-payment-item-value" contenteditable="true">ACH · Check · Stripe</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="inv-notes">
+    <div class="inv-notes-label">Notes</div>
+    <div class="inv-notes-body" contenteditable="true">Payment is due within 30 days of the invoice date. Late payments are subject to a 1.5% monthly interest charge. Please include the invoice number in your payment reference. For questions, contact inquiries@boringscience.bio.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="inv-footer">
+    <div class="inv-footer-left">
+      Boring Science LLC &nbsp;·&nbsp; Incorporated 2026 &nbsp;·&nbsp; Sunnyvale, CA &nbsp;·&nbsp; boringscience.bio
+    </div>
+    <div class="inv-footer-right">Science is unpredictable. Your invoices shouldn't be.</div>
+  </div>
+
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <span class="toolbar-hint">Click any field to edit &nbsp;·&nbsp; <span>Qty &amp; Rate</span> auto-calculate totals</span>
+  <button class="toolbar-btn btn-add-row" onclick="addRow()">+ Add Line</button>
+  <button class="toolbar-btn btn-pdf" onclick="window.print()">Save as PDF</button>
+</div>
+
+<script>
+  const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const parse = s => parseFloat(s.replace(/[^0-9.]/g, '')) || 0;
+
+  function recalc() {
+    let subtotal = 0;
+    document.querySelectorAll('#line-items tr').forEach(row => {
+      const qtyEl  = row.querySelector('.item-qty');
+      const rateEl = row.querySelector('.item-rate');
+      const amtEl  = row.querySelector('.item-amount');
+      if (!qtyEl || !rateEl || !amtEl) return;
+      const qty  = parse(qtyEl.innerText);
+      const rate = parse(rateEl.innerText);
+      const amt  = qty * rate;
+      amtEl.innerText = fmt(amt);
+      subtotal += amt;
+    });
+    const taxPct = parse(document.getElementById('tax-pct').innerText);
+    const tax    = subtotal * taxPct / 100;
+    const total  = subtotal + tax;
+    document.getElementById('subtotal').innerText   = fmt(subtotal);
+    document.getElementById('tax-amount').innerText = fmt(tax);
+    document.getElementById('grand-total').innerText = fmt(total);
+  }
+
+  // Recalc when qty or rate cells change
+  document.getElementById('line-items').addEventListener('input', e => {
+    if (e.target.classList.contains('item-qty') || e.target.classList.contains('item-rate')) recalc();
+  });
+  document.getElementById('tax-pct').addEventListener('input', recalc);
+
+  // Sync invoice number → payment reference
+  document.querySelector('.inv-number').addEventListener('input', e => {
+    document.getElementById('pay-ref').innerText = e.target.innerText.trim();
+  });
+
+  function addRow() {
+    const tbody = document.getElementById('line-items');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>
+        <div class="item-desc" contenteditable="true">Service Description</div>
+        <div class="item-sub" contenteditable="true">Detail</div>
+      </td>
+      <td class="item-qty" contenteditable="true">1</td>
+      <td class="item-rate" contenteditable="true">$0.00</td>
+      <td class="item-amount">$0.00</td>
+      <td><button class="row-delete" onclick="deleteRow(this)" title="Remove row">✕</button></td>`;
+    tbody.appendChild(tr);
+    tr.querySelector('.item-desc').focus();
+  }
+
+  function deleteRow(btn) {
+    const row = btn.closest('tr');
+    row.remove();
+    recalc();
+  }
+</script>
+</body>
+</html>
