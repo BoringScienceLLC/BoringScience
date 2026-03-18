@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boring Science — Investor Deck 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & GLOBAL ─────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:     #0a0a0a;
+  --bg2:    #111111;
+  --bg3:    #161616;
+  --lime:   #C8FF00;
+  --lime2:  #a8d800;
+  --white:  #FFFFFF;
+  --muted:  #888888;
+  --dim:    #BBBBBB;
+  --faint:  #444444;
+  --border: #1e1e1e;
+  --border2:#2a2a2a;
+  --mono:   'JetBrains Mono', monospace;
+  --sans:   'DM Sans', sans-serif;
+  --serif:  'Instrument Serif', serif;
+}
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--sans);
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ── SLIDE BASE ─────────────────────────────────────────────── */
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  padding: 72px 96px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Slide chrome */
+.slide-chrome {
+  position: absolute;
+  top: 36px; left: 96px; right: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.slide-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--lime);
+  text-transform: uppercase;
+}
+.slide-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+}
+
+/* Slide footer */
+.slide-footer {
+  position: absolute;
+  bottom: 28px; left: 96px; right: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+.section-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--lime);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.slide-title {
+  font-family: var(--mono);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 8px;
+}
+.slide-title .accent { color: var(--lime); }
+
+.slide-sub {
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--dim);
+  font-style: italic;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.body-text {
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.1vw, 16px);
+  color: var(--dim);
+  line-height: 1.65;
+  max-width: 820px;
+}
+
+/* ── DECORATIVE RULE ────────────────────────────────────────── */
+.rule {
+  width: 48px;
+  height: 2px;
+  background: var(--lime);
+  margin-bottom: 28px;
+}
+
+/* ── SLIDE 1: COVER ─────────────────────────────────────────── */
+#s1 {
+  background: var(--bg);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+#s1::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(200,255,0,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 80% 20%, rgba(200,255,0,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cover-wordmark {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.cover-wordmark .w1 { color: var(--white); }
+.cover-wordmark .w2 { color: var(--lime); }
+.cover-tagline {
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 52px;
+  letter-spacing: 0.01em;
+}
+.cover-pills {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+.cover-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  padding: 7px 18px;
+  border: 1px solid var(--border2);
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.cover-pill.highlight {
+  background: var(--lime);
+  color: var(--bg);
+  border-color: var(--lime);
+  font-weight: 700;
+}
+.cover-url {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+}
+
+/* ── STAT BLOCKS ────────────────────────────────────────────── */
+.stat-row {
+  display: flex;
+  gap: 0;
+  margin: 36px 0;
+}
+.stat-block {
+  flex: 1;
+  padding: 28px 32px;
+  border-left: 1px solid var(--border2);
+}
+.stat-block:first-child { border-left: none; padding-left: 0; }
+.stat-num {
+  font-family: var(--mono);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  max-width: 180px;
+}
+
+/* ── TWO-COL LAYOUT ─────────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+}
+.two-col-3-2 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── FEATURE LIST ───────────────────────────────────────────── */
+.feature-list { list-style: none; margin-top: 0; }
+.feature-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  font-size: clamp(12px, 1vw, 14px);
+  color: var(--dim);
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+.feature-list li::before {
+  content: '//';
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--lime);
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: -0.05em;
+}
+
+/* ── PACKAGE GRID ───────────────────────────────────────────── */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+.pkg-card {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--lime);
+  padding: 18px 20px;
+  position: relative;
+}
+.pkg-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lime);
+  margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+.pkg-ver {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--faint);
+  margin-bottom: 6px;
+}
+.pkg-area {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--dim);
+  line-height: 1.4;
+}
+.pkg-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 2px 7px;
+  margin-top: 10px;
+  background: var(--lime);
+  color: var(--bg);
+}
+.pkg-badge.trial {
+  background: transparent;
+  border: 1px solid var(--lime2);
+  color: var(--lime2);
+}
+
+/* ── COMING SOON GRID ───────────────────────────────────────── */
+.coming-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+.coming-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--faint);
+  padding: 16px 18px;
+  opacity: 0.7;
+}
+.coming-name {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.coming-area {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: var(--faint);
+  line-height: 1.4;
+}
+
+/* ── PUBLICATION LIST ───────────────────────────────────────── */
+.pub-list { margin-top: 32px; }
+.pub-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px 24px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub-item:first-child { border-top: 1px solid var(--border); }
+.pub-year {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  padding-top: 2px;
+  white-space: nowrap;
+}
+.pub-title {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.pub-meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.pub-status {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+.pub-status.published  { background: var(--lime); color: var(--bg); font-weight: 700; }
+.pub-status.review     { border: 1px solid var(--lime2); color: var(--lime2); }
+.pub-status.preprint   { border: 1px solid var(--border2); color: var(--muted); }
+
+/* ── TRACTION METRICS ───────────────────────────────────────── */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 40px;
+  border: 1px solid var(--border2);
+}
+.metric-cell {
+  padding: 32px 28px;
+  border-right: 1px solid var(--border2);
+}
+.metric-cell:last-child { border-right: none; }
+.metric-num {
+  font-family: var(--mono);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.metric-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.traction-list {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border2);
+  border-top: none;
+}
+.traction-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 24px;
+  border-top: 1px solid var(--border2);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--dim);
+}
+.traction-item .check {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--lime);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── REVENUE BARS ───────────────────────────────────────────── */
+.rev-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.rev-card {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 28px 26px;
+}
+.rev-pct {
+  font-family: var(--mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.rev-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.rev-range {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--lime2);
+  margin-bottom: 12px;
+}
+.rev-desc {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── TEAM CARDS ─────────────────────────────────────────────── */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+  max-width: 860px;
+}
+.team-card {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-top: 3px solid var(--lime);
+  padding: 30px 28px;
+}
+.team-role {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--lime);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.team-name {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.team-spec {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.team-bio {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+/* ── ASK SLIDE ──────────────────────────────────────────────── */
+.ask-amount {
+  font-family: var(--mono);
+  font-size: clamp(52px, 6.5vw, 80px);
+  font-weight: 700;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.ask-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 48px;
+}
+.use-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border2);
+}
+.use-cell {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border2);
+}
+.use-cell:last-child { border-right: none; }
+.use-pct {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.use-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.use-desc {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── MARKET SLIDE ───────────────────────────────────────────── */
+.market-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 40px;
+}
+.market-cell {
+  padding: 36px 32px;
+  border-right: 1px solid var(--border2);
+  border-top: 1px solid var(--border2);
+}
+.market-cell:first-child { border-top: none; padding-left: 0; }
+.market-cell:last-child  { border-right: none; }
+.market-size {
+  font-family: var(--mono);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.market-tier {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.market-desc {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.cagr-strip {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+  padding: 20px 28px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+}
+.cagr-num {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--lime);
+}
+.cagr-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--dim);
+}
+
+/* ── CLOSE SLIDE ────────────────────────────────────────────── */
+#s12 {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#s12::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,255,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.close-headline {
+  font-family: var(--mono);
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.close-headline .accent { color: var(--lime); }
+.close-tagline {
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 56px;
+}
+.close-contacts {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.close-contact {
+  text-align: center;
+}
+.close-contact-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--lime);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.close-contact-val {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ── PRINT ──────────────────────────────────────────────────── */
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  .slide {
+    min-height: 0;
+    height: 100vh;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 1 — COVER
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s1">
+  <div class="cover-wordmark">
+    <span class="w1">BORING&nbsp;</span><span class="w2">SCIENCE</span>
+  </div>
+  <div class="cover-tagline">Science is unpredictable. Your data shouldn't be.</div>
+
+  <div class="cover-pills">
+    <div class="cover-pill highlight">RAISING $500K – $1M</div>
+    <div class="cover-pill">Computational Biology</div>
+    <div class="cover-pill">Bioinformatics Software</div>
+    <div class="cover-pill">Drug Discovery</div>
+    <div class="cover-pill">2026</div>
+  </div>
+
+  <div class="cover-url">boringscience.bio</div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC · CONFIDENTIAL</span>
+    <span>© 2026</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-chrome">
+    <span class="slide-label">01 — The Problem</span>
+    <span class="slide-num">02 / 12</span>
+  </div>
+
+  <div class="section-label">The Problem</div>
+  <h2 class="slide-title">Drug discovery is broken.<br><span class="accent">Biotech drowns in data.</span></h2>
+
+  <div class="stat-row">
+    <div class="stat-block">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">of drug candidates fail in clinical trials — most failures are predictable with better data</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">$2.6B</div>
+      <div class="stat-label">average cost to bring one drug to market, inflated by late-stage failures</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">80%</div>
+      <div class="stat-label">of biomedical data remains unanalyzed — trapped in silos, incompatible formats, and broken pipelines</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">12×</div>
+      <div class="stat-label">growth in multiomics data volume since 2018 — with no commensurate growth in analysis infrastructure</div>
+    </div>
+  </div>
+
+  <ul class="feature-list">
+    <li>Manual, siloed workflows waste years of researcher time on non-reproducible results — the same analysis run twice rarely returns the same output.</li>
+    <li>Poor target validation and insufficient computational screening before clinical investment leads to preventable, expensive late-stage failures.</li>
+    <li>Bioinformatics tools exist in abundance but require expert assembly — most labs lack the engineering depth to build production-grade pipelines.</li>
+  </ul>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 3 — OUR SOLUTION
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-chrome">
+    <span class="slide-label">02 — Our Solution</span>
+    <span class="slide-num">03 / 12</span>
+  </div>
+
+  <div class="section-label">Our Solution</div>
+  <h2 class="slide-title">Science so reliable,<br><span class="accent">it's boring.</span></h2>
+  <p class="slide-sub">We build the unglamorous infrastructure that makes extraordinary science possible.</p>
+
+  <div class="two-col">
+    <div>
+      <div class="section-label" style="margin-bottom:14px;">Boring Projects — Consulting</div>
+      <ul class="feature-list">
+        <li><strong style="color:var(--white)">Data Integration & Harmonization</strong><br>Heterogeneous multi-source datasets normalized, batch-corrected, and structured from the ground up.</li>
+        <li><strong style="color:var(--white)">Boring Pipelines™</strong><br>Containerized, version-locked, reproducible Nextflow/Snakemake workflows — byte-identical output every run.</li>
+        <li><strong style="color:var(--white)">Predictive Modeling & AI</strong><br>Domain-agnostic ML for classification, regression, survival, and generative modeling that generalizes, not overfits.</li>
+        <li><strong style="color:var(--white)">Data Platform Engineering</strong><br>Scalable APIs, interactive dashboards, and FAIR-compliant cloud infrastructure built to grow.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="section-label" style="margin-bottom:14px;">Boring Packages — Software</div>
+      <ul class="feature-list">
+        <li><strong style="color:var(--white)">9 LIVE proprietary packages</strong> covering molecular docking, multiomics integration, proteomics, chromatin analysis, clinical reporting, AI agents, and data profiling.</li>
+        <li><strong style="color:var(--white)">Production-grade</strong> — not Jupyter notebook prototypes. Containerized, tested, and versioned.</li>
+        <li><strong style="color:var(--white)">Integrated ecosystem</strong> — tools are designed to feed each other. bschromatin → bsmultiomics → bsagent.</li>
+        <li><strong style="color:var(--white)">Proprietary ML models</strong> — bsdock's SE(3)-GNN achieves Pearson R = 0.88 on PDBbind, outperforming AutoDock Vina by 5.5×.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 4 — MARKET OPPORTUNITY
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="slide-chrome">
+    <span class="slide-label">03 — Market Opportunity</span>
+    <span class="slide-num">04 / 12</span>
+  </div>
+
+  <div class="section-label">Market Opportunity</div>
+  <h2 class="slide-title">A massive,<br><span class="accent">growing market.</span></h2>
+
+  <div class="market-cols">
+    <div class="market-cell" style="border-top:none; padding-left:0; border-right:1px solid var(--border2);">
+      <div class="market-tier">TAM</div>
+      <div class="market-size">$71B</div>
+      <div class="market-desc">Global computational biology market by 2030 — spanning drug discovery, genomics, clinical analytics, and bioinformatics software.</div>
+    </div>
+    <div class="market-cell" style="border-top:none; border-right:1px solid var(--border2);">
+      <div class="market-tier">SAM</div>
+      <div class="market-size">$28B</div>
+      <div class="market-desc">US biotech startups, mid-tier pharma, and academic-clinical institutions needing drug discovery and multiomics data services.</div>
+    </div>
+    <div class="market-cell" style="border-top:none; border-right:none;">
+      <div class="market-tier">SOM</div>
+      <div class="market-size">$500M</div>
+      <div class="market-desc">Reachable market within 3–5 years through targeted pharma partnerships, SaaS licensing, and clinical genomics consulting.</div>
+    </div>
+  </div>
+
+  <div class="cagr-strip">
+    <div class="cagr-num">21.3%</div>
+    <div>
+      <div class="cagr-label" style="font-weight:600; color:var(--white);">CAGR — Computational Biology (2024–2030)</div>
+      <div class="cagr-label" style="font-size:12px; margin-top:4px;">Driven by AI adoption in drug discovery, NGS cost reduction, and regulatory demand for reproducible computational evidence.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 5 — PLATFORM: LIVE PACKAGES
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="slide-chrome">
+    <span class="slide-label">04 — Platform · Live</span>
+    <span class="slide-num">05 / 12</span>
+  </div>
+
+  <div class="section-label">Boring Packages — Live</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">9 proprietary packages. <span class="accent">Deployed. Shipping.</span></h2>
+
+  <div class="pkg-grid">
+    <div class="pkg-card">
+      <div class="pkg-name">bsview</div>
+      <div class="pkg-ver">v1.0.0</div>
+      <div class="pkg-area">3D Molecular Visualization — 3 rendering modes, pocket detection, H-bond & π-stacking analysis, Vina-like scoring</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsplmapper</div>
+      <div class="pkg-ver">v1.0.0</div>
+      <div class="pkg-area">Protein-Ligand Interaction Mapper — PDB → publication-quality 2D map in seconds. 10+ interaction types via PandaMap v4</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsdock</div>
+      <div class="pkg-ver">v1.0.0</div>
+      <div class="pkg-area">Molecular Docking — SE(3)-equivariant GNN scoring, flexible receptor, allosteric detection. Pearson R = 0.88, AUC-ROC = 0.94</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsclinical</div>
+      <div class="pkg-ver">v0.4.2</div>
+      <div class="pkg-area">Clinical Disease Reporting — auto panel selection across 7 disease domains, FDA drug mapping, structured HTML report</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsproteomics</div>
+      <div class="pkg-ver">v0.1.0</div>
+      <div class="pkg-area">MS Proteomics — RIME-MS, AP-MS, DDA, TMT, DIA. MaxQuant + DEqMS · STRING PPI network · GO/KEGG enrichment</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bschromatin</div>
+      <div class="pkg-ver">v0.1.0</div>
+      <div class="pkg-area">Peak Calling & Differential Chromatin — ATAC/ChIP FASTQs → MACS3 peaks → DiffBind → HOMER motifs → bigWig tracks</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsmultiomics</div>
+      <div class="pkg-ver">v0.1.0</div>
+      <div class="pkg-area">Cross-modal Integration (MOFA+) — combine ≥2 omics layers. Accepts bschromatin, bsproteomics, RNA-seq outputs</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsagent</div>
+      <div class="pkg-ver">v1.0.0</div>
+      <div class="pkg-area">AI Medical & Bioinformatics Agent — Claude-powered, 12 OpenClaw Medical Skills. PubMed · ClinicalTrials · ChEMBL · UniProt</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">bsdatamind</div>
+      <div class="pkg-ver">v0.1.0</div>
+      <div class="pkg-area">Automated Data Profiling & Pipeline Generation — messy CSV → profile → intent → reproducible ML-ready pipeline</div>
+      <div class="pkg-badge">LIVE</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 6 — PLATFORM: ROADMAP
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="slide-chrome">
+    <span class="slide-label">04 — Platform · Roadmap</span>
+    <span class="slide-num">06 / 12</span>
+  </div>
+
+  <div class="section-label">Boring Packages — Roadmap</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Expanding the platform.<br><span class="accent">The pipeline is deep.</span></h2>
+
+  <div style="margin-top:28px; display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+    <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:var(--lime2);border:1px solid var(--lime2);padding:4px 12px;">TRIAL — IN ACTIVE TESTING</div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:40px; max-width:700px;">
+    <div class="pkg-card" style="border-left-color:var(--lime2); opacity:0.85;">
+      <div class="pkg-name" style="color:var(--lime2);">bsfep</div>
+      <div class="pkg-ver">v0.1.0</div>
+      <div class="pkg-area">Free Energy Perturbation — RBFE + ABFE, BAR/MBAR analysis, GROMACS/OpenMM. Target accuracy &lt;1 kcal/mol</div>
+      <div class="pkg-badge trial">TRIAL</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-bottom:16px;">Coming Soon — In Development</div>
+  <div class="coming-grid">
+    <div class="coming-card">
+      <div class="coming-name">bsflow</div>
+      <div class="coming-area">GxP-validated Nextflow DSL2 pipelines — WGS, RNA-seq, ChIP-seq, scRNA-seq. 100% reproducible.</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bsmd</div>
+      <div class="coming-area">MD Trajectory Analysis — RMSD/RMSF, H-bond occupancy, clustering. GROMACS · AMBER · NAMD</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bspv</div>
+      <div class="coming-area">Pharmacovigilance — FAERS integration, PRR/ROR/BCPNN signal detection, ICH E2B reporting</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bschem</div>
+      <div class="coming-area">Chemical Property Analysis — Lipinski Ro5, TPSA, logP, PAINS alerts, ADMET batch processing</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bsrgroup</div>
+      <div class="coming-area">R-Group Designer — scaffold → enumerated library → SAR heatmap + bsdock integration</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bsphmd</div>
+      <div class="coming-area">Constant-pH MD (CpHMD) — protonation state sampling, per-residue pKa shifts in binding context</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bsremd</div>
+      <div class="coming-area">REMD & Enhanced Sampling — T-REMD, H-REMD, simulated annealing, WHAM free energy surfaces</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-name">bsinverse</div>
+      <div class="coming-area">Bayesian scRNA-seq Deconvolution — posterior p(Z|X), per-cell uncertainty, dropout correction</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 7 — THE SCIENCE
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="slide-chrome">
+    <span class="slide-label">05 — The Science</span>
+    <span class="slide-num">07 / 12</span>
+  </div>
+
+  <div class="section-label">The Science</div>
+  <h2 class="slide-title" style="font-size:clamp(24px,3vw,40px);">Research-backed.<br><span class="accent">Peer-reviewed.</span></h2>
+
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">bsdock: An SE(3)-Equivariant Graph Neural Network Scoring Function for Molecular Docking</div>
+        <div class="pub-meta">Panda PK, Jagadeesan SK, Mishra S · Preprint — Under Submission · Computational Drug Discovery</div>
+      </div>
+      <div class="pub-status preprint">PREPRINT</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">bsvision: Physics-Constrained Diffusion Models for Temporally Consistent Medical Video Generation</div>
+        <div class="pub-meta">Panda PK, Jagadeesan SK, Mishra S · Preprint — Under Submission · Medical Computer Vision · Cardiac AI</div>
+      </div>
+      <div class="pub-status preprint">PREPRINT</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">Progenitor-associated cells in the adult human spinal cord exhibit state-dependent proliferative competence</div>
+        <div class="pub-meta">Jagadeesan SK, Panda PK, Vimukthe R, Galuta A, Wang J, Tsai EC · Under Review · Multiomics · Spatial Transcriptomics</div>
+      </div>
+      <div class="pub-status review">UNDER REVIEW</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">Rebuilding Spinal Circuit Computation Through a Patient-Specific Interneuron Precision Model</div>
+        <div class="pub-meta">Jagadeesan SK, Sandarage RV, Tsai EC · Preprints.org · doi:10.20944/preprints202512.1323.v1</div>
+      </div>
+      <div class="pub-status preprint">PREPRINT</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">Personalized Stem Cell-Based Regeneration in Spinal Cord Injury Care</div>
+        <div class="pub-meta">Jagadeesan SK, Sandarage RV, Mathiyalagan S, Tsai EC · International Journal of Molecular Sciences · doi:10.3390/ijms26083874</div>
+      </div>
+      <div class="pub-status published">PUBLISHED</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">Transcriptomic and Functional Landscape of Adult Human Spinal Cord NSPCs vs. iPSC-Derived Neural Progenitor Cells</div>
+        <div class="pub-meta">Jagadeesan SK, Galuta A, Sandarage RV, Tsai EC · Cells · doi:10.3390/cells14020064</div>
+      </div>
+      <div class="pub-status published">PUBLISHED</div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 8 — TRACTION
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s8">
+  <div class="slide-chrome">
+    <span class="slide-label">06 — Traction</span>
+    <span class="slide-num">08 / 12</span>
+  </div>
+
+  <div class="section-label">Traction</div>
+  <h2 class="slide-title">Early validation.<br><span class="accent">Real output.</span></h2>
+
+  <div class="metric-grid">
+    <div class="metric-cell">
+      <div class="metric-num">9</div>
+      <div class="metric-label">LIVE proprietary packages deployed on boringscience.bio</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-num">6</div>
+      <div class="metric-label">peer-reviewed &amp; preprint publications in 2025 — 2 published in indexed journals</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-num">0.88</div>
+      <div class="metric-label">Pearson R on PDBbind for bsdock — outperforming AutoDock Vina by 5.5×</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-num">3+</div>
+      <div class="metric-label">active client engagements &amp; LOIs with biotech organizations</div>
+    </div>
+  </div>
+
+  <div class="traction-list">
+    <div class="traction-item">
+      <span class="check">✓</span>
+      <span>SE(3)-equivariant GNN model trained on PDBbind (5,316 complexes) + ULVSH (942 compounds) — achieving AUC-ROC = 0.94 on activity classification</span>
+    </div>
+    <div class="traction-item">
+      <span class="check">✓</span>
+      <span>Physics-constrained medical video diffusion model validated on echocardiography — 6.2× improvement in temporal consistency over baseline</span>
+    </div>
+    <div class="traction-item">
+      <span class="check">✓</span>
+      <span>Multiomics pipeline (bulk RNA-seq + snRNA-seq + spatial transcriptomics) deployed on adult human spinal cord cohort — GEO accession: GSE309472</span>
+    </div>
+    <div class="traction-item">
+      <span class="check">✓</span>
+      <span>Proprietary pharmacovigilance expertise — rare differentiator in the computational biology space, embedded from day one</span>
+    </div>
+    <div class="traction-item">
+      <span class="check">✓</span>
+      <span>Full-stack software capability: React frontends, FastAPI backends, Nextflow pipelines, Claude AI agents — end-to-end in-house</span>
+    </div>
+    <div class="traction-item">
+      <span class="check">✓</span>
+      <span>bsagent live with 12 OpenClaw Medical Skills — querying PubMed, ClinicalTrials.gov, ChEMBL, KEGG, GWAS Catalog in real time</span>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 9 — BUSINESS MODEL
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s9">
+  <div class="slide-chrome">
+    <span class="slide-label">07 — Business Model</span>
+    <span class="slide-num">09 / 12</span>
+  </div>
+
+  <div class="section-label">Business Model</div>
+  <h2 class="slide-title">Three revenue streams.<br><span class="accent">Diversified from day one.</span></h2>
+
+  <div class="rev-grid">
+    <div class="rev-card">
+      <div class="rev-pct">40%</div>
+      <div class="rev-title">Project-Based Consulting</div>
+      <div class="rev-range">$50K – $250K per engagement</div>
+      <div class="rev-desc">Custom pipeline development, drug discovery workflows, multiomics integration, and clinical data analysis for pharma, biotech, and academic-clinical institutions. Delivered end-to-end with reproducibility guarantees.</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-pct">35%</div>
+      <div class="rev-title">Recurring Subscriptions</div>
+      <div class="rev-range">$5K – $25K / month</div>
+      <div class="rev-desc">Managed computational biology infrastructure, ongoing analysis support, monitoring dashboards, and safety reporting. Multi-year contracts with biotech and mid-tier pharma teams who need sustained data operations.</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-pct">25%</div>
+      <div class="rev-title">Software Licensing</div>
+      <div class="rev-range">$2K – $10K / month</div>
+      <div class="rev-desc">SaaS licensing of Boring Packages — bsdock, bsagent, bsclinical, bsmultiomics, and the broader platform. Per-seat or site licenses for institutions needing production-grade bioinformatics without the build cost.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px; padding:20px 24px; background:var(--bg3); border:1px solid var(--border2); display:flex; gap:48px; align-items:center;">
+    <div style="font-family:var(--mono); font-size:9px; letter-spacing:0.16em; color:var(--lime); text-transform:uppercase; white-space:nowrap;">Target Customers</div>
+    <div style="font-family:var(--sans); font-size:13px; color:var(--dim);">Pharma &amp; Biotech R&amp;D teams · Academic medical centers · Clinical genomics labs · Drug discovery CROs · Healthcare AI startups · Government-funded research programs (NIH, CIHR)</div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 10 — TEAM
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s10">
+  <div class="slide-chrome">
+    <span class="slide-label">08 — Team</span>
+    <span class="slide-num">10 / 12</span>
+  </div>
+
+  <div class="section-label">The Team</div>
+  <h2 class="slide-title">The boring <span class="accent">people.</span></h2>
+  <p class="slide-sub" style="margin-bottom:0;">Complementary expertise across computational biology, drug safety, and full-stack engineering.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-role">CSO &amp; Co-Founder</div>
+      <div class="team-name">Sasi Kumar Jagadeesan</div>
+      <div class="team-spec">Computational Biology · Bioinformatics · Full-Stack Engineering</div>
+      <div class="team-bio">
+        Builds production-grade multiomics pipelines, drug discovery workflows, and full-stack clinical software platforms. Published researcher with peer-reviewed work in transcriptomics, spatial biology, neural progenitor cell biology, and computational drug discovery. Deep expertise in Python, Nextflow, PyTorch, and cloud infrastructure. Co-authored bsdock (SE(3)-GNN, Pearson R = 0.88) and bsvision (physics-constrained video diffusion, SSIM = 0.87).
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">CEO &amp; Co-Founder</div>
+      <div class="team-name">Suman Mishra</div>
+      <div class="team-spec">Pharmacovigilance · Drug Safety · Regulatory (FDA/EMA)</div>
+      <div class="team-bio">
+        Brings deep domain expertise in adverse event monitoring, regulatory compliance, safety signal detection, and ICH guidelines. Bridges the critical gap between computational predictions and clinical validation — an expertise combination that is rare in the computational biology space. Ensures Boring Science's tools are built with regulatory reality embedded from the first commit, not retrofitted at submission.
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:28px; padding:18px 24px; background:var(--bg3); border:1px solid var(--border2); display:flex; gap:48px;">
+    <div>
+      <div style="font-family:var(--mono); font-size:8px; letter-spacing:0.16em; color:var(--lime); text-transform:uppercase; margin-bottom:6px;">Research Collaborators</div>
+      <div style="font-family:var(--sans); font-size:12px; color:var(--muted);">Panda PK · Tsai EC (Ottawa Hospital Research Institute) · Sandarage RV · Galuta A · Vimukthe R · Mathiyalagan S</div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono); font-size:8px; letter-spacing:0.16em; color:var(--lime); text-transform:uppercase; margin-bottom:6px;">Currently Hiring</div>
+      <div style="font-family:var(--sans); font-size:12px; color:var(--muted);">Senior Computational Biologist · ML Engineer (Drug Discovery) · Clinical Bioinformatics Specialist</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 11 — THE ASK
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s11">
+  <div class="slide-chrome">
+    <span class="slide-label">09 — The Ask</span>
+    <span class="slide-num">11 / 12</span>
+  </div>
+
+  <div class="section-label">The Ask</div>
+  <div class="ask-amount">$500K – $1M</div>
+  <div class="ask-label">SEED RAISE · 2026</div>
+
+  <div class="use-grid">
+    <div class="use-cell">
+      <div class="use-pct">40%</div>
+      <div class="use-title">Engineering &amp; R&amp;D</div>
+      <div class="use-desc">Hire 2–3 senior computational biologists and ML engineers. Expand the package suite — bsflow, bsmd, bspv, bsphmd, bsremd into production. Advance bsfep from Trial to LIVE.</div>
+    </div>
+    <div class="use-cell">
+      <div class="use-pct">25%</div>
+      <div class="use-title">Sales &amp; Business Dev</div>
+      <div class="use-desc">Build pharma and biotech client pipeline. Conference presence (ASHP, AACR, ISMB). BD hire to convert LOIs to signed contracts. Channel partnerships with CROs.</div>
+    </div>
+    <div class="use-cell">
+      <div class="use-pct">20%</div>
+      <div class="use-title">Infrastructure</div>
+      <div class="use-desc">Cloud compute (AWS/GCP) for model training and pipeline execution. Data storage, CI/CD hardening, security audits, and SOC 2 preparation for enterprise sales.</div>
+    </div>
+    <div class="use-cell">
+      <div class="use-pct">15%</div>
+      <div class="use-title">Operations</div>
+      <div class="use-desc">Legal, accounting, IP protection and patent filings on bsdock GNN architecture. Regulatory consulting for FDA/EMA-adjacent product positioning.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:28px; display:flex; gap:32px; flex-wrap:wrap;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="font-family:var(--mono); font-size:9px; letter-spacing:0.15em; color:var(--lime);">18-MONTH RUNWAY</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="font-family:var(--mono); font-size:9px; letter-spacing:0.15em; color:var(--lime);">TARGET: SERIES A IN 24 MONTHS</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="font-family:var(--mono); font-size:9px; letter-spacing:0.15em; color:var(--lime);">INSTRUMENT: SAFE / CONVERTIBLE NOTE</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>BORING SCIENCE LLC</span>
+    <span>boringscience.bio</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 12 — CLOSING
+═══════════════════════════════════════════════════════════ -->
+<div class="slide" id="s12">
+  <div class="slide-chrome">
+    <span class="slide-label">Boring Science LLC</span>
+    <span class="slide-num">12 / 12</span>
+  </div>
+
+  <div class="close-headline">Let's make your<br><span class="accent">science boring.</span></div>
+  <div class="close-tagline">Stop fighting your data. Start doing your science.</div>
+
+  <div class="close-contacts">
+    <div class="close-contact">
+      <div class="close-contact-label">Web</div>
+      <div class="close-contact-val">boringscience.bio</div>
+    </div>
+    <div class="close-contact">
+      <div class="close-contact-label">Email</div>
+      <div class="close-contact-val">inquiries@boringscience.bio</div>
+    </div>
+    <div class="close-contact">
+      <div class="close-contact-label">Phone</div>
+      <div class="close-contact-val">408.368.9547</div>
+    </div>
+    <div class="close-contact">
+      <div class="close-contact-label">GitHub</div>
+      <div class="close-contact-val">github.com/boringscience</div>
+    </div>
+    <div class="close-contact">
+      <div class="close-contact-label">LinkedIn</div>
+      <div class="close-contact-val">linkedin.com/company/boring-science</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span>© 2026 BORING SCIENCE LLC · ALL RIGHTS RESERVED · CONFIDENTIAL</span>
+    <span>BORING SCIENCE — Building Outcomes through Research Innovation &amp; Next-Gen Science</span>
+  </div>
+</div>
+
+</body>
+</html>
