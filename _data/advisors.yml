@@ -3,11 +3,11 @@
 # Add photo path, or leave photo blank to show initials
 # ============================================================
 
-- name: "Dr. Pritam Kumar Panda"
+- name: "Sasi Kumar Jagadeesan, PhD, M.Eng (Med), DABRM"
   title: "Research Scientist"
-  affiliation: "Stanford University"
-  expertise: "Research Scientist at Stanford University with expertise in Bioinformatics, AI, machine learning, and healthcare data analytics. Dr. Panda's work focuses on developing innovative AI solutions for healthcare applications, including predictive modeling and personalized medicine."
-  photo: "/assets/images/team/advisor-1.jpg"
+  affiliation: "The Ottawa Hospital, Ottawa, Ontario, Canada"
+  expertise: "Research scientist with deep expertise in multiomics analysis, molecular biology, and translational research bridging bench and bedside."
+  photo: "/assets/images/team/sasi-jagadeesan.jpg"
 
 - name: "Priyanka Nagasubramanian, MSc, MBA, LSSBB, PMP, CHE"
   title: "Strategy & Business Advisor"
